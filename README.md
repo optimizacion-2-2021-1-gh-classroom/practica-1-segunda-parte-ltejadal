@@ -4,10 +4,10 @@
 
 |Tarea | Integrantes | Usuario |
 |:---:|:---:|:---:|
-||Lau|@ltejadal|
-||Santi|@santibatte|
-|Programación|Rafa|@rafaelortegar |
-|Programación|Sebas|@C1587S|
+|Implementación en AWS|Lau|@ltejadal|
+|Project Manager y Reporte|Santi|@santibatte|
+|Programación: Tests|Rafa|@rafaelortegar |
+|Programación: Algoritmo|Sebas|@C1587S|
 
 ## Descripción del Proyecto
 
