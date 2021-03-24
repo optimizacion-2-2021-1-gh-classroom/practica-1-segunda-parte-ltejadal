@@ -4,7 +4,7 @@
 
 |Tarea | Integrantes | Usuario |
 |:---:|:---:|:---:|
-|Documentacion sphinx|Lau|@ltejadal|
+|Documentacion sphinx, aws|Lau|@ltejadal|
 |Project Manager, Dockerfile, paquete |Santi|@santibatte|
 |Programación: Tests, programación, documentación de dockerfile|Rafa|@rafaelortegar |
 |Programación: Algoritmo|Sebas|@C1587S|
