@@ -4,9 +4,9 @@
 
 |Tarea | Integrantes | Usuario |
 |:---:|:---:|:---:|
-|Implementación en AWS|Lau|@ltejadal|
-|Project Manager y Reporte|Santi|@santibatte|
-|Programación: Tests|Rafa|@rafaelortegar |
+|Documentacion sphinx|Lau|@ltejadal|
+|Project Manager, Dockerfile, paquete |Santi|@santibatte|
+|Programación: Tests, programación, documentación de dockerfile|Rafa|@rafaelortegar |
 |Programación: Algoritmo|Sebas|@C1587S|
 
 ## Descripción del Proyecto
