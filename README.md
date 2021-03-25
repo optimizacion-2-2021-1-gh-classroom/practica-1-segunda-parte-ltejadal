@@ -17,5 +17,11 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git/main)
 
 
+Para instalar este paquete de python: 
 
+ - clonar el repositorio
+ - Posicionarse en la carpeta src
+ - escribir desde la linea de comandos: "pip install ." 
+ - ya puedes importar los modulos y funciones del paquete :-) 
+ 
 
