@@ -394,7 +394,7 @@ def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100,
             x_best, y_best = hormiga_recorre(G,lenghts,  A, tau, init, x_best, y_best)
             
         if k%verbose == 0 or k==1:
-            print(f'iter: {k} / {max_iter} / dist: {round(y_best, 2)}')
+            print(f'iter: {k} / {max_iter} - dist: {round(y_best, 2)}')
 
     if k%verbose == 0:
         print('\n')
@@ -402,7 +402,7 @@ def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100,
         print('Resumen:')
         print(f'\tNro. de hormigas: {ants}')  
         print(f'\tIteraciones: {max_iter}')  
-        print(f'\tDitancia: {y_best}') 
+        print(f'\tDistancia: {y_best}') 
         print(f'\tNodo inicial: {init}')  
         print(f'\tRuta: {x_best}') 
         print("-"*30)
