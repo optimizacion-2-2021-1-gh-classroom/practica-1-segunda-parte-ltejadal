@@ -11,9 +11,10 @@ setup(name="ant_colony",
       packages=find_packages(),
       ## falta actualizar paquetes correctos dependiendo del codigo de Ant Colony: 
       install_requires = [
-                          "numpy",
-                          "pandas",
-                          "nose"
+                          "tsplib95",
+                          "matplotlib",
+                          "networkx",
+			  "scipy"
                           ],
       )
 
