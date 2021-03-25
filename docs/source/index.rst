@@ -10,8 +10,11 @@ texto texto de prueba salu2.::
 
 Guía
 ^^^^^
+
 .. toctree::
    :maxdepth: 2
+    license
+    help
    :caption: Contents:
 
 
