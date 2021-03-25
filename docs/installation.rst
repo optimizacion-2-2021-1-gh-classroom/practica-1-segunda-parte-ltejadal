@@ -1,9 +1,9 @@
 ************
-Installation
+Instalación
 ************
 
 
-Python Package
+Paquete de Python
 ==============
 
 Install package with:
@@ -12,7 +12,7 @@ Install package with:
 
    #execute next line being in `src` dir where `setup.py` file is 
    #after cloning repo:
-   #https://github.com/palmoreck/example-python-package-and-sphinx-doc
+   #https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git
    pip install .
 
 or in editable mode:
@@ -21,11 +21,11 @@ or in editable mode:
 
    #execute next line being in `src` dir where `setup.py` file is 
    #after cloning repo:
-   #https://github.com/palmoreck/example-python-package-and-sphinx-doc
+   #https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git
    pip install -e .
 
 or with url:
 
 .. code-block:: bash
 
-    pip install "git+https://github.com/palmoreck/example-python-package-and-sphinx-doc.git#egg=opt2&subdirectory=src"
+    pip install "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git#egg=docs&subdirectory=src"
