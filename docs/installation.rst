@@ -6,7 +6,7 @@ Instalación
 Paquete de Python
 ==============
 
-Install package with:
+Instala el paquete con:
   
 .. code-block:: bash
 
@@ -15,7 +15,7 @@ Install package with:
    #https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git
    pip install .
 
-or in editable mode:
+o en modo editable:
 
 .. code-block:: bash
 
@@ -24,7 +24,7 @@ or in editable mode:
    #https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git
    pip install -e .
 
-or with url:
+o con la url:
 
 .. code-block:: bash
 
