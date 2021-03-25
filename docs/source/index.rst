@@ -12,7 +12,7 @@ Indice
 .. toctree::
    :maxdepth: 2
    
-    license
+    Installation
     help
    :caption: Contents:
 
