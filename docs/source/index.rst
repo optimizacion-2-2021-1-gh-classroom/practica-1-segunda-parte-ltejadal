@@ -1,14 +1,11 @@
 Documentación de Implementación de Ant Colony
 =============================================================
 
-Otro título
-==================
-texto texto de prueba salu2.::
+Bienvenido a la Documentación de la Práctica!
+===================
+En esta segunda parte de la práctica se crea un paquete para resolver el problema de Ant Colony descrito en el reporte::
 
-   print 'hola mundo'
-   >>hola
-
-Guía
+Indice
 ^^^^^
 
 .. toctree::
@@ -19,7 +16,7 @@ Guía
 
 
 
-Indices and tables
+Indices y Tablas
 ==================
 
 * :ref:`genindex`
