@@ -1,7 +1,11 @@
 import numpy as np
 import random
-from . import aco_tsp
+#from . import aco_tsp
 
+import sys
+sys.path.append('.') 
+
+import aco_tsp
 
 #from aco_tsp import rand_dist_matrix
 #from aco_tsp import create_dic_dist
