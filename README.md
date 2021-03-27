@@ -25,3 +25,4 @@ Para instalar este paquete de python:
  - ya puedes importar los modulos y funciones del paquete :-) 
  
 
+Para revisar la documentación de las funciones da clic [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-ltejadal/docs/) :)
