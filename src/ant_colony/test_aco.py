@@ -49,3 +49,13 @@ def test_creacion_llaves_de_diccionario():
     if matriz.shape[0]==len(dictionary.keys()):
         result = True
     assert result
+    
+def test_feromonas_por_nodo():
+    result=False
+    G = rand_dist_matrix(10, int=True, scale_factor=10, round_factor=4, seed=1950)
+    plot_graph(G, m_plot='graph')
+    plot_graph(G, m_plot='coordinate')
+    tau = init_ferom(G)
+    if len(G.nodes)==len(tau.keys()):
+        result = True
+    assert result
