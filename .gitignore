@@ -1,3 +1,5 @@
 *.ipynb_checkpoints
 notebooks/.ipynb_checkpoints/
 .vscode
+src/__pycache__
+src/ant_colony/__pycache__
