@@ -101,3 +101,17 @@ def test_distancia_hormiga_dif_de_cero():
     if (dist == 0):
         result = False
     assert result
+    
+def test_ejemplo_completo():
+    result = False
+    seed = 101934
+    n_nodos = 10
+    X = rand_dist_matrix(n_nodos, int=True, scale_factor=100, round_factor=4, seed=seed)
+    X_num = rand_dist_matrix(n_nodos, graph=False, int=True, scale_factor=10, round_factor=4, seed=seed)
+    # diccionario de distancias
+    dic_dists = create_dic_dist(X_num)
+    # antcolony
+    ruta, dist = ant_colony(X, dic_dists, ants=3, max_iter=500, verbose=20)
+    if (dist!=0):
+        result = True
+    return result
