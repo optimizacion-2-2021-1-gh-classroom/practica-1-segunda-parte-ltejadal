@@ -1,4 +1,4 @@
-.. currentmodule:: opt2.integration
+.. currentmodule:: ant_colony.integration
 
 *******
 Modules
