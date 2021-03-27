@@ -14,7 +14,6 @@ En esta segunda parte de la práctica se crea un paquete para resolver el proble
 
    instalacion
    functions_autosummary
-   integration/modules_autosummary
 
 
 Indices and tables
