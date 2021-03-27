@@ -20,7 +20,7 @@ project = '"ant_colony"'
 copyright = '2021, "itam"'
 author = '"itam"'
 master_doc = 'index'
-add_module_names = False
+add_module_names = True
 # The full version, including alpha/beta/rc tags
 release = '0.1'
 
