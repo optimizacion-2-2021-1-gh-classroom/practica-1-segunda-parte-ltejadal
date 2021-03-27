@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ant_colony.aco_tsp.rand_dist_matrix &#8212; &#34;ant_colony&#34; 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ant_colony.aco_tsp.create_dic_dist" href="ant_colony.aco_tsp.create_dic_dist.html" />
+    <link rel="prev" title="Funciones" href="../functions_autosummary.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ant-colony-aco-tsp-rand-dist-matrix">
+<h1>ant_colony.aco_tsp.rand_dist_matrix<a class="headerlink" href="#ant-colony-aco-tsp-rand-dist-matrix" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="ant_colony.aco_tsp.rand_dist_matrix">
+<code class="sig-prename descclassname"><span class="pre">ant_colony.aco_tsp.</span></code><code class="sig-name descname"><span class="pre">rand_dist_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1951959</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ant_colony/aco_tsp.html#rand_dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ant_colony.aco_tsp.rand_dist_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea matriz aleatoria de distancias. Retorna su versión nuḿerica en numpy o
+su version en grafo con networksx.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_points</strong> (<em>int</em>) – ńumero de nodos de la matriz de distancias.</p></li>
+<li><p><strong>graph</strong> (<em>bool</em>) – True si se quiere retorna la matriz como un grafo de nwtworkx.</p></li>
+<li><p><strong>scale_factor</strong> (<em>int</em>) – Factor de escala de la matriz.</p></li>
+<li><p><strong>round_factor</strong> (<em>int</em>) – Factor de redondeo de la matriz.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – Semilla aleatoria para reproducibilidad de resultados.</p></li>
+<li><p><strong>int</strong> (<em>bool</em>) – True para obtener matriz con distancias de enteros.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>Si graph=False</p>
+<p>nx.from_numpy_matrix(dist_mat) (graph): Si graph=True</p>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dist_mat (numpy array)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">"ant_colony"</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../instalacion.html">Instalación</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../functions_autosummary.html">Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration/modules_autosummary.html">Modules</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../functions_autosummary.html">Funciones</a><ul>
+      <li>Previous: <a href="../functions_autosummary.html" title="previous chapter">Funciones</a></li>
+      <li>Next: <a href="ant_colony.aco_tsp.create_dic_dist.html" title="next chapter">ant_colony.aco_tsp.create_dic_dist</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, "itam".
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/_autosummary/ant_colony.aco_tsp.rand_dist_matrix.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
