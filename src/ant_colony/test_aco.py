@@ -73,3 +73,17 @@ def test_atracciones_por_nodo():
         if (len(A[nodo]))!=(len(list(G.nodes))-1):
             result = False
     assert result
+    
+def test_hormiga_por_todo_nodo():
+    result=True
+    G = rand_dist_matrix(10, int=True, scale_factor=10, round_factor=4, seed=1950)
+    #plot_graph(G, m_plot='graph')
+    #plot_graph(G, m_plot='coordinate')
+    tau = init_ferom(G)
+    lenghts = create_dic_dist_from_graph(G)
+    eta = init_atrac(G, lenghts)
+    A = atraccion_nodos(G, tau, eta, alpha=1, beta=5)
+    route, dist = hormiga_recorre(G,lenghts, A, tau, 1, x_best=[], y_best= float('inf'))
+    if (len(route)-1) != len(list(G.nodes)):
+        result = False
+    assert result
