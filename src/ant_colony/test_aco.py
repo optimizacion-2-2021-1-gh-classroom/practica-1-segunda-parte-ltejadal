@@ -53,9 +53,23 @@ def test_creacion_llaves_de_diccionario():
 def test_feromonas_por_nodo():
     result=False
     G = rand_dist_matrix(10, int=True, scale_factor=10, round_factor=4, seed=1950)
-    plot_graph(G, m_plot='graph')
-    plot_graph(G, m_plot='coordinate')
+    #plot_graph(G, m_plot='graph')
+    #plot_graph(G, m_plot='coordinate')
     tau = init_ferom(G)
     if len(G.nodes)==len(tau.keys()):
         result = True
+    assert result
+
+def test_atracciones_por_nodo():
+    result=True
+    G = rand_dist_matrix(10, int=True, scale_factor=10, round_factor=4, seed=1950)
+    #plot_graph(G, m_plot='graph')
+    #plot_graph(G, m_plot='coordinate')
+    tau = init_ferom(G)
+    lenghts = create_dic_dist_from_graph(G)
+    eta = init_atrac(G, lenghts)
+    A = atraccion_nodos(G, tau, eta, alpha=1, beta=5)
+    for nodo in range(0,len(A.keys()),1):
+        if (len(A[nodo]))!=(len(list(G.nodes))-1):
+            result = False
     assert result
