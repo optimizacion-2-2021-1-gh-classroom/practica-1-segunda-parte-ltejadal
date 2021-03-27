@@ -3,3 +3,6 @@ notebooks/.ipynb_checkpoints/
 .vscode
 src/__pycache__
 src/ant_colony/__pycache__
+notebooks/probando_implementacion.ipynb
+notebooks/probando_package_installation.ipynb
+notebooks/probando_preliminares.ipynb
