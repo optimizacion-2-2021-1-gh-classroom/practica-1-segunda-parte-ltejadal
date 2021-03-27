@@ -16,7 +16,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = '"opt2"'
+project = '"ant_colony"'
 copyright = '2021, "itam"'
 author = '"itam"'
 master_doc = 'index'
