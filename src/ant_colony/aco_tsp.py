@@ -9,13 +9,15 @@ from itertools import combinations, groupby
 
 def rand_dist_matrix(n_points, graph=True, scale_factor=1, round_factor=4,seed=1951959, int=False):
     """Crea matriz aleatoria de distancias. Retorna su versión numérica en numpy o su versión en grafo con networksx. 
+    
     Args:
-        n_points (int): Número de nodos de la matriz de distancias
+        n_points (int): Número de nodos de la matriz de distancias.
         graph (bool, optional): Retorna la matriz como un grafo de networkx. Default es True.
         scale_factor (int, optional): Factor de escala de la matriz. Default es 1.
         round_factor (int, optional): Factor de redondeo de la matriz. Default es 4.
         seed (int, optional): Semilla aleatoria. Default es 1951959.
         int (bool, optional): Retorna matriz de enteros. Default es False.
+
     Returns:
         (mat or graph): Matrix de distancias o grafo no direccionado
 
@@ -62,7 +64,7 @@ def create_dic_dist_from_graph(G):
         G (networkx graph): Grafo con relaciones asociadas entre nodos
 
     Returns:
-        lenghts (dic): Diccionario de distancias de los nodos
+        (dic): Diccionario de distancias de los nodos
     """
     nodos = list(G.nodes)
     G_num = nx.to_numpy_matrix(G)
@@ -74,37 +76,6 @@ def create_dic_dist_from_graph(G):
 
     return lenghts  
 
-def plot_graph(G, m_plot, seed=19511959):
-    """Grafica red en su versión de coordenadas o de grafo. Fija las posiciones
-    de forma deterministica con una semilla (seed).
-
-    Args:
-        G (networkx graph): Grafo con relaciones asociadas entre nodos
-        m_plot (str): Tipo de gráfico 
-                        - coordinate: Coordenadas X, Y
-                        - graph: Grafo
-        seed (int, optional):Semilla para determinar las posiciones de los nodos en la 
-            visualización. Default es 19511959.
-    """
-    pos = nx.fruchterman_reingold_layout(G, center=(0,0), seed=seed) 
-    colors = range(20)
-    if m_plot=='coordinate':
-        plt.figure(figsize=(7, 7))
-        for k, p in pos.items():
-            plt.scatter(p[0], p[1], marker='o', s=50, edgecolor='None')
-        plt.tight_layout()
-        plt.axis('equal')
-        plt.show()
-    elif m_plot=='graph': 
-        edges, weights = zip(*nx.get_edge_attributes(G,'weight').items())
-        
-        nx.draw(G, 
-                node_color='lightblue', 
-                with_labels=True,
-                edge_color = [i[2]['weight'] for i in G.edges(data=True)], 
-                edge_cmap=plt.cm.Blues, 
-                pos=pos)
-
 def init_ferom(G, init_lev=1.0):
     """Inicialización de diccionario con nivel de feromonas de los nodos.
 
@@ -114,7 +85,7 @@ def init_ferom(G, init_lev=1.0):
             las trayectorias de los nodos. Default es 1.0.
 
     Returns:
-        tau (dic): Diccionario con nivel de feronomas de las trayectorias
+        (dic): Diccionario con nivel de feronomas de las trayectorias
     """
     
     nodos = list(G.nodes)
@@ -136,7 +107,7 @@ def init_atrac(G, lenghts):
         lenghts (dic): Diccionario de distancias
 
     Returns:
-        eta (dic): Diccionario con nivel de atracción inicial de las trayectorias
+        (dic): Diccionario con nivel de atracción inicial de las trayectorias
             de los nodos
     """
     nodos = list(G.nodes)
@@ -160,7 +131,7 @@ def atraccion_nodos(G, tau, eta, alpha=1, beta=5):
         beta (int, optional): Factor de influencia de eta. Defaults to 5.
 
     Returns:
-        dic_attr (dic): Diccionario con los valores de atracción de los vecinos del nodo j
+        (dic): Diccionario con los valores de atracción de los vecinos del nodo j
     """
 
     dic_attr = {}
@@ -177,7 +148,6 @@ def atraccion_nodos(G, tau, eta, alpha=1, beta=5):
         
     return dic_attr
 
-
 def hormiga_recorre(G, lenghts, dic_attr, tau, init_point, x_best, y_best):
     """Calcula la ruta y distancia más cortas con respecto al benchmark provisto, 
     luego del recorrido (o su intento) de una hormiga por la red.
@@ -192,7 +162,7 @@ def hormiga_recorre(G, lenghts, dic_attr, tau, init_point, x_best, y_best):
         y_best (float): Distancia total del recorrido x_best
 
     Returns:
-        x_best, y_best (list, float): Mejor ruta y distancia encontradas
+        list, float: Mejor ruta, mejor distancia
     """
     random.seed(random.randint(0, 1000))
     A = dic_attr
@@ -230,6 +200,7 @@ def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100,  alpha=1,
     """Computa el algoritmo ant-colony para encontra la ruta con menor distancia en el problema
     TSP.
 
+
     Args:
         G (networkx graph): Grafo con relaciones asociadas entre nodos
         lenghts (dic): Diccionario de distancias
@@ -243,7 +214,7 @@ def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100,  alpha=1,
         verbose (int, optional): Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.
 
     Returns:
-        list, float: Mejor ruta y distancia encontradas
+        list, float: Mejor ruta, mejor distancia
     """
 
     # iniciales
@@ -325,3 +296,33 @@ def graph_optim_path(G, route, dist):
     ax.text(0.05, 0.001, textstr, transform=ax.transAxes, fontsize=14,
         verticalalignment='top', bbox=props)
 
+def plot_graph(G, m_plot, seed=19511959):
+    """Grafica red en su versión de coordenadas o de grafo. Fija las posiciones
+    de forma deterministica con una semilla (seed).
+
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos
+        m_plot (str): Tipo de gráfico 
+                        - coordinate: Coordenadas X, Y
+                        - graph: Grafo
+        seed (int, optional):Semilla para determinar las posiciones de los nodos en la 
+            visualización. Default es 19511959.
+    """
+    pos = nx.fruchterman_reingold_layout(G, center=(0,0), seed=seed) 
+    colors = range(20)
+    if m_plot=='coordinate':
+        plt.figure(figsize=(7, 7))
+        for k, p in pos.items():
+            plt.scatter(p[0], p[1], marker='o', s=50, edgecolor='None')
+        plt.tight_layout()
+        plt.axis('equal')
+        plt.show()
+    elif m_plot=='graph': 
+        edges, weights = zip(*nx.get_edge_attributes(G,'weight').items())
+        
+        nx.draw(G, 
+                node_color='lightblue', 
+                with_labels=True,
+                edge_color = [i[2]['weight'] for i in G.edges(data=True)], 
+                edge_cmap=plt.cm.Blues, 
+                pos=pos)
