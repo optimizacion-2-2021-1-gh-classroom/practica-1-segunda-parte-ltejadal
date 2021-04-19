@@ -15,10 +15,10 @@ import sys
 sys.path.insert(0, os.path.abspath('../../src'))
 
 # -- Project information -----------------------------------------------------
-
+authors = 'Santiago Battezatti - Sebastián Cadavid-Sánchez - Rafael Ortega - Laura Tejada'
 project = '"ant_colony"'
-copyright = '2021, "Equipo4"'
-author = '"Equipo4"'
+copyright = '2021, ' + authors
+author = authors
 master_doc = 'index'
 add_module_names = True
 # The full version, including alpha/beta/rc tags
