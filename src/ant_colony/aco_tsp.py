@@ -108,7 +108,7 @@ def init_atrac(G, lenghts):
 
     Returns:
         (dic): Diccionario con nivel de atracción inicial de las trayectorias
-            de los nodos
+        de los nodos
     """
     nodos = list(G.nodes)
     eta = {}
@@ -253,6 +253,7 @@ def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100,  alpha=1,
 
 def graph_optim_path(G, route, dist):
     """Grafica la ruta direccionada de un grafo asociado a una ruta
+
     Args:
         G (networkx graph): Grafo con relaciones asociadas entre nodos
         route (list): Ruta con la direccion a graficar.
