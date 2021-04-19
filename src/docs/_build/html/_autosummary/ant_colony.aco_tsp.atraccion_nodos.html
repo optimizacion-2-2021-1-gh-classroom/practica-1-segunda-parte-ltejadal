@@ -37,22 +37,22 @@
 <dl class="py function">
 <dt id="ant_colony.aco_tsp.atraccion_nodos">
 <code class="sig-prename descclassname"><span class="pre">ant_colony.aco_tsp.</span></code><code class="sig-name descname"><span class="pre">atraccion_nodos</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ant_colony/aco_tsp.html#atraccion_nodos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ant_colony.aco_tsp.atraccion_nodos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcula el grado de atracción de un nodo n perteneciente al grafo G.</p>
+<dd><p>Calcula el grado de atracción de todos los nodos pertenicientes al grafo G.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo de networkx.</p></li>
-<li><p><strong>tau</strong> (<em>dic</em>) – Diccionario con niveles de feromonas de los vecinos de cada nodo.</p></li>
-<li><p><strong>eta</strong> (<em>dic</em>) – Diccionario con nive de atracción de los vecinos de cada nodo.</p></li>
-<li><p><strong>alpha</strong> (<em>float</em>) – Factor de influencia (exponente del nivel de feronomas).</p></li>
-<li><p><strong>beta</strong> (<em>int</em>) – exponente anterior.</p></li>
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>tau</strong> (<em>dic</em>) – Diccionario con niveles de feromonas de los vecinos de cada nodo</p></li>
+<li><p><strong>eta</strong> (<em>dic</em>) – Diccionario con nivel de atracción inicial de los vecinos de cada nodo</p></li>
+<li><p><strong>alpha</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de tau. Defaults to 1.</p></li>
+<li><p><strong>beta</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de eta. Defaults to 5.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Diccionario con los valores de atracción de los vecinos del nodo j.</p>
+<dd class="field-even"><p>Diccionario con los valores de atracción de los vecinos del nodo j</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>atrac (dic)</p>
+<dd class="field-odd"><p>dic_attr (dic)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -80,7 +80,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../instalacion.html">Instalación</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../functions_autosummary.html">Funciones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../integration/modules_autosummary.html">Modules</a></li>
 </ul>
 
 <div class="relations">

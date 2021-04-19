@@ -27,7 +27,7 @@ Descargar repositorio de ``github``
    pip install -e .
 
 
-Descargar e isntalar con ``pip``
+Descargar e instalar con ``pip``
 ===================================
 
 1. Ejecutar en la línea de comandos:

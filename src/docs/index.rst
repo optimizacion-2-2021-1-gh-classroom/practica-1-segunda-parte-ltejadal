@@ -3,20 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Bienvenido a la documentación de la práctica :)
+Bienvenido a la documentación de ``ACO_TSP``
 ==================================
 
-En esta segunda parte de la práctica se crea un paquete para resolver el problema de Ant Colony descrito en el reporte.
-
  .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contenido:
 
    instalacion
    functions_autosummary
 
 
-Indices and tables
+Índices y tablas
 ==================
 
 * :ref:`genindex`

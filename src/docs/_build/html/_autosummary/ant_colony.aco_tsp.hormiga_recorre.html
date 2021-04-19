@@ -42,22 +42,20 @@ luego del recorrido (o su intento) de una hormiga por la red.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo de la red.</p></li>
-<li><p><strong>lenghts</strong> (<em>dic</em>) – Diccionario de distancias entre nodos.</p></li>
-<li><p><strong>dic_attr</strong> (<em>dic</em>) – Diccionario de atracción de los nodos.</p></li>
-<li><p><strong>tau</strong> (<em>dic</em>) – Diccionario con niveles de feromonas de los vecinos de cada nodo.</p></li>
-<li><p><strong>init_point</strong> (<em>int</em>) – Nodo inicial</p></li>
-<li><p><strong>x_best</strong> (<em>lst</em>) – Ruta con respecto a la cual se quiere mejorar.</p></li>
-<li><p><strong>y_best</strong> (<em>float</em>) – Distancia con respecto a la cual se quiere mejorar</p></li>
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>lenghts</strong> (<em>dic</em>) – Diccionario de distancias</p></li>
+<li><p><strong>dic_attr</strong> (<em>dic</em>) – [description]</p></li>
+<li><p><strong>tau</strong> (<em>dic</em>) – Diccionario con niveles de feromonas de los vecinos de cada nodo</p></li>
+<li><p><strong>init_point</strong> (<em>int</em>) – Nodo inicial del recorrido</p></li>
+<li><p><strong>x_best</strong> (<em>list</em>) – Ruta con respecto a la cual se quiere mejorar</p></li>
+<li><p><strong>y_best</strong> (<em>float</em>) – Distancia total del recorrido x_best</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><p>Ruta con la distancia más corta obtenida</p>
-<p>y_best (float): Distancia asociada a la ruta retornada.</p>
-</p>
+<dd class="field-even"><p>Mejor ruta y distancia encontradas</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>x_best (lst)</p>
+<dd class="field-odd"><p>x_best, y_best (list, float)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -85,7 +83,6 @@ luego del recorrido (o su intento) de una hormiga por la red.</p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../instalacion.html">Instalación</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../functions_autosummary.html">Funciones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../integration/modules_autosummary.html">Modules</a></li>
 </ul>
 
 <div class="relations">

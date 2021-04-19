@@ -7,11 +7,8 @@ import matplotlib.pyplot as plt
 from pprint import pprint
 from itertools import combinations, groupby
 
-def rand_dist_matrix(n_points, graph=True, scale_factor=1, round_factor=4, 
-                     seed=1951959, int=False):
-    """Crea matriz aleatoria de distancias. Retorna su versión numérica en numpy o
-    su versión en grafo con networksx. 
-
+def rand_dist_matrix(n_points, graph=True, scale_factor=1, round_factor=4,seed=1951959, int=False):
+    """Crea matriz aleatoria de distancias. Retorna su versión numérica en numpy o su versión en grafo con networksx. 
     Args:
         n_points (int): Número de nodos de la matriz de distancias
         graph (bool, optional): Retorna la matriz como un grafo de networkx. Default es True.
@@ -19,9 +16,9 @@ def rand_dist_matrix(n_points, graph=True, scale_factor=1, round_factor=4,
         round_factor (int, optional): Factor de redondeo de la matriz. Default es 4.
         seed (int, optional): Semilla aleatoria. Default es 1951959.
         int (bool, optional): Retorna matriz de enteros. Default es False.
-
     Returns:
-        G (mat or graph): Matrix de distancias o grafo no direccionado
+        (mat or graph): Matrix de distancias o grafo no direccionado
+
     """
     random.seed(seed)
     import scipy.spatial as spatial
@@ -49,8 +46,7 @@ def create_dic_dist(dist):
         dist (np.array): Arreglo con la matriz de distancias
 
     Returns:
-        lenghts (dic): Diccionario de distancias de los nodos
-
+        (dic): Diccionario de distancias de los nodos
     """
     lenghts = {}
     for node, z in enumerate(dist):
@@ -230,8 +226,7 @@ def hormiga_recorre(G, lenghts, dic_attr, tau, init_point, x_best, y_best):
     else:
         return x_best, y_best  
 
-def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100, 
-               alpha=1, beta=5, rho=.5, verbose=10):
+def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100,  alpha=1, beta=5, rho=.5, verbose=10):
     """Computa el algoritmo ant-colony para encontra la ruta con menor distancia en el problema
     TSP.
 
@@ -245,10 +240,10 @@ def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100,
         alpha (int, optional): Factor de influencia de tau. Defaults to 1.
         beta (int, optional): Factor de influencia de eta. Defaults to 5.
         rho (float, optional): Tasa de evaporación de las feromonas. Defaults to .5.
-        verbose (int, optional): Imprime progreso del algoritmo cada K iteracione. Defaults to 10.
+        verbose (int, optional): Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.
 
     Returns:
-        x_best, y_best (list, float): Mejor ruta y distancia encontradas
+        list, float: Mejor ruta y distancia encontradas
     """
 
     # iniciales

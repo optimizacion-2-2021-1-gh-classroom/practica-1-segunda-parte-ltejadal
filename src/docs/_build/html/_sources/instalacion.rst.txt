@@ -2,29 +2,36 @@
 Instalación
 ************
 
+Descargar repositorio de ``github``
+===================================
 
-Paquete de Python
-==============
+1. Descarga el repositorio:
 
-Instala el pquete con:
-  
 .. code-block:: bash
 
-   #ejecuta la sigueinte línea desde el directorio `src` donde está `setup.py`
-   #luego de clonar el repo:
-   #https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git
+   git clone https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git
+
+2a. Entrar al directorio ``src`` y utilizar ``pip`` para instalar el paquete: 
+
+.. code-block:: bash
+
+   cd src
    pip install .
 
-o con el editable:
+
+2b. o con el editable:
 
 .. code-block:: bash
 
-   #ejecuta la sigueinte línea desde el directorio `src` donde está `setup.py`
-   #luego de clonar el repo:
-   #https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git
+   cd src
    pip install -e .
 
-o con la url:
+
+Descargar e isntalar con ``pip``
+===================================
+
+1. Ejecutar en la línea de comandos:
+
 
 .. code-block:: bash
 

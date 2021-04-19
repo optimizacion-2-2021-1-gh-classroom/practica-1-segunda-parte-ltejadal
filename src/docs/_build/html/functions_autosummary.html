@@ -58,10 +58,10 @@
 <td><p>Inicialización de diccionario con nivel de feromonas de los nodos.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.init_atrac.html#ant_colony.aco_tsp.init_atrac" title="ant_colony.aco_tsp.init_atrac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.init_atrac</span></code></a>(G, lenghts)</p></td>
-<td><p>Inicialización de diccionario con nivel de atracción de los nodos.</p></td>
+<td><p>Inicialización de diccionario con nivel de atracción a priori de los nodos</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.atraccion_nodos.html#ant_colony.aco_tsp.atraccion_nodos" title="ant_colony.aco_tsp.atraccion_nodos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.atraccion_nodos</span></code></a>(G, tau, eta[, …])</p></td>
-<td><p>Calcula el grado de atracción de un nodo n perteneciente al grafo G.</p></td>
+<td><p>Calcula el grado de atracción de todos los nodos pertenicientes al grafo G.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.hormiga_recorre.html#ant_colony.aco_tsp.hormiga_recorre" title="ant_colony.aco_tsp.hormiga_recorre"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.hormiga_recorre</span></code></a>(G, lenghts, …)</p></td>
 <td><p>Calcula la ruta y distancia más cortas con respecto al benchmark provisto, luego del recorrido (o su intento) de una hormiga por la red.</p></td>
@@ -69,11 +69,11 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.hormiga_recorre.html#ant_colony.aco_tsp.hormiga_recorre" title="ant_colony.aco_tsp.hormiga_recorre"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.hormiga_recorre</span></code></a>(G, lenghts, …)</p></td>
 <td><p>Calcula la ruta y distancia más cortas con respecto al benchmark provisto, luego del recorrido (o su intento) de una hormiga por la red.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.graph_optim_path.html#ant_colony.aco_tsp.graph_optim_path" title="ant_colony.aco_tsp.graph_optim_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.graph_optim_path</span></code></a>(G, best_route, …)</p></td>
-<td><p>Grafica la ruta direccionada de un grafo.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.graph_optim_path.html#ant_colony.aco_tsp.graph_optim_path" title="ant_colony.aco_tsp.graph_optim_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.graph_optim_path</span></code></a>(G, route, dist)</p></td>
+<td><p>Grafica la ruta direccionada de un grafo asociado a una ruta :param G: Grafo con relaciones asociadas entre nodos :type G: networkx graph :param route: Ruta con la direccion a graficar.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.ant_colony.html#ant_colony.aco_tsp.ant_colony" title="ant_colony.aco_tsp.ant_colony"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.ant_colony</span></code></a>(G, lenghts[, init, …])</p></td>
-<td><p>Realiza lai mplementación del algoritmo ant colony para el problema TSP.</p></td>
+<td><p>[summary]</p></td>
 </tr>
 </tbody>
 </table>
@@ -101,7 +101,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="instalacion.html">Instalación</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Funciones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="integration/modules_autosummary.html">Modules</a></li>
 </ul>
 
 <div class="relations">

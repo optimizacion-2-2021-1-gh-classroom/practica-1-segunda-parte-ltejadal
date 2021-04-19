@@ -37,26 +37,25 @@
 <dl class="py function">
 <dt id="ant_colony.aco_tsp.rand_dist_matrix">
 <code class="sig-prename descclassname"><span class="pre">ant_colony.aco_tsp.</span></code><code class="sig-name descname"><span class="pre">rand_dist_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1951959</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ant_colony/aco_tsp.html#rand_dist_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ant_colony.aco_tsp.rand_dist_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Crea matriz aleatoria de distancias. Retorna su versión nuḿerica en numpy o
-su version en grafo con networksx.</p>
+<dd><p>Crea matriz aleatoria de distancias. Retorna su versión numérica en numpy o su versión en grafo con networksx.
+:param n_points: Número de nodos de la matriz de distancias
+:type n_points: int
+:param graph: Retorna la matriz como un grafo de networkx. Default es True.
+:type graph: bool, optional
+:param scale_factor: Factor de escala de la matriz. Default es 1.
+:type scale_factor: int, optional
+:param round_factor: Factor de redondeo de la matriz. Default es 4.
+:type round_factor: int, optional
+:param seed: Semilla aleatoria. Default es 1951959.
+:type seed: int, optional
+:param int: Retorna matriz de enteros. Default es False.
+:type int: bool, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>n_points</strong> (<em>int</em>) – ńumero de nodos de la matriz de distancias.</p></li>
-<li><p><strong>graph</strong> (<em>bool</em>) – True si se quiere retorna la matriz como un grafo de nwtworkx.</p></li>
-<li><p><strong>scale_factor</strong> (<em>int</em>) – Factor de escala de la matriz.</p></li>
-<li><p><strong>round_factor</strong> (<em>int</em>) – Factor de redondeo de la matriz.</p></li>
-<li><p><strong>seed</strong> (<em>int</em>) – Semilla aleatoria para reproducibilidad de resultados.</p></li>
-<li><p><strong>int</strong> (<em>bool</em>) – True para obtener matriz con distancias de enteros.</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Matrix de distancias o grafo no direccionado</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><p>Si graph=False</p>
-<p>nx.from_numpy_matrix(dist_mat) (graph): Si graph=True</p>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dist_mat (numpy array)</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(mat or graph)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -84,7 +83,6 @@ su version en grafo con networksx.</p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../instalacion.html">Instalación</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../functions_autosummary.html">Funciones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../integration/modules_autosummary.html">Modules</a></li>
 </ul>
 
 <div class="relations">
