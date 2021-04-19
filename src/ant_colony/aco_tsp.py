@@ -232,7 +232,8 @@ def hormiga_recorre(G, lenghts, dic_attr, tau, init_point, x_best, y_best):
 
 def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100, 
                alpha=1, beta=5, rho=.5, verbose=10):
-    """[summary]
+    """Computa el algoritmo ant-colony para encontra la ruta con menor distancia en el problema
+    TSP.
 
     Args:
         G (networkx graph): Grafo con relaciones asociadas entre nodos
@@ -283,7 +284,7 @@ def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100,
         graph_optim_path(G, x_best, y_best)
 
     return x_best, y_best
-    
+
 def graph_optim_path(G, route, dist):
     """Grafica la ruta direccionada de un grafo asociado a una ruta
     Args:
