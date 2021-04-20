@@ -4,6 +4,119 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 
+###
+def create_dic_dist(dist):
+    """Crea diccionario de distancias entre nodos a partir de la versión
+    numérica de la matriz de distancias.
+
+    Args:
+        dist (np.array): Arreglo con la matriz de distancias
+
+    Returns:
+        (dic): Diccionario de distancias de los nodos
+    """
+    lenghts = {}
+    for node, z in enumerate(dist):
+        lenghts[node] = {}
+        for neighbor, y in enumerate(z):
+            lenghts[node][neighbor] = y
+    return lenghts 
+    
+def create_dic_dist_from_graph(G):
+    """Crea diccionario de distancias entre nodos a partir de un grafo. 
+
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos
+
+    Returns:
+        (dic): Diccionario de distancias de los nodos
+    """
+    nodos = list(G.nodes)
+    G_num = nx.to_numpy_matrix(G)
+    lenghts = {}
+    for node, z in enumerate(G_num):
+        lenghts[node] = {}
+        for neighbor in nodos:
+            lenghts[node][neighbor] = z[0, neighbor]
+
+    return lenghts  
+
+def init_ferom(G, init_lev=1.0):
+    """Inicialización de diccionario con nivel de feromonas de los nodos.
+
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos
+        init_lev (float, optional): Nivel de inicialización de feromona para todas
+            las trayectorias de los nodos. Default es 1.0.
+
+    Returns:
+        (dic): Diccionario con nivel de feronomas de las trayectorias
+    """
+    
+    nodos = list(G.nodes)
+    tau = {}
+
+    for nodo in nodos:
+        tau[nodo] = {}
+        neighbors = list(G.neighbors(nodo))
+        for neighbor in neighbors:
+            tau[nodo][neighbor] = init_lev
+
+    return tau
+
+def init_atrac(G, lenghts):
+    """Inicialización de diccionario con nivel de atracción a priori de los nodos
+       utilizando la inversa de las distancias.
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos
+        lenghts (dic): Diccionario de distancias
+
+    Returns:
+        (dic): Diccionario con nivel de atracción inicial de las trayectorias
+        de los nodos
+    """
+    nodos = list(G.nodes)
+    eta = {}
+    
+    for nodo in nodos:
+        eta[nodo] = {}
+        neighbors = list(G.neighbors(nodo))
+        for neighbor in neighbors:
+            if neighbor != nodo:
+                eta[nodo][neighbor] = 1/lenghts[nodo][neighbor]
+    return eta
+
+def atraccion_nodos(G, tau, eta, alpha=1, beta=5):
+    """Calcula el grado de atracción de todos los nodos pertenicientes al grafo G.
+
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos
+        tau (dic): Diccionario con niveles de feromonas de los vecinos de cada nodo
+        eta (dic): Diccionario con nivel de atracción inicial de los vecinos de cada nodo
+        alpha (int, optional): Factor de influencia de tau. Defaults to 1.
+        beta (int, optional): Factor de influencia de eta. Defaults to 5.
+
+    Returns:
+        (dic): Diccionario con los valores de atracción de los vecinos del nodo j
+    """
+
+    dic_attr = {}
+
+    # componentes del grafo
+    nodos = list(G.nodes)
+    
+    for nodo in nodos:
+        dic_attr[nodo] = {}
+        neighbors = list(G.neighbors(nodo))
+        for neighbor in neighbors:
+            if neighbor != nodo:
+                attr = tau[nodo][neighbor]**alpha + eta[nodo][neighbor]**beta
+                dic_attr[nodo][neighbor] = attr
+        
+    return dic_attr
+
+
+###
 def read_data(path):
     """Convierte en grafo datos de matrices de distancias en
     formato .txt o .tsp
@@ -86,13 +199,15 @@ def plot_graph(G, m_plot, seed=19511959):
                 edge_cmap=plt.cm.Blues, 
                 pos=pos)
 
-def graph_optim_path(G, route, dist):
+def graph_optim_path(G, route, dist, plt_size=(15, 6)):
     """Grafica la ruta direccionada de un grafo asociado a una ruta
 
     Args:
         G (networkx graph): Grafo con relaciones asociadas entre nodos
         route (list): Ruta con la direccion a graficar.
         dist (float): Distancia asociada a la ruta.
+        plt_size (tpl): Tamaño de la gráfica en matplotlib.
+
     """
 
     seed=19511959
@@ -110,7 +225,7 @@ def graph_optim_path(G, route, dist):
     f'Ruta: {route}',
     ))
     
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=plt_size)
     
     g = nx.DiGraph()
     g.add_nodes_from(route)
