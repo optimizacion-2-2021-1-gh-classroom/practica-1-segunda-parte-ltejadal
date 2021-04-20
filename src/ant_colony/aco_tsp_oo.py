@@ -83,13 +83,11 @@ class colony():
             # ants running across the graph
             self._colony_run(A)
 
-            
     def plot_route(self, plt_size=(12, 8)):
         graph_optim_path(self.graph, self.best_route, self.best_dist, plt_size)
             
     def optim_hyper_params(self):
         None
-
 
 class ant():
     def __init__(self, G, r_len = float('inf'), route = []):
