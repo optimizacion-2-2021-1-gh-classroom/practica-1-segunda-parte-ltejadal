@@ -4,6 +4,25 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 
+def read_data(path):
+    """Convierte en grafo datos de matrices de distancias en
+    formato .txt o .tsp
+
+    Args:
+        path (str): Ruta del archivo.
+
+    Returns:
+        (graph networkx): Grafo asociado a la matriz de distancias. 
+    """
+    ext = path[-3:]
+    if ext == 'txt':
+        data = np.loadtxt(path)
+        return nx.from_numpy_matrix(data)
+    elif ext == 'tsp':
+        data = tsplib95.load(path)
+        return data.get_graph() 
+
+
 def rand_dist_matrix(n_points, graph=True, scale_factor=1, round_factor=4,seed=1951959, int=False):
     """Crea matriz aleatoria de distancias. Retorna su versión numérica en numpy o su versión en grafo con networksx. 
     
