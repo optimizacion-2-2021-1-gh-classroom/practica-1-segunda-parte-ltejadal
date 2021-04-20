@@ -4,6 +4,7 @@ import tsplib95
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
+import utils
 
 def create_dic_dist(dist):
     """Crea diccionario de distancias entre nodos a partir de la versión
@@ -82,7 +83,8 @@ def init_atrac(G, lenghts):
         eta[nodo] = {}
         neighbors = list(G.neighbors(nodo))
         for neighbor in neighbors:
-            eta[nodo][neighbor] = 1/lenghts[nodo][neighbor]
+            if neighbor != nodo:
+                eta[nodo][neighbor] = 1/lenghts[nodo][neighbor]
     return eta
 
 def atraccion_nodos(G, tau, eta, alpha=1, beta=5):
@@ -108,8 +110,9 @@ def atraccion_nodos(G, tau, eta, alpha=1, beta=5):
         dic_attr[nodo] = {}
         neighbors = list(G.neighbors(nodo))
         for neighbor in neighbors:
-            attr = tau[nodo][neighbor]**alpha + eta[nodo][neighbor]**beta
-            dic_attr[nodo][neighbor] = attr
+            if neighbor != nodo:
+                attr = tau[nodo][neighbor]**alpha + eta[nodo][neighbor]**beta
+                dic_attr[nodo][neighbor] = attr
         
     return dic_attr
 
@@ -212,6 +215,6 @@ def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100,  alpha=1,
         print("-"*30)
         
     if graph:
-        graph_optim_path(G, x_best, y_best)
+        utils.graph_optim_path(G, x_best, y_best)
 
     return x_best, y_best
