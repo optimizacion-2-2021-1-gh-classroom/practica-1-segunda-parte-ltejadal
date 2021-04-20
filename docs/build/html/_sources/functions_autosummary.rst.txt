@@ -3,21 +3,27 @@
 *********
 Funciones
 *********
-      
+
 Módulo aco_tsp
 ==================
 
 .. autosummary::
    :toctree: _autosummary
 
-   aco_tsp.rand_dist_matrix
-   aco_tsp.create_dic_dist
-   aco_tsp.create_dic_dist_from_graph
-   aco_tsp.init_ferom
-   aco_tsp.init_atrac
-   aco_tsp.atraccion_nodos
    aco_tsp.hormiga_recorre
    aco_tsp.ant_colony
-   aco_tsp.graph_optim_path
-   aco_tsp.plot_graph
    
+Módulo utils
+==================
+
+.. autosummary::
+   :toctree: _autosummary
+
+   utils.rand_dist_matrix
+   utils.create_dic_dist
+   utils.create_dic_dist_from_graph
+   utils.init_ferom
+   utils.init_atrac
+   utils.atraccion_nodos
+   utils.graph_optim_path
+   utils.plot_graph

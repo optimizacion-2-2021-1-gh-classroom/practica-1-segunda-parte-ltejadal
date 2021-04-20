@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ant_colony.aco_tsp.rand_dist_matrix" href="_autosummary/ant_colony.aco_tsp.rand_dist_matrix.html" />
+    <link rel="next" title="ant_colony.aco_tsp.hormiga_recorre" href="_autosummary/ant_colony.aco_tsp.hormiga_recorre.html" />
     <link rel="prev" title="Instalación" href="instalacion.html" /> 
 </head>
 
@@ -89,16 +89,19 @@
 <li class="toctree-l1"><a class="reference internal" href="instalacion.html">Instalación</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Funciones</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#modulo-aco-tsp">Módulo aco_tsp</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.rand_dist_matrix.html">ant_colony.aco_tsp.rand_dist_matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.create_dic_dist.html">ant_colony.aco_tsp.create_dic_dist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.create_dic_dist_from_graph.html">ant_colony.aco_tsp.create_dic_dist_from_graph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.init_ferom.html">ant_colony.aco_tsp.init_ferom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.init_atrac.html">ant_colony.aco_tsp.init_atrac</a></li>
-<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.atraccion_nodos.html">ant_colony.aco_tsp.atraccion_nodos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.hormiga_recorre.html">ant_colony.aco_tsp.hormiga_recorre</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.ant_colony.html">ant_colony.aco_tsp.ant_colony</a></li>
-<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.graph_optim_path.html">ant_colony.aco_tsp.graph_optim_path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.plot_graph.html">ant_colony.aco_tsp.plot_graph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modulo-utils">Módulo utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.utils.rand_dist_matrix.html">ant_colony.utils.rand_dist_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.utils.create_dic_dist.html">ant_colony.utils.create_dic_dist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.utils.create_dic_dist_from_graph.html">ant_colony.utils.create_dic_dist_from_graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.utils.init_ferom.html">ant_colony.utils.init_ferom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.utils.init_atrac.html">ant_colony.utils.init_atrac</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.utils.atraccion_nodos.html">ant_colony.utils.atraccion_nodos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.utils.graph_optim_path.html">ant_colony.utils.graph_optim_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/ant_colony.utils.plot_graph.html">ant_colony.utils.plot_graph</a></li>
 </ul>
 </li>
 </ul>
@@ -180,34 +183,45 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.rand_dist_matrix.html#ant_colony.aco_tsp.rand_dist_matrix" title="ant_colony.aco_tsp.rand_dist_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.rand_dist_matrix</span></code></a>(n_points[, graph, …])</p></td>
-<td><p>Crea matriz aleatoria de distancias.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.create_dic_dist.html#ant_colony.aco_tsp.create_dic_dist" title="ant_colony.aco_tsp.create_dic_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.create_dic_dist</span></code></a>(dist)</p></td>
-<td><p>Crea diccionario de distancias entre nodos a partir de la versión numérica de la matriz de distancias.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.create_dic_dist_from_graph.html#ant_colony.aco_tsp.create_dic_dist_from_graph" title="ant_colony.aco_tsp.create_dic_dist_from_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.create_dic_dist_from_graph</span></code></a>(G)</p></td>
-<td><p>Crea diccionario de distancias entre nodos a partir de un grafo.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.init_ferom.html#ant_colony.aco_tsp.init_ferom" title="ant_colony.aco_tsp.init_ferom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.init_ferom</span></code></a>(G[, init_lev])</p></td>
-<td><p>Inicialización de diccionario con nivel de feromonas de los nodos.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.init_atrac.html#ant_colony.aco_tsp.init_atrac" title="ant_colony.aco_tsp.init_atrac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.init_atrac</span></code></a>(G, lenghts)</p></td>
-<td><p>Inicialización de diccionario con nivel de atracción a priori de los nodos</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.atraccion_nodos.html#ant_colony.aco_tsp.atraccion_nodos" title="ant_colony.aco_tsp.atraccion_nodos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.atraccion_nodos</span></code></a>(G, tau, eta[, …])</p></td>
-<td><p>Calcula el grado de atracción de todos los nodos pertenicientes al grafo G.</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.hormiga_recorre.html#ant_colony.aco_tsp.hormiga_recorre" title="ant_colony.aco_tsp.hormiga_recorre"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.hormiga_recorre</span></code></a>(G, lenghts, …)</p></td>
 <td><p>Calcula la ruta y distancia más cortas con respecto al benchmark provisto, luego del recorrido (o su intento) de una hormiga por la red.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.ant_colony.html#ant_colony.aco_tsp.ant_colony" title="ant_colony.aco_tsp.ant_colony"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.ant_colony</span></code></a>(G, lenghts[, init, …])</p></td>
 <td><p>Computa el algoritmo ant-colony para encontra la ruta con menor distancia en el problema TSP.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.graph_optim_path.html#ant_colony.aco_tsp.graph_optim_path" title="ant_colony.aco_tsp.graph_optim_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.graph_optim_path</span></code></a>(G, route, dist)</p></td>
+</tbody>
+</table>
+</div>
+<div class="section" id="modulo-utils">
+<h2>Módulo utils<a class="headerlink" href="#modulo-utils" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.utils.rand_dist_matrix.html#ant_colony.utils.rand_dist_matrix" title="ant_colony.utils.rand_dist_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.rand_dist_matrix</span></code></a>(n_points[, graph, …])</p></td>
+<td><p>Crea matriz aleatoria de distancias.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.utils.create_dic_dist.html#ant_colony.utils.create_dic_dist" title="ant_colony.utils.create_dic_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.create_dic_dist</span></code></a>(dist)</p></td>
+<td><p>Crea diccionario de distancias entre nodos a partir de la versión numérica de la matriz de distancias.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.utils.create_dic_dist_from_graph.html#ant_colony.utils.create_dic_dist_from_graph" title="ant_colony.utils.create_dic_dist_from_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.create_dic_dist_from_graph</span></code></a>(G)</p></td>
+<td><p>Crea diccionario de distancias entre nodos a partir de un grafo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.utils.init_ferom.html#ant_colony.utils.init_ferom" title="ant_colony.utils.init_ferom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.init_ferom</span></code></a>(G[, init_lev])</p></td>
+<td><p>Inicialización de diccionario con nivel de feromonas de los nodos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.utils.init_atrac.html#ant_colony.utils.init_atrac" title="ant_colony.utils.init_atrac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.init_atrac</span></code></a>(G, lenghts)</p></td>
+<td><p>Inicialización de diccionario con nivel de atracción a priori de los nodos</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.utils.atraccion_nodos.html#ant_colony.utils.atraccion_nodos" title="ant_colony.utils.atraccion_nodos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.atraccion_nodos</span></code></a>(G, tau, eta[, alpha, beta])</p></td>
+<td><p>Calcula el grado de atracción de todos los nodos pertenicientes al grafo G.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/ant_colony.utils.graph_optim_path.html#ant_colony.utils.graph_optim_path" title="ant_colony.utils.graph_optim_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.graph_optim_path</span></code></a>(G, route, dist[, …])</p></td>
 <td><p>Grafica la ruta direccionada de un grafo asociado a una ruta</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.aco_tsp.plot_graph.html#ant_colony.aco_tsp.plot_graph" title="ant_colony.aco_tsp.plot_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aco_tsp.plot_graph</span></code></a>(G, m_plot[, seed])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/ant_colony.utils.plot_graph.html#ant_colony.utils.plot_graph" title="ant_colony.utils.plot_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.plot_graph</span></code></a>(G, m_plot[, seed])</p></td>
 <td><p>Grafica red en su versión de coordenadas o de grafo.</p></td>
 </tr>
 </tbody>
@@ -221,7 +235,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="_autosummary/ant_colony.aco_tsp.rand_dist_matrix.html" class="btn btn-neutral float-right" title="ant_colony.aco_tsp.rand_dist_matrix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="_autosummary/ant_colony.aco_tsp.hormiga_recorre.html" class="btn btn-neutral float-right" title="ant_colony.aco_tsp.hormiga_recorre" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="instalacion.html" class="btn btn-neutral float-left" title="Instalación" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

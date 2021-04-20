@@ -12,7 +12,7 @@ Bienvenido a la documentación de ``ACO_TSP``
 
    instalacion
    functions_autosummary
-
+   clases
 
 Índices y tablas
 ==================
