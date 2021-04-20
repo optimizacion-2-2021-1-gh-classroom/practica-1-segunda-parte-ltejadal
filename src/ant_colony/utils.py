@@ -127,6 +127,8 @@ def graph_optim_path(G, route, dist):
                            edgelist=edgelist,
                            edge_color = colors[ctr], 
                            width=linewidths[ctr])
+    # origin
+    nx.draw_networkx(g.subgraph(route[0]), ax=ax, pos=pos, node_color='red')
     # textbox
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     ax.text(0.05, 0.001, textstr, transform=ax.transAxes, fontsize=14,
