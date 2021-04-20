@@ -4,7 +4,7 @@ import tsplib95
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
-import utils
+from ant_colony.utils import graph_optim_path
 
 def create_dic_dist(dist):
     """Crea diccionario de distancias entre nodos a partir de la versión
@@ -215,6 +215,6 @@ def ant_colony(G, lenghts, init=0, graph=True, ants=200, max_iter=100,  alpha=1,
         print("-"*30)
         
     if graph:
-        utils.graph_optim_path(G, x_best, y_best)
+        graph_optim_path(G, x_best, y_best)
 
     return x_best, y_best
