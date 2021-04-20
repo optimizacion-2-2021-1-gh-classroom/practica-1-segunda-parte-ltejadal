@@ -4,8 +4,8 @@ import tsplib95
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
-from ant_colony.utils import graph_optim_path
-
+# from ant_colony.utils import graph_optim_path
+from ant_colony.utils import *
 def hormiga_recorre(G, lenghts, dic_attr, tau, init_point, x_best, y_best):
     """Calcula la ruta y distancia más cortas con respecto al benchmark provisto, 
     luego del recorrido (o su intento) de una hormiga por la red.
