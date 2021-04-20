@@ -3,9 +3,12 @@ import tsplib95
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
-from utils import *
+from ant_colony.utils import *
 
 class colony():
+    """Clase que representa una colonia de hormigas que recorren
+    el grafo asignado para resolver el problema TSP.
+    """
     def __init__(self, G, init_node,
                  best_route = [],
                  best_dist = float('inf'),
@@ -15,6 +18,20 @@ class colony():
                  beta=5, 
                  rho=.5, 
                  verbose=10):
+        """[summary]
+
+        Args:
+            G (networkx graph): Grafo con relaciones asociadas entre nodos
+            init_node (int): Nodo inicial del recorrido.
+            best_route (list, optional): Ruta con respecto a la cual se quiere mejorar.
+            best_dist ([type], optional): Distancia total del recorrido x_best.
+            n_ants (int, optional): Número de hormigas. Default es 2.
+            max_iter (int, optional): [description]. Default es 100.
+            alpha (int, optional): Factor de influencia de tau. Defaults to 1.
+            beta (int, optional): Factor de influencia de eta. Defaults to 5.
+            rho (float, optional): Tasa de evaporación de las feromonas. Defaults to .5.
+            verbose (int, optional): Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.
+        """
         
         self.graph = G
         self.init_node = init_node
@@ -31,21 +48,47 @@ class colony():
         self.eta = init_atrac(self.graph, self.lenghts)
         
     def _update_pheromone_levels(self, route, dist_route):
+        """Actualiza el nivel de feromonas en las respectivas trayectorias
+        del grafo.
+
+        Args:
+            route (lst): Lista que incluye un recorrido por el grafo.
+            dist_route (float): Distancia de la ruta.
+        """
         for i in range(1, len(route[:-1])):
             self.tau[i-1][i] += 1/dist_route
         self.tau[route[:-1][-1]][self.init_node]
         
     def _update_many_pheromone_levels(self, routes, distances):
+        """Actualiza los niveles de feromonas para diferentes rutas
+        recorridas por diferentes hormigas.
+
+        Args:
+            routes (lst of lst): Lista que contiene los recorridos 
+            realziados por diferentes hormigas.
+            distances (lst of floats): Lista con las distancias de
+            las rutas.
+        """
         if (len(distances) == len(self.graph.nodes)):
             for i in range(len(routes)):
                 self._update_pheromone_levels(routes[i], distances[i])
             
     def _evaporates_pheromone(self):
+        """Evapora los niveles de feromonas en todos los tramos del 
+        grafo.
+        """
         for e in self.tau:
             for v in self.tau:
                 self.tau[e][v] = (1-self.rho)*v
             
     def _colony_run(self, A):
+        """La hormigas de la colonia realizan recorridos 
+        independientes simultáneamente.
+
+        Args:
+            A (dic): nivel de atracción de los nodos con respecto
+            a sus vecinos.
+        """
         distances = []
         routes = []
         for ant in self.ants:
@@ -70,6 +113,8 @@ class colony():
             self.best_route = bst_route
             
     def solve_tsp(self):
+        """Resuelve el problema TSP.
+        """
         route = self.best_route
         dist = self.best_dist
         
@@ -84,12 +129,22 @@ class colony():
             self._colony_run(A)
 
     def plot_route(self, plt_size=(12, 8)):
+        """Grafica la trayectoria encontrada por la colonia en el grafo.
+
+        Args:
+            plt_size (tuple, optional): Tamaño del gŕafico (ancho x altura). Defaults es (12, 8).
+        """
         graph_optim_path(self.graph, self.best_route, self.best_dist, plt_size)
             
     def optim_hyper_params(self):
+        """[summary]
+        """
         None
 
 class ant():
+    """Clase que representa una hormiga de la colonia y realizará
+    recorridos por el grafo.
+    """
     def __init__(self, G, r_len = float('inf'), route = []):
         
         self.graph = G
@@ -102,6 +157,15 @@ class ant():
                       init_node,
                       dist, 
                       atrac):
+        """La hormiga intenta recorrer el grafo y volver
+        al origen sin repetir otros nodos.
+
+        Args:
+            init_node (int): Nodo inicial del recorrido.
+            dist (dic): Diccionario de distancias de las trayectorias.
+            atrac (dic): Diccionario de atracción de los nodos con 
+            relación a sus vecinos.
+        """
         
         x = [init_node]
         nodes = list(self.graph.nodes)
@@ -125,4 +189,9 @@ class ant():
         self.r_len = l
             
     def plot_route(self, plt_size):
+        """Grafica la trayectoria encontrada por la colonia en el grafo.
+
+        Args:
+            plt_size (tuple, optional): Tamaño del gŕafico (ancho x altura). Defaults es (12, 8).
+        """
         graph_optim_path(self.graph, self.route, self.r_len, plt_size)
