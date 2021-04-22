@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ant_colony.aco_tsp.hormiga_recorre &mdash; &#34;ant_colony&#34; 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ant_colony.aco_tsp.ant_colony" href="ant_colony.aco_tsp.ant_colony.html" />
+    <link rel="prev" title="Funciones" href="../functions_autosummary.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> "ant_colony"
+          
+
+          
+            
+            <img src="../_static/aco_tsp_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../instalacion.html">Instalación</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../functions_autosummary.html">Funciones</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../functions_autosummary.html#modulo-aco-tsp">Módulo aco_tsp</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ant_colony.aco_tsp.hormiga_recorre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ant_colony.aco_tsp.ant_colony.html">ant_colony.aco_tsp.ant_colony</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../functions_autosummary.html#modulo-utils">Módulo utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clases.html">Clases</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">"ant_colony"</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../functions_autosummary.html">Funciones</a> &raquo;</li>
+        
+      <li>ant_colony.aco_tsp.hormiga_recorre</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/_autosummary/ant_colony.aco_tsp.hormiga_recorre.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ant-colony-aco-tsp-hormiga-recorre">
+<h1>ant_colony.aco_tsp.hormiga_recorre<a class="headerlink" href="#ant-colony-aco-tsp-hormiga-recorre" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="ant_colony.aco_tsp.hormiga_recorre">
+<code class="sig-prename descclassname"><span class="pre">ant_colony.aco_tsp.</span></code><code class="sig-name descname"><span class="pre">hormiga_recorre</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lenghts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dic_attr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_best</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_best</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ant_colony/aco_tsp.html#hormiga_recorre"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ant_colony.aco_tsp.hormiga_recorre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcula la ruta y distancia más cortas con respecto al benchmark provisto,
+luego del recorrido (o su intento) de una hormiga por la red.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>lenghts</strong> (<em>dic</em>) – Diccionario de distancias</p></li>
+<li><p><strong>dic_attr</strong> (<em>dic</em>) – [description]</p></li>
+<li><p><strong>tau</strong> (<em>dic</em>) – Diccionario con niveles de feromonas de los vecinos de cada nodo</p></li>
+<li><p><strong>init_point</strong> (<em>int</em>) – Nodo inicial del recorrido</p></li>
+<li><p><strong>x_best</strong> (<em>list</em>) – Ruta con respecto a la cual se quiere mejorar</p></li>
+<li><p><strong>y_best</strong> (<em>float</em>) – Distancia total del recorrido x_best</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Mejor ruta, mejor distancia</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list, float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ant_colony.aco_tsp.ant_colony.html" class="btn btn-neutral float-right" title="ant_colony.aco_tsp.ant_colony" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../functions_autosummary.html" class="btn btn-neutral float-left" title="Funciones" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Santiago Battezatti - Sebastián Cadavid-Sánchez - Rafael Ortega - Laura Tejada.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
