@@ -61,14 +61,14 @@ def sample_params(trial):
     }
 
 class Objective(object):
-    def __init__(self, G, init_node):
-        """Clase para definir la función objetivo a optimizar en la búsqueda de los mejores
+    """Clase para definir la función objetivo a optimizar en la búsqueda de los mejores
         hiper-parámetros del algoritmo. Minimiza tiempo + (distancia)^2.
 
-        Args:
-            G (networkx graph): Grafo con relaciones asociadas entre nodos.
-            init_node (int): Nodo inicial del recorrido.
-        """
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos.
+        init_node (int): Nodo inicial del recorrido.
+    """
+    def __init__(self, G, init_node):
         self.G = G
         self.init_node = init_node
 

@@ -8,6 +8,18 @@ from ant_colony.utils import *
 class colony():
     """Clase que representa una colonia de hormigas que recorren
     el grafo asignado para resolver el problema TSP.
+
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos
+        init_node (int): Nodo inicial del recorrido.
+        best_route (list, optional): Ruta con respecto a la cual se quiere mejorar.
+        best_dist ([type], optional): Distancia total del recorrido x_best.
+        n_ants (int, optional): Número de hormigas. Default es 2.
+        max_iter (int, optional): [description]. Default es 100.
+        alpha (int, optional): Factor de influencia de tau. Defaults to 1.
+        beta (int, optional): Factor de influencia de eta. Defaults to 5.
+        rho (float, optional): Tasa de evaporación de las feromonas. Defaults to .5.
+        verbose (int, optional): Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.
     """
     def __init__(self, G, init_node,
                  best_route = [],
@@ -18,21 +30,6 @@ class colony():
                  beta=5, 
                  rho=.5, 
                  verbose=10):
-        """[summary]
-
-        Args:
-            G (networkx graph): Grafo con relaciones asociadas entre nodos
-            init_node (int): Nodo inicial del recorrido.
-            best_route (list, optional): Ruta con respecto a la cual se quiere mejorar.
-            best_dist ([type], optional): Distancia total del recorrido x_best.
-            n_ants (int, optional): Número de hormigas. Default es 2.
-            max_iter (int, optional): [description]. Default es 100.
-            alpha (int, optional): Factor de influencia de tau. Defaults to 1.
-            beta (int, optional): Factor de influencia de eta. Defaults to 5.
-            rho (float, optional): Tasa de evaporación de las feromonas. Defaults to .5.
-            verbose (int, optional): Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.
-        """
-        
         self.graph = G
         self.init_node = init_node
         self.best_route = best_route
@@ -144,6 +141,9 @@ class colony():
 class ant():
     """Clase que representa una hormiga de la colonia y realizará
     recorridos por el grafo.
+    
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos
     """
     def __init__(self, G, r_len = float('inf'), route = []):
         
