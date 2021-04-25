@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="ant_colony.utils.plot_graph" href="_autosummary/ant_colony.utils.plot_graph.html" /> 
+    <link rel="prev" title="ant_colony.optim_hyper.optim_h_params" href="_autosummary/ant_colony.optim_hyper.optim_h_params.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -92,6 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="functions_autosummary.html">Funciones</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Clases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#modulo-aco-tsp-oo">Módulo aco_tsp_oo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modulo-optim-hyper">Módulo optim_hyper</a></li>
 </ul>
 </li>
 </ul>
@@ -170,6 +171,11 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ant_colony.aco_tsp_oo.</span></code><code class="sig-name descname"><span class="pre">ant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">route</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#ant"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Clase que representa una hormiga de la colonia y realizará
 recorridos por el grafo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt>
 <code class="sig-name descname"><span class="pre">plot_route</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plt_size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#ant.plot_route"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
@@ -205,6 +211,22 @@ al origen sin repetir otros nodos.</p>
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ant_colony.aco_tsp_oo.</span></code><code class="sig-name descname"><span class="pre">colony</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_route</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_ants</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#colony"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Clase que representa una colonia de hormigas que recorren
 el grafo asignado para resolver el problema TSP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>init_node</strong> (<em>int</em>) – Nodo inicial del recorrido.</p></li>
+<li><p><strong>best_route</strong> (<em>list</em><em>, </em><em>optional</em>) – Ruta con respecto a la cual se quiere mejorar.</p></li>
+<li><p><strong>best_dist</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – Distancia total del recorrido x_best.</p></li>
+<li><p><strong>n_ants</strong> (<em>int</em><em>, </em><em>optional</em>) – Número de hormigas. Default es 2.</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – [description]. Default es 100.</p></li>
+<li><p><strong>alpha</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de tau. Defaults to 1.</p></li>
+<li><p><strong>beta</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de eta. Defaults to 5.</p></li>
+<li><p><strong>rho</strong> (<em>float</em><em>, </em><em>optional</em>) – Tasa de evaporación de las feromonas. Defaults to .5.</p></li>
+<li><p><strong>verbose</strong> (<em>int</em><em>, </em><em>optional</em>) – Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt>
 <code class="sig-name descname"><span class="pre">optim_hyper_params</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#colony.optim_hyper_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
@@ -231,6 +253,26 @@ el grafo asignado para resolver el problema TSP.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="modulo-optim-hyper">
+<h2>Módulo optim_hyper<a class="headerlink" href="#modulo-optim-hyper" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ant_colony.optim_hyper.</span></code><code class="sig-name descname"><span class="pre">Objective</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/optim_hyper.html#Objective"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><dl class="simple">
+<dt>Clase para definir la función objetivo a optimizar en la búsqueda de los mejores</dt><dd><p>hiper-parámetros del algoritmo. Minimiza tiempo + (distancia)^2.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos.</p></li>
+<li><p><strong>init_node</strong> (<em>int</em>) – Nodo inicial del recorrido.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -239,7 +281,7 @@ el grafo asignado para resolver el problema TSP.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="_autosummary/ant_colony.utils.plot_graph.html" class="btn btn-neutral float-left" title="ant_colony.utils.plot_graph" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="_autosummary/ant_colony.optim_hyper.optim_h_params.html" class="btn btn-neutral float-left" title="ant_colony.optim_hyper.optim_h_params" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

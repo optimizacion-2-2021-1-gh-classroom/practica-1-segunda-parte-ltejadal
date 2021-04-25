@@ -55,6 +55,9 @@
           
 
           
+            
+            <img src="../../_static/aco_tsp_logo.png" class="logo" alt="Logo"/>
+          
           </a>
 
           
@@ -86,6 +89,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../instalacion.html">Instalación</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions_autosummary.html">Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clases.html">Clases</a></li>
 </ul>
 
             
@@ -159,7 +163,7 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1">###</span>
-<div class="viewcode-block" id="create_dic_dist"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.create_dic_dist.html#ant_colony.aco_tsp.create_dic_dist">[docs]</a><span class="k">def</span> <span class="nf">create_dic_dist</span><span class="p">(</span><span class="n">dist</span><span class="p">):</span>
+<div class="viewcode-block" id="create_dic_dist"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.create_dic_dist.html#ant_colony.utils.create_dic_dist">[docs]</a><span class="k">def</span> <span class="nf">create_dic_dist</span><span class="p">(</span><span class="n">dist</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Crea diccionario de distancias entre nodos a partir de la versión</span>
 <span class="sd">    numérica de la matriz de distancias.</span>
 
@@ -176,7 +180,7 @@
             <span class="n">lenghts</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="n">neighbor</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
     <span class="k">return</span> <span class="n">lenghts</span> </div>
     
-<div class="viewcode-block" id="create_dic_dist_from_graph"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.create_dic_dist_from_graph.html#ant_colony.aco_tsp.create_dic_dist_from_graph">[docs]</a><span class="k">def</span> <span class="nf">create_dic_dist_from_graph</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+<div class="viewcode-block" id="create_dic_dist_from_graph"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.create_dic_dist_from_graph.html#ant_colony.utils.create_dic_dist_from_graph">[docs]</a><span class="k">def</span> <span class="nf">create_dic_dist_from_graph</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Crea diccionario de distancias entre nodos a partir de un grafo. </span>
 
 <span class="sd">    Args:</span>
@@ -195,7 +199,7 @@
 
     <span class="k">return</span> <span class="n">lenghts</span>  </div>
 
-<div class="viewcode-block" id="init_ferom"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.init_ferom.html#ant_colony.aco_tsp.init_ferom">[docs]</a><span class="k">def</span> <span class="nf">init_ferom</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_lev</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<div class="viewcode-block" id="init_ferom"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.init_ferom.html#ant_colony.utils.init_ferom">[docs]</a><span class="k">def</span> <span class="nf">init_ferom</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_lev</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Inicialización de diccionario con nivel de feromonas de los nodos.</span>
 
 <span class="sd">    Args:</span>
@@ -218,7 +222,7 @@
 
     <span class="k">return</span> <span class="n">tau</span></div>
 
-<div class="viewcode-block" id="init_atrac"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.init_atrac.html#ant_colony.aco_tsp.init_atrac">[docs]</a><span class="k">def</span> <span class="nf">init_atrac</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">lenghts</span><span class="p">):</span>
+<div class="viewcode-block" id="init_atrac"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.init_atrac.html#ant_colony.utils.init_atrac">[docs]</a><span class="k">def</span> <span class="nf">init_atrac</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">lenghts</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Inicialización de diccionario con nivel de atracción a priori de los nodos</span>
 <span class="sd">       utilizando la inversa de las distancias.</span>
 <span class="sd">    Args:</span>
@@ -240,7 +244,7 @@
                 <span class="n">eta</span><span class="p">[</span><span class="n">nodo</span><span class="p">][</span><span class="n">neighbor</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">lenghts</span><span class="p">[</span><span class="n">nodo</span><span class="p">][</span><span class="n">neighbor</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">eta</span></div>
 
-<div class="viewcode-block" id="atraccion_nodos"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.atraccion_nodos.html#ant_colony.aco_tsp.atraccion_nodos">[docs]</a><span class="k">def</span> <span class="nf">atraccion_nodos</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="viewcode-block" id="atraccion_nodos"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.atraccion_nodos.html#ant_colony.utils.atraccion_nodos">[docs]</a><span class="k">def</span> <span class="nf">atraccion_nodos</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Calcula el grado de atracción de todos los nodos pertenicientes al grafo G.</span>
 
 <span class="sd">    Args:</span>
@@ -290,7 +294,7 @@
         <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">get_graph</span><span class="p">()</span> 
 
 
-<div class="viewcode-block" id="rand_dist_matrix"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.rand_dist_matrix.html#ant_colony.aco_tsp.rand_dist_matrix">[docs]</a><span class="k">def</span> <span class="nf">rand_dist_matrix</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">round_factor</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">1951959</span><span class="p">,</span> <span class="nb">int</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="rand_dist_matrix"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.rand_dist_matrix.html#ant_colony.utils.rand_dist_matrix">[docs]</a><span class="k">def</span> <span class="nf">rand_dist_matrix</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">round_factor</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">1951959</span><span class="p">,</span> <span class="nb">int</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Crea matriz aleatoria de distancias. Retorna su versión numérica en numpy o su versión en grafo con networksx. </span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
@@ -322,7 +326,7 @@
         <span class="n">G</span> <span class="o">=</span> <span class="n">dist_mat</span>
     <span class="k">return</span> <span class="n">G</span></div>
 
-<div class="viewcode-block" id="plot_graph"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.plot_graph.html#ant_colony.aco_tsp.plot_graph">[docs]</a><span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">m_plot</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">19511959</span><span class="p">):</span>
+<div class="viewcode-block" id="plot_graph"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.plot_graph.html#ant_colony.utils.plot_graph">[docs]</a><span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">m_plot</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">19511959</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Grafica red en su versión de coordenadas o de grafo. Fija las posiciones</span>
 <span class="sd">    de forma deterministica con una semilla (seed).</span>
 
@@ -353,7 +357,7 @@
                 <span class="n">edge_cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span> 
                 <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="graph_optim_path"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.graph_optim_path.html#ant_colony.aco_tsp.graph_optim_path">[docs]</a><span class="k">def</span> <span class="nf">graph_optim_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">plt_size</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">)):</span>
+<div class="viewcode-block" id="graph_optim_path"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.graph_optim_path.html#ant_colony.utils.graph_optim_path">[docs]</a><span class="k">def</span> <span class="nf">graph_optim_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">plt_size</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">)):</span>
     <span class="sd">&quot;&quot;&quot;Grafica la ruta direccionada de un grafo asociado a una ruta</span>
 
 <span class="sd">    Args:</span>

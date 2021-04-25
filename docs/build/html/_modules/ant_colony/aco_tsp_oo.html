@@ -55,6 +55,9 @@
           
 
           
+            
+            <img src="../../_static/aco_tsp_logo.png" class="logo" alt="Logo"/>
+          
           </a>
 
           
@@ -163,6 +166,18 @@
 <div class="viewcode-block" id="colony"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.colony">[docs]</a><span class="k">class</span> <span class="nc">colony</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Clase que representa una colonia de hormigas que recorren</span>
 <span class="sd">    el grafo asignado para resolver el problema TSP.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        G (networkx graph): Grafo con relaciones asociadas entre nodos</span>
+<span class="sd">        init_node (int): Nodo inicial del recorrido.</span>
+<span class="sd">        best_route (list, optional): Ruta con respecto a la cual se quiere mejorar.</span>
+<span class="sd">        best_dist ([type], optional): Distancia total del recorrido x_best.</span>
+<span class="sd">        n_ants (int, optional): Número de hormigas. Default es 2.</span>
+<span class="sd">        max_iter (int, optional): [description]. Default es 100.</span>
+<span class="sd">        alpha (int, optional): Factor de influencia de tau. Defaults to 1.</span>
+<span class="sd">        beta (int, optional): Factor de influencia de eta. Defaults to 5.</span>
+<span class="sd">        rho (float, optional): Tasa de evaporación de las feromonas. Defaults to .5.</span>
+<span class="sd">        verbose (int, optional): Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="p">,</span>
                  <span class="n">best_route</span> <span class="o">=</span> <span class="p">[],</span>
@@ -173,21 +188,6 @@
                  <span class="n">beta</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
                  <span class="n">rho</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> 
                  <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;[summary]</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            G (networkx graph): Grafo con relaciones asociadas entre nodos</span>
-<span class="sd">            init_node (int): Nodo inicial del recorrido.</span>
-<span class="sd">            best_route (list, optional): Ruta con respecto a la cual se quiere mejorar.</span>
-<span class="sd">            best_dist ([type], optional): Distancia total del recorrido x_best.</span>
-<span class="sd">            n_ants (int, optional): Número de hormigas. Default es 2.</span>
-<span class="sd">            max_iter (int, optional): [description]. Default es 100.</span>
-<span class="sd">            alpha (int, optional): Factor de influencia de tau. Defaults to 1.</span>
-<span class="sd">            beta (int, optional): Factor de influencia de eta. Defaults to 5.</span>
-<span class="sd">            rho (float, optional): Tasa de evaporación de las feromonas. Defaults to .5.</span>
-<span class="sd">            verbose (int, optional): Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        
         <span class="bp">self</span><span class="o">.</span><span class="n">graph</span> <span class="o">=</span> <span class="n">G</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">init_node</span> <span class="o">=</span> <span class="n">init_node</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">best_route</span> <span class="o">=</span> <span class="n">best_route</span>
@@ -299,6 +299,9 @@
 <div class="viewcode-block" id="ant"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.ant">[docs]</a><span class="k">class</span> <span class="nc">ant</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Clase que representa una hormiga de la colonia y realizará</span>
 <span class="sd">    recorridos por el grafo.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        G (networkx graph): Grafo con relaciones asociadas entre nodos</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">r_len</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="n">route</span> <span class="o">=</span> <span class="p">[]):</span>
         

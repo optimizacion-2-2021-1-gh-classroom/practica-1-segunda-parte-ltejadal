@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ant_colony.optim_hyper &mdash; &#34;ant_colony&#34; 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> "ant_colony"
+          
+
+          
+            
+            <img src="../../_static/aco_tsp_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenido:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacion.html">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions_autosummary.html">Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clases.html">Clases</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">"ant_colony"</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>ant_colony.optim_hyper</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ant_colony.optim_hyper</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">optuna</span>
+<span class="kn">from</span> <span class="nn">ant_colony.aco_tsp_oo</span> <span class="kn">import</span> <span class="n">colony</span>
+
+<div class="viewcode-block" id="load_params"><a class="viewcode-back" href="../../_autosummary/ant_colony.optim_hyper.load_params.html#ant_colony.optim_hyper.load_params">[docs]</a><span class="k">def</span> <span class="nf">load_params</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Carga los mejores parámetros de un estudio previo.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file (db): Base de datos con el estudio previo, correspondiente </span>
+<span class="sd">        a best_hiper_params. </span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        [lst]: Lista con los mejores hiperparámetros encontrados</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sq_path</span> <span class="o">=</span> <span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">file</span>
+    <span class="n">study</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">load_study</span><span class="p">(</span><span class="n">study_name</span><span class="o">=</span><span class="s1">&#39;optimize_aco&#39;</span><span class="p">,</span> <span class="n">storage</span><span class="o">=</span><span class="n">sq_path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">study</span><span class="o">.</span><span class="n">best_trial</span><span class="o">.</span><span class="n">params</span></div>
+
+<div class="viewcode-block" id="optim_h_params"><a class="viewcode-back" href="../../_autosummary/ant_colony.optim_hyper.optim_h_params.html#ant_colony.optim_hyper.optim_h_params">[docs]</a><span class="k">def</span> <span class="nf">optim_h_params</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Genera estudio de optimización para buscar los mejores hiper-parámetros del algoritmo.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        G (networkx graph): Grafo con relaciones asociadas entre nodos.</span>
+<span class="sd">        init_node (int): Nodo inicial del recorrido.</span>
+<span class="sd">        trials (int): Numero de intentos para hacer el muestreo. </span>
+<span class="sd">        save (bool, optional): Se especifica si se quiere guardar el estudio en disco. Default es False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        [dict]: Diccionario con la información del estudio de optimización</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">objective</span> <span class="o">=</span> <span class="n">Objective</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
+        <span class="n">study</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">create_study</span><span class="p">(</span><span class="n">study_name</span><span class="o">=</span><span class="s1">&#39;optimize_aco&#39;</span><span class="p">,</span>
+                                    <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;minimize&quot;</span><span class="p">,</span> 
+                                    <span class="n">storage</span><span class="o">=</span><span class="s1">&#39;sqlite:///best_hiper_params.db&#39;</span><span class="p">,</span> 
+                                    <span class="n">load_if_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">study</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">create_study</span><span class="p">(</span><span class="n">study_name</span><span class="o">=</span><span class="s1">&#39;optimize_aco&#39;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;minimize&quot;</span><span class="p">)</span>
+
+    <span class="n">study</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="n">trials</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hyper-parameters saved in ./best_hiper_params.db&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">study</span><span class="o">.</span><span class="n">best_trial</span></div>
+
+<span class="k">def</span> <span class="nf">sample_params</span><span class="p">(</span><span class="n">trial</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Define el modo en que se va a hacer el meustro de los hiper-parametros del algoritmo</span>
+<span class="sd">    en optuna. No está disponible para los usuarios.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        trial (optuna trial): Ninguno</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span><span class="p">{</span>
+        <span class="s1">&#39;n_ants&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span><span class="s1">&#39;n_ants&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="s1">&#39;max_iter&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_categorical</span><span class="p">(</span><span class="s1">&#39;max_iter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">]),</span>
+        <span class="s1">&#39;rho&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_uniform</span><span class="p">(</span><span class="s1">&#39;rho&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+        <span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="s1">&#39;beta&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="Objective"><a class="viewcode-back" href="../../clases.html#ant_colony.optim_hyper.Objective">[docs]</a><span class="k">class</span> <span class="nc">Objective</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Clase para definir la función objetivo a optimizar en la búsqueda de los mejores</span>
+<span class="sd">        hiper-parámetros del algoritmo. Minimiza tiempo + (distancia)^2.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        G (networkx graph): Grafo con relaciones asociadas entre nodos.</span>
+<span class="sd">        init_node (int): Nodo inicial del recorrido.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">G</span> <span class="o">=</span> <span class="n">G</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_node</span> <span class="o">=</span> <span class="n">init_node</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">):</span>
+        <span class="n">aco_params</span> <span class="o">=</span> <span class="n">sample_params</span><span class="p">(</span><span class="n">trial</span><span class="p">)</span>
+        <span class="n">colony_</span> <span class="o">=</span> <span class="n">colony</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_node</span><span class="p">,</span> <span class="o">**</span><span class="n">aco_params</span><span class="p">)</span>
+        
+        <span class="c1"># time algorithm</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">colony_</span><span class="o">.</span><span class="n">solve_tsp</span><span class="p">()</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> 
+        <span class="c1"># total time in minutes</span>
+        <span class="n">total_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">total_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">colony_</span><span class="o">.</span><span class="n">best_dist</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        
+        <span class="k">return</span> <span class="n">obj</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Santiago Battezatti - Sebastián Cadavid-Sánchez - Rafael Ortega - Laura Tejada.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
