@@ -27,8 +27,8 @@ def optim_h_params(G, init_node, trials, save=False):
 
 def sample_params(trial):
     return{
-        'n_ants' : trial.suggest_int('n_ants', 2, 512, log=True),
-        'max_iter' : trial.suggest_categorical('max_iter', [1, 10]),
+        'n_ants' : trial.suggest_int('n_ants', 2, 2048, log=True),
+        'max_iter' : trial.suggest_categorical('max_iter', [1, 10, 100, 200, 300, 400, 500]),
         'rho' : trial.suggest_uniform('rho', 0.0, 1.0),
         'alpha' : trial.suggest_int('alpha', 0, 5),
         'beta' : trial.suggest_int('beta', 1, 5)
