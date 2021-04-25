@@ -9,12 +9,11 @@ setup(name="ant_colony",
       author_email="",
       license="MIT",
       packages=find_packages(),
-      ## falta actualizar paquetes correctos dependiendo del codigo de Ant Colony: 
       install_requires = [
                           "tsplib95",
                           "matplotlib",
                           "networkx",
-			        "scipy"
+                          "scipy"
                           ],
       )
 
