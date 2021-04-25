@@ -3,11 +3,31 @@ import optuna
 from ant_colony.aco_tsp_oo import colony
 
 def load_params(file):
+    """Carga los mejores parámetros de un estudio previo.
+
+    Args:
+        file (db): Base de datos con el estudio previo, correspondiente 
+        a best_hiper_params. 
+
+    Returns:
+        [lst]: Lista con los mejores hiperparámetros encontrados
+    """
     sq_path = 'sqlite:///' + file
     study = optuna.load_study(study_name='optimize_aco', storage=sq_path)
     return study.best_trial.params
 
 def optim_h_params(G, init_node, trials, save=False):
+    """[summary]
+
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos.
+        init_node (int): Nodo inicial del recorrido.
+        trials (int): Numero de intentos para hacer el muestreo. 
+        save (bool, optional): Se especifica si se quiere guardar el estudio en disco. Default es False.
+
+    Returns:
+        [dict]: Diccionario con la información del estudio de optimización
+    """
     objective = Objective(G, init_node)
     if save:
         study = optuna.create_study(study_name='optimize_aco',
@@ -26,6 +46,12 @@ def optim_h_params(G, init_node, trials, save=False):
     return study.best_trial
 
 def sample_params(trial):
+    """Define el modo en que se va a hacer el meustro de los hiper-parametros del algoritmo
+    en optuna. No está disponible para los usuarios.
+
+    Args:
+        trial (optuna trial): Ninguno
+    """
     return{
         'n_ants' : trial.suggest_int('n_ants', 2, 2048, log=True),
         'max_iter' : trial.suggest_categorical('max_iter', [1, 10, 100, 200, 300, 400, 500]),
@@ -36,6 +62,13 @@ def sample_params(trial):
 
 class Objective(object):
     def __init__(self, G, init_node):
+        """Clase para definir la función objetivo a optimizar en la búsqueda de los mejores
+        hiper-parámetros del algoritmo. Minimiza tiempo + (distancia)^2.
+
+        Args:
+            G (networkx graph): Grafo con relaciones asociadas entre nodos.
+            init_node (int): Nodo inicial del recorrido.
+        """
         self.G = G
         self.init_node = init_node
 
