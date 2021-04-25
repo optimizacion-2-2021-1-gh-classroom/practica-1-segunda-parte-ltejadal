@@ -27,3 +27,11 @@ Módulo utils
    utils.atraccion_nodos
    utils.graph_optim_path
    utils.plot_graph
+
+Módulo optim_hyper
+==================
+.. autosummary::
+   :toctree: _autosummary
+
+   optim_hyper.load_params
+   optim_hyper.optim_h_params

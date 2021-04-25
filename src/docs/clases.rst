@@ -15,3 +15,11 @@ Módulo aco_tsp_oo
     :noindex:
     :members:
     :undoc-members:
+
+Módulo optim_hyper
+==================
+
+.. autoclass:: ant_colony.optim_hyper.Objective
+    :noindex:
+    :members:
+    :undoc-members:
