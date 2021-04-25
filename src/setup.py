@@ -13,7 +13,8 @@ setup(name="ant_colony",
                           "tsplib95",
                           "matplotlib",
                           "networkx",
-                          "scipy"
+                          "scipy",
+                          "optuna"
                           ],
       )
 
