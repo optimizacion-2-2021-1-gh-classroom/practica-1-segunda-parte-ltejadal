@@ -132,16 +132,11 @@ class colony():
             plt_size (tuple, optional): Tamaño del gŕafico (ancho x altura). Defaults es (12, 8).
         """
         graph_optim_path(self.graph, self.best_route, self.best_dist, plt_size)
-            
-    def optim_hyper_params(self):
-        """[summary]
-        """
-        None
 
 class ant():
     """Clase que representa una hormiga de la colonia y realizará
     recorridos por el grafo.
-    
+
     Args:
         G (networkx graph): Grafo con relaciones asociadas entre nodos
     """
