@@ -17,7 +17,7 @@ def load_params(file):
     return study.best_trial.params
 
 def optim_h_params(G, init_node, trials, save=False):
-    """[summary]
+    """Genera estudio de optimización para buscar los mejores hiper-parámetros del algoritmo.
 
     Args:
         G (networkx graph): Grafo con relaciones asociadas entre nodos.
