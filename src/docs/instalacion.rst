@@ -35,4 +35,4 @@ Descargar e instalar con ``pip``
 
 .. code-block:: bash
 
-    pip install "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git#egg=opt2&subdirectory=src"
+   pip install "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git#egg=ant-colony&subdirectory=src"
