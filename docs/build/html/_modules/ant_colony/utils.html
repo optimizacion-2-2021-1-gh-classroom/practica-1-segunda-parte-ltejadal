@@ -88,6 +88,7 @@
               <p class="caption"><span class="caption-text">Contenido:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../instalacion.html">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker_images.html">Imágenes de <code class="docutils literal notranslate"><span class="pre">Docker</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions_autosummary.html">Funciones</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../clases.html">Clases</a></li>
 </ul>
@@ -204,8 +205,8 @@
 
 <span class="sd">    Args:</span>
 <span class="sd">        G (networkx graph): Grafo con relaciones asociadas entre nodos</span>
-<span class="sd">        init_lev (float, optional): Nivel de inicialización de feromona para todas</span>
-<span class="sd">            las trayectorias de los nodos. Default es 1.0.</span>
+<span class="sd">        init_lev (float, optional): Nivel de inicialización de feromona para </span>
+<span class="sd">        todas las trayectorias de los nodos. Default es 1.0.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        (dic): Diccionario con nivel de feronomas de las trayectorias</span>
@@ -223,8 +224,9 @@
     <span class="k">return</span> <span class="n">tau</span></div>
 
 <div class="viewcode-block" id="init_atrac"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.init_atrac.html#ant_colony.utils.init_atrac">[docs]</a><span class="k">def</span> <span class="nf">init_atrac</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">lenghts</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Inicialización de diccionario con nivel de atracción a priori de los nodos</span>
-<span class="sd">       utilizando la inversa de las distancias.</span>
+    <span class="sd">&quot;&quot;&quot;Inicialización de diccionario con nivel de atracción a priori de los </span>
+<span class="sd">    nodos utilizando la inversa de las distancias.</span>
+
 <span class="sd">    Args:</span>
 <span class="sd">        G (networkx graph): Grafo con relaciones asociadas entre nodos</span>
 <span class="sd">        lenghts (dic): Diccionario de distancias</span>
@@ -245,17 +247,21 @@
     <span class="k">return</span> <span class="n">eta</span></div>
 
 <div class="viewcode-block" id="atraccion_nodos"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.atraccion_nodos.html#ant_colony.utils.atraccion_nodos">[docs]</a><span class="k">def</span> <span class="nf">atraccion_nodos</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Calcula el grado de atracción de todos los nodos pertenicientes al grafo G.</span>
+    <span class="sd">&quot;&quot;&quot;Calcula el grado de atracción de todos los nodos pertenicientes al </span>
+<span class="sd">    grafo G.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        G (networkx graph): Grafo con relaciones asociadas entre nodos</span>
-<span class="sd">        tau (dic): Diccionario con niveles de feromonas de los vecinos de cada nodo</span>
-<span class="sd">        eta (dic): Diccionario con nivel de atracción inicial de los vecinos de cada nodo</span>
+<span class="sd">        tau (dic): Diccionario con niveles de feromonas de los vecinos de </span>
+<span class="sd">        cada nodo</span>
+<span class="sd">        eta (dic): Diccionario con nivel de atracción inicial de los vecinos </span>
+<span class="sd">        de cada nodo</span>
 <span class="sd">        alpha (int, optional): Factor de influencia de tau. Defaults to 1.</span>
 <span class="sd">        beta (int, optional): Factor de influencia de eta. Defaults to 5.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        (dic): Diccionario con los valores de atracción de los vecinos del nodo j</span>
+<span class="sd">        (dic): Diccionario con los valores de atracción de los vecinos del </span>
+<span class="sd">        nodo j</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">dic_attr</span> <span class="o">=</span> <span class="p">{}</span>
@@ -295,13 +301,17 @@
 
 
 <div class="viewcode-block" id="rand_dist_matrix"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.rand_dist_matrix.html#ant_colony.utils.rand_dist_matrix">[docs]</a><span class="k">def</span> <span class="nf">rand_dist_matrix</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">round_factor</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">1951959</span><span class="p">,</span> <span class="nb">int</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Crea matriz aleatoria de distancias. Retorna su versión numérica en numpy o su versión en grafo con networksx. </span>
+    <span class="sd">&quot;&quot;&quot;Crea matriz aleatoria de distancias. Retorna su versión numérica en </span>
+<span class="sd">    numpy o su versión en grafo con networksx. </span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
 <span class="sd">        n_points (int): Número de nodos de la matriz de distancias.</span>
-<span class="sd">        graph (bool, optional): Retorna la matriz como un grafo de networkx. Default es True.</span>
-<span class="sd">        scale_factor (int, optional): Factor de escala de la matriz. Default es 1.</span>
-<span class="sd">        round_factor (int, optional): Factor de redondeo de la matriz. Default es 4.</span>
+<span class="sd">        graph (bool, optional): Retorna la matriz como un grafo de networkx. </span>
+<span class="sd">        Default es True.</span>
+<span class="sd">        scale_factor (int, optional): Factor de escala de la matriz. Default </span>
+<span class="sd">        es 1.</span>
+<span class="sd">        round_factor (int, optional): Factor de redondeo de la matriz. Default</span>
+<span class="sd">         es 4.</span>
 <span class="sd">        seed (int, optional): Semilla aleatoria. Default es 1951959.</span>
 <span class="sd">        int (bool, optional): Retorna matriz de enteros. Default es False.</span>
 
@@ -327,7 +337,8 @@
     <span class="k">return</span> <span class="n">G</span></div>
 
 <div class="viewcode-block" id="plot_graph"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.plot_graph.html#ant_colony.utils.plot_graph">[docs]</a><span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">m_plot</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">19511959</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Grafica red en su versión de coordenadas o de grafo. Fija las posiciones</span>
+    <span class="sd">&quot;&quot;&quot;Grafica red en su versión de coordenadas o de grafo. Fija las </span>
+<span class="sd">    posiciones</span>
 <span class="sd">    de forma deterministica con una semilla (seed).</span>
 
 <span class="sd">    Args:</span>
@@ -335,7 +346,8 @@
 <span class="sd">        m_plot (str): Tipo de gráfico </span>
 <span class="sd">                        - coordinate: Coordenadas X, Y</span>
 <span class="sd">                        - graph: Grafo</span>
-<span class="sd">        seed (int, optional):Semilla para determinar las posiciones de los nodos en la </span>
+<span class="sd">        seed (int, optional):Semilla para determinar las posiciones de los </span>
+<span class="sd">        nodos en la </span>
 <span class="sd">            visualización. Default es 19511959.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">fruchterman_reingold_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span> 

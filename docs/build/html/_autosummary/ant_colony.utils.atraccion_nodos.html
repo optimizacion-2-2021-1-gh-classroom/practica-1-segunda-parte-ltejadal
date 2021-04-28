@@ -90,6 +90,7 @@
               <p class="caption"><span class="caption-text">Contenido:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../instalacion.html">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker_images.html">Imágenes de <code class="docutils literal notranslate"><span class="pre">Docker</span></code></a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../functions_autosummary.html">Funciones</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../functions_autosummary.html#modulo-aco-tsp">Módulo aco_tsp</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../functions_autosummary.html#modulo-utils">Módulo utils</a><ul class="current">
@@ -181,19 +182,23 @@
 <dl class="py function">
 <dt id="ant_colony.utils.atraccion_nodos">
 <code class="sig-prename descclassname"><span class="pre">ant_colony.utils.</span></code><code class="sig-name descname"><span class="pre">atraccion_nodos</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ant_colony/utils.html#atraccion_nodos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ant_colony.utils.atraccion_nodos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcula el grado de atracción de todos los nodos pertenicientes al grafo G.</p>
+<dd><p>Calcula el grado de atracción de todos los nodos pertenicientes al
+grafo G.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
-<li><p><strong>tau</strong> (<em>dic</em>) – Diccionario con niveles de feromonas de los vecinos de cada nodo</p></li>
-<li><p><strong>eta</strong> (<em>dic</em>) – Diccionario con nivel de atracción inicial de los vecinos de cada nodo</p></li>
+<li><p><strong>tau</strong> (<em>dic</em>) – Diccionario con niveles de feromonas de los vecinos de</p></li>
+<li><p><strong>nodo</strong> (<em>cada</em>) – </p></li>
+<li><p><strong>eta</strong> (<em>dic</em>) – Diccionario con nivel de atracción inicial de los vecinos</p></li>
+<li><p><strong>cada nodo</strong> (<em>de</em>) – </p></li>
 <li><p><strong>alpha</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de tau. Defaults to 1.</p></li>
 <li><p><strong>beta</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de eta. Defaults to 5.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Diccionario con los valores de atracción de los vecinos del nodo j</p>
+<dd class="field-even"><p>Diccionario con los valores de atracción de los vecinos del
+nodo j</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>(dic)</p>

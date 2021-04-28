@@ -4,13 +4,14 @@
    contain the root `toctree` directive.
 
 Bienvenido a la documentación de ``ACO_TSP``
-==================================
+============================================
 
  .. toctree::
    :maxdepth: 2
    :caption: Contenido:
 
    instalacion
+   docker_images
    functions_autosummary
    clases
 
