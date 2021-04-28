@@ -5,7 +5,7 @@ on:
     branches:    
     - main
     paths:
-    - ./docs/**
+    - src/**
 
 jobs:
   build:
@@ -13,8 +13,16 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    - name: Deploy documentation on GitHub Pages
+    - uses: actions/checkout@v2
+    - name: Install dependencies and commit doc changes
+    # Publish built docs to gh-pages branch.
+    # ===============================
+      run: |
+        mkdir src/docs/_build && mkdir src/docs/_autosummary && mkdir src/docs/_static && mkdir src/docs/_templates && chmod gou+wrx -R src/docs
+        docker run -v $(pwd):/datos --entrypoint /bin/bash --rm palmoreck/jupyterlab_optimizacion_2:3.0.0 -c "export PATH=$PATH:/home/miuser/.local/bin/ && pip install sphinx_rtd_theme && cd /datos/src && pip install . && cd ../src/docs && make html && touch .nojekyll"
+    - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.7.3
       with:
+        branch: gh-pages
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/_build/
+        publish_dir: src/docs/_build/html/
