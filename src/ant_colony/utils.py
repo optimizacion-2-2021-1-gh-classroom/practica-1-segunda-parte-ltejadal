@@ -46,8 +46,8 @@ def init_ferom(G, init_lev=1.0):
 
     Args:
         G (networkx graph): Grafo con relaciones asociadas entre nodos
-        init_lev (float, optional): Nivel de inicialización de feromona para todas
-            las trayectorias de los nodos. Default es 1.0.
+        init_lev (float, optional): Nivel de inicialización de feromona para 
+        todas las trayectorias de los nodos. Default es 1.0.
 
     Returns:
         (dic): Diccionario con nivel de feronomas de las trayectorias
@@ -65,8 +65,9 @@ def init_ferom(G, init_lev=1.0):
     return tau
 
 def init_atrac(G, lenghts):
-    """Inicialización de diccionario con nivel de atracción a priori de los nodos
-       utilizando la inversa de las distancias.
+    """Inicialización de diccionario con nivel de atracción a priori de los 
+    nodos utilizando la inversa de las distancias.
+
     Args:
         G (networkx graph): Grafo con relaciones asociadas entre nodos
         lenghts (dic): Diccionario de distancias
@@ -87,17 +88,21 @@ def init_atrac(G, lenghts):
     return eta
 
 def atraccion_nodos(G, tau, eta, alpha=1, beta=5):
-    """Calcula el grado de atracción de todos los nodos pertenicientes al grafo G.
+    """Calcula el grado de atracción de todos los nodos pertenicientes al 
+    grafo G.
 
     Args:
         G (networkx graph): Grafo con relaciones asociadas entre nodos
-        tau (dic): Diccionario con niveles de feromonas de los vecinos de cada nodo
-        eta (dic): Diccionario con nivel de atracción inicial de los vecinos de cada nodo
+        tau (dic): Diccionario con niveles de feromonas de los vecinos de 
+        cada nodo
+        eta (dic): Diccionario con nivel de atracción inicial de los vecinos 
+        de cada nodo
         alpha (int, optional): Factor de influencia de tau. Defaults to 1.
         beta (int, optional): Factor de influencia de eta. Defaults to 5.
 
     Returns:
-        (dic): Diccionario con los valores de atracción de los vecinos del nodo j
+        (dic): Diccionario con los valores de atracción de los vecinos del 
+        nodo j
     """
 
     dic_attr = {}
@@ -137,13 +142,17 @@ def read_data(path):
 
 
 def rand_dist_matrix(n_points, graph=True, scale_factor=1, round_factor=4,seed=1951959, int=False):
-    """Crea matriz aleatoria de distancias. Retorna su versión numérica en numpy o su versión en grafo con networksx. 
+    """Crea matriz aleatoria de distancias. Retorna su versión numérica en 
+    numpy o su versión en grafo con networksx. 
     
     Args:
         n_points (int): Número de nodos de la matriz de distancias.
-        graph (bool, optional): Retorna la matriz como un grafo de networkx. Default es True.
-        scale_factor (int, optional): Factor de escala de la matriz. Default es 1.
-        round_factor (int, optional): Factor de redondeo de la matriz. Default es 4.
+        graph (bool, optional): Retorna la matriz como un grafo de networkx. 
+        Default es True.
+        scale_factor (int, optional): Factor de escala de la matriz. Default 
+        es 1.
+        round_factor (int, optional): Factor de redondeo de la matriz. Default
+         es 4.
         seed (int, optional): Semilla aleatoria. Default es 1951959.
         int (bool, optional): Retorna matriz de enteros. Default es False.
 
@@ -169,7 +178,8 @@ def rand_dist_matrix(n_points, graph=True, scale_factor=1, round_factor=4,seed=1
     return G
 
 def plot_graph(G, m_plot, seed=19511959):
-    """Grafica red en su versión de coordenadas o de grafo. Fija las posiciones
+    """Grafica red en su versión de coordenadas o de grafo. Fija las 
+    posiciones
     de forma deterministica con una semilla (seed).
 
     Args:
@@ -177,7 +187,8 @@ def plot_graph(G, m_plot, seed=19511959):
         m_plot (str): Tipo de gráfico 
                         - coordinate: Coordenadas X, Y
                         - graph: Grafo
-        seed (int, optional):Semilla para determinar las posiciones de los nodos en la 
+        seed (int, optional):Semilla para determinar las posiciones de los 
+        nodos en la 
             visualización. Default es 19511959.
     """
     pos = nx.fruchterman_reingold_layout(G, center=(0,0), seed=seed) 
