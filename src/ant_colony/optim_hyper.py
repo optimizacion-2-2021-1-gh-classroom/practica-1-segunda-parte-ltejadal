@@ -1,6 +1,6 @@
 import time
 import optuna
-from ant_colony.aco_tsp_oo import colony
+from .aco_tsp_oo import colony
 
 def load_params(file):
     """Carga los mejores parámetros de un estudio previo.
