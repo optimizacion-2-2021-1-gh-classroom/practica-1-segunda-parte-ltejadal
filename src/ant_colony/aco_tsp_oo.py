@@ -3,7 +3,7 @@ import tsplib95
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
-from ant_colony.utils import *
+from .utils import *
 
 class colony():
     """Clase que representa una colonia de hormigas que recorren
