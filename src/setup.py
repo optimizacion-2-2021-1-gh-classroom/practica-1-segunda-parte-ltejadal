@@ -14,7 +14,8 @@ setup(name="ant_colony",
                           "matplotlib",
                           "networkx",
                           "scipy",
-                          "optuna"
+                          "optuna",
+                          "pandas",
                           ],
       )
 
