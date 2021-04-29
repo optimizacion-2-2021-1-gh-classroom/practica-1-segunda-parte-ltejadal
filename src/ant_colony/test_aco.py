@@ -5,6 +5,16 @@ import random
 from . import aco_tsp
 from . import utils
 
+from .utils import create_dic_dist
+from .utils import create_dic_dist_from_graph
+from .utils import init_ferom
+from .utils import init_atrac
+from .utils import atraccion_nodos
+from .utils import read_data
+from .utils import rand_dist_matrix
+from .utils import plot_graph
+from .utils import graph_optim_path
+
 # Auxiliares
 def revisar_simetria(matriz, rtol=1e-05, atol=1e-08):
     """Revisa si la matriz ingresada es simétrica o no
