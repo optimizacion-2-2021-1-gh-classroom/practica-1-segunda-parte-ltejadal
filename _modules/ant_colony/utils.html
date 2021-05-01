@@ -162,6 +162,7 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance_matrix</span>
 
 <span class="c1">###</span>
 <div class="viewcode-block" id="create_dic_dist"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.create_dic_dist.html#ant_colony.utils.create_dic_dist">[docs]</a><span class="k">def</span> <span class="nf">create_dic_dist</span><span class="p">(</span><span class="n">dist</span><span class="p">):</span>
@@ -299,6 +300,56 @@
         <span class="n">data</span> <span class="o">=</span> <span class="n">tsplib95</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">get_graph</span><span class="p">()</span> 
 
+<span class="k">def</span> <span class="nf">read_coord_data</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">n_cities</span><span class="p">,</span><span class="n">seed</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convierte en grafo datos de matrices de coordenadas leídas desde un archivo .tsp.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Ruta del archivo.</span>
+<span class="sd">        n_cities (int): número de ciudades a samplear.</span>
+<span class="sd">        seed (int): seed para el sampleo.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (graph networkx): Grafo asociado a la matriz de distancias. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">node_coord_start</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">dimension</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    
+    <span class="c1"># Obtain the information about the .tsp</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">dimension</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">node_coord_start</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;DIMENSION :&#39;</span><span class="p">):</span>
+            <span class="n">dimension</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;NODE_COORD_SECTION&#39;</span><span class="p">):</span>
+            <span class="n">node_coord_start</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+    
+    <span class="n">cities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+            <span class="n">path</span><span class="p">,</span>
+            <span class="n">skiprows</span><span class="o">=</span><span class="n">node_coord_start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span>
+            <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">],</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">},</span>
+            <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">nrows</span><span class="o">=</span><span class="n">dimension</span>
+        <span class="p">)</span>
+    <span class="c1"># Clean x, y coordinates</span>
+    <span class="n">cities_df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cities_df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">cities_df</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cities_df</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Problem with </span><span class="si">{}</span><span class="s1"> cities read.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dimension</span><span class="p">))</span>
+    
+    <span class="n">sample_df</span> <span class="o">=</span> <span class="n">cities_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n_cities</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">array_coord</span> <span class="o">=</span> <span class="n">sample_df</span><span class="p">[[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    
+    <span class="n">d_mat</span> <span class="o">=</span> <span class="n">distance_matrix</span><span class="p">(</span><span class="n">array_coord</span><span class="p">,</span> <span class="n">array_coord</span><span class="p">)</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_numpy_matrix</span><span class="p">(</span><span class="n">d_mat</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">G</span>
 
 <div class="viewcode-block" id="rand_dist_matrix"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.rand_dist_matrix.html#ant_colony.utils.rand_dist_matrix">[docs]</a><span class="k">def</span> <span class="nf">rand_dist_matrix</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">round_factor</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">1951959</span><span class="p">,</span> <span class="nb">int</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Crea matriz aleatoria de distancias. Retorna su versión numérica en </span>
