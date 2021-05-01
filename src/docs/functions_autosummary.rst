@@ -27,6 +27,7 @@ Módulo utils
    utils.atraccion_nodos
    utils.graph_optim_path
    utils.plot_graph
+   utils.read_coord_data
 
 Módulo optim_hyper
 ==================
