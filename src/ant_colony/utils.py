@@ -3,6 +3,7 @@ import tsplib95
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
+from scipy.spatial import distance_matrix
 
 ###
 def create_dic_dist(dist):
@@ -140,6 +141,56 @@ def read_data(path):
         data = tsplib95.load(path)
         return data.get_graph() 
 
+def read_coord_data(path,n_cities,seed):
+    """
+    Convierte en grafo datos de matrices de coordenadas leídas desde un archivo .tsp.
+
+    Args:
+        path (str): Ruta del archivo.
+        n_cities (int): número de ciudades a samplear.
+        seed (int): seed para el sampleo.
+
+    Returns:
+        (graph networkx): Grafo asociado a la matriz de distancias. 
+    """
+    
+    with open(path) as f:
+        node_coord_start = None
+        dimension = None
+        lines = f.readlines()
+    
+    # Obtain the information about the .tsp
+    i = 0
+    while not dimension or not node_coord_start:
+        line = lines[i]
+        if line.startswith('DIMENSION :'):
+            dimension = int(line.split()[-1])
+        if line.startswith('NODE_COORD_SECTION'):
+            node_coord_start = i
+        i = i+1
+    
+    cities_df = pd.read_csv(
+            path,
+            skiprows=node_coord_start + 1,
+            sep=' ',
+            names=['city', 'lat', 'lon'],
+            dtype={'city': str, 'lat': np.float64, 'lon': np.float64},
+            header=None,
+            nrows=dimension
+        )
+    # Clean x, y coordinates
+    cities_df['lat'] = cities_df['lat'].div(1000)
+    cities_df['lon'] = cities_df['lon'].div(1000)
+
+    print('Problem with {} cities read.'.format(dimension))
+    
+    sample_df = cities_df.sample(n_cities, random_state=seed)
+    array_coord = sample_df[['lat','lon']].to_numpy()
+    
+    d_mat = distance_matrix(array_coord, array_coord)
+    G = nx.from_numpy_matrix(d_mat)
+    
+    return G
 
 def rand_dist_matrix(n_points, graph=True, scale_factor=1, round_factor=4,seed=1951959, int=False):
     """Crea matriz aleatoria de distancias. Retorna su versión numérica en 
