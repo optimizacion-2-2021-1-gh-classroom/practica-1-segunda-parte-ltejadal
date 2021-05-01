@@ -143,6 +143,7 @@ def read_data(path):
 
 def read_coord_data(path,n_cities,seed):
     """
+    Basado en la solución propuesta en el siguiente repositorio: https://github.com/DiegoVicen/som-tsp
     Convierte en grafo datos de matrices de coordenadas leídas desde un archivo .tsp.
 
     Args:
