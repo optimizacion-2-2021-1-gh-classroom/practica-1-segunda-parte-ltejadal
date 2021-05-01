@@ -1,0 +1,6 @@
+﻿ant\_colony.utils.read\_coord\_data
+===================================
+
+.. currentmodule:: ant_colony.utils
+
+.. autofunction:: read_coord_data

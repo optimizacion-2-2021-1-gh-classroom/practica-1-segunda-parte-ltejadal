@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>ant_colony.utils.plot_graph &mdash; &#34;ant_colony&#34; 0.1 documentation</title>
+  <title>ant_colony.utils.read_coord_data &mdash; &#34;ant_colony&#34; 0.1 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ant_colony.utils.read_coord_data" href="ant_colony.utils.read_coord_data.html" />
-    <link rel="prev" title="ant_colony.utils.graph_optim_path" href="ant_colony.utils.graph_optim_path.html" /> 
+    <link rel="next" title="ant_colony.optim_hyper.load_params" href="ant_colony.optim_hyper.load_params.html" />
+    <link rel="prev" title="ant_colony.utils.plot_graph" href="ant_colony.utils.plot_graph.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,8 +101,8 @@
 <li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.init_atrac.html">ant_colony.utils.init_atrac</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.atraccion_nodos.html">ant_colony.utils.atraccion_nodos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.graph_optim_path.html">ant_colony.utils.graph_optim_path</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">ant_colony.utils.plot_graph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.read_coord_data.html">ant_colony.utils.read_coord_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.plot_graph.html">ant_colony.utils.plot_graph</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ant_colony.utils.read_coord_data</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../functions_autosummary.html#modulo-optim-hyper">Módulo optim_hyper</a></li>
@@ -159,13 +159,13 @@
         
           <li><a href="../functions_autosummary.html">Funciones</a> &raquo;</li>
         
-      <li>ant_colony.utils.plot_graph</li>
+      <li>ant_colony.utils.read_coord_data</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/_autosummary/ant_colony.utils.plot_graph.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/ant_colony.utils.read_coord_data.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -178,24 +178,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="ant-colony-utils-plot-graph">
-<h1>ant_colony.utils.plot_graph<a class="headerlink" href="#ant-colony-utils-plot-graph" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="ant-colony-utils-read-coord-data">
+<h1>ant_colony.utils.read_coord_data<a class="headerlink" href="#ant-colony-utils-read-coord-data" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="ant_colony.utils.plot_graph">
-<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">plot_graph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">m_plot</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">19511959</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ant_colony/utils.html#plot_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.plot_graph" title="Permalink to this definition">¶</a></dt>
-<dd><p>Grafica red en su versión de coordenadas o de grafo. Fija las
-posiciones
-de forma deterministica con una semilla (seed).</p>
+<dt id="ant_colony.utils.read_coord_data">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">read_coord_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">n_cities</span></em>, <em class="sig-param"><span class="n">seed</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ant_colony/utils.html#read_coord_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.read_coord_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convierte en grafo datos de matrices de coordenadas leídas desde un archivo .tsp.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
-<li><p><strong>m_plot</strong> (<em>str</em>) – Tipo de gráfico
-- coordinate: Coordenadas X, Y
-- graph: Grafo</p></li>
-<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Semilla para determinar las posiciones de los</p></li>
-<li><p><strong>en la</strong> (<em>nodos</em>) – visualización. Default es 19511959.</p></li>
+<li><p><strong>path</strong> (<em>str</em>) – Ruta del archivo.</p></li>
+<li><p><strong>n_cities</strong> (<em>int</em>) – número de ciudades a samplear.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – seed para el sampleo.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Grafo asociado a la matriz de distancias.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(graph networkx)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -208,8 +209,8 @@ de forma deterministica con una semilla (seed).</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ant_colony.utils.read_coord_data.html" class="btn btn-neutral float-right" title="ant_colony.utils.read_coord_data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="ant_colony.utils.graph_optim_path.html" class="btn btn-neutral float-left" title="ant_colony.utils.graph_optim_path" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ant_colony.optim_hyper.load_params.html" class="btn btn-neutral float-right" title="ant_colony.optim_hyper.load_params" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ant_colony.utils.plot_graph.html" class="btn btn-neutral float-left" title="ant_colony.utils.plot_graph" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
