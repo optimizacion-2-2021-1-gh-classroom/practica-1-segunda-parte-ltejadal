@@ -15,6 +15,8 @@ from .utils import rand_dist_matrix
 from .utils import plot_graph
 from .utils import graph_optim_path
 
+from .aco_tsp_oo import *
+
 # Auxiliares
 def revisar_simetria(matriz, rtol=1e-05, atol=1e-08):
     """Revisa si la matriz ingresada es simétrica o no
@@ -141,3 +143,22 @@ def test_ejemplo_completo():
     if (dist!=0):
         result = True
     assert result
+    
+    
+def solve_distance():
+    """Revisa el ejemplo para resolver el TSP para el dataset de distancias de 17 ciudades.
+    """
+    path = '../../datasets/gr17_d_city_distances.txt'
+    G = read_data(path)
+    
+    colonia_2 = colony(G, 
+                 init_node=4, 
+                 n_ants=2, 
+                 max_iter=10, 
+                 rho=.5, 
+                 alpha=3,
+                 beta=3)
+    
+    colonia_2.solve_tsp()
+    
+    assert result < 5000
