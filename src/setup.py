@@ -15,7 +15,9 @@ setup(name="ant_colony",
                           "networkx",
                           "scipy",
                           "optuna",
-                          "pandas"
+                          "pandas",
+                          "line-profiler",
+                          "line-profiler"
                           ],
       )
 
