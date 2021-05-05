@@ -1,4 +1,4 @@
-#see: https://setuptools.readthedocs.io/en/latest/userguide/package_discovery.html
+#see: https://setuptools.readthedocs.io/en/latest/userguide/package_discovery.html #
 from setuptools import setup, find_packages
 
 setup(name="ant_colony",
