@@ -184,7 +184,7 @@ def read_coord_data(path, n_cities, seed):
     cities_df['lat'] = cities_df['lat'].div(1000)
     cities_df['lon'] = cities_df['lon'].div(1000)
 
-    print('Problem with {} cities'.format(dimension))
+    print('Problem with {} cities. Selected {}.'.format(dimension, n_cities))
     
     sample_df = cities_df.sample(n_cities, random_state=seed)
     array_coord = sample_df[['lat','lon']].to_numpy()
