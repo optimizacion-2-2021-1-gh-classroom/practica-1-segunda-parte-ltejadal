@@ -1,5 +1,6 @@
 import random
 import tsplib95
+import pandas as pd
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -141,7 +142,7 @@ def read_data(path):
         data = tsplib95.load(path)
         return data.get_graph() 
 
-def read_coord_data(path,n_cities,seed):
+def read_coord_data(path, n_cities, seed):
     """
     Basado en la solución propuesta en el siguiente repositorio: https://github.com/DiegoVicen/som-tsp
     Convierte en grafo datos de matrices de coordenadas leídas desde un archivo .tsp.
@@ -183,7 +184,7 @@ def read_coord_data(path,n_cities,seed):
     cities_df['lat'] = cities_df['lat'].div(1000)
     cities_df['lon'] = cities_df['lon'].div(1000)
 
-    print('Problem with {} cities read.'.format(dimension))
+    print('Problem with {} cities'.format(dimension))
     
     sample_df = cities_df.sample(n_cities, random_state=seed)
     array_coord = sample_df[['lat','lon']].to_numpy()
