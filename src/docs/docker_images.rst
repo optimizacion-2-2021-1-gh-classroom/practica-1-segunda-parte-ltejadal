@@ -6,7 +6,7 @@ Esta librería cuenta con una imagen de ``Docker`` para su ejecución de
 forma estable.
 
 .. note::
-    Esta imagen incluye `Kale <http://https://github.com/kubeflow-kale/kale>`_ para la ejecución de `pipelines` con `Kuberflow <http://cnn.com>`_.
+    Esta imagen incluye `Kale <https://github.com/kubeflow-kale/kale>`_ para la ejecución de `pipelines` con `Kuberflow <https://www.kubeflow.org/>`_.
 
 Puedes descargar la imagen ejecutando en la línea de comandos:
 
