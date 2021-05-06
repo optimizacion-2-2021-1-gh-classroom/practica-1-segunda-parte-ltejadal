@@ -7,7 +7,9 @@ from .utils import *
 
 class colony_multiw():
     """Clase que representa una colonia de hormigas que recorren
-    el grafo asignado para resolver el problema TSP.
+    el grafo asignado para resolver el problema TSP. A diferencia de la
+    clase colony(), esta clase implementa multiprocesamiento para computar 
+    la solución del problema utilizando un pool de workers.
 
     Args:
         G (networkx graph): Grafo con relaciones asociadas entre nodos
@@ -82,6 +84,16 @@ class colony_multiw():
                 self.tau[e][v] = (1-self.rho)*v
                 
     def _n_ants_walk(self, n_ants):
+        """Metodo que define el recorrido de varias hormigas sobre un solo
+        worker. 
+
+        Args:
+            n_ants (int): Número de hormigas que procesará el worker asignado.
+
+        Returns:
+            [lst]: Lista de tuplas con distancias y rutas encotnradas por las
+            hormigas del worker.
+        """
         ants_in_thread = [ant(self.graph) for i in range(n_ants)]
         # solution for each ant
         for a in ants_in_thread:
@@ -91,6 +103,18 @@ class colony_multiw():
         return slns
     
     def _multiprocessing_bt(self, ants_per_threat, num_cpu):
+        """Aplica multiprocesamiento en todos los workers seleccionados para que 
+        todas las hormigas de la colonia recorran el grafo en una iteración.
+
+        Args:
+            ants_per_threat (lst): Lista con la asignación del número de hormigas
+            de cada worker.
+            num_cpu (int): Número de workers seleccionados.
+
+        Returns:
+            [lst]: lsita de tuplas con todas las distancias y recorridos encontrados
+            por todas las hormigas del pool de workers.
+        """
         with Pool(processes=num_cpu) as pool:
             results = pool.starmap(self._n_ants_walk, ants_per_threat)
         
@@ -98,7 +122,7 @@ class colony_multiw():
     
     def _colony_run(self, A):
         """La hormigas de la colonia realizan recorridos 
-        independientes simultáneamente.
+        independientes simultáneamente en cada wiorker asignado. 
 
         Args:
             A (dic): nivel de atracción de los nodos con respecto
