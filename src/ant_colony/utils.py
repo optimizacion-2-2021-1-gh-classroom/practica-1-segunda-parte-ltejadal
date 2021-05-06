@@ -4,10 +4,21 @@ import pandas as pd
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
+from multiprocessing import cpu_count
 from scipy.spatial import distance_matrix
 
 ###
 def assign_ants_threats(n_ants, n_cpu=cpu_count()):
+    """Crea una lista para asignar el número de hormigas que procesará
+    cada uno de los workers seleccionados. 
+    Args:
+        n_ants (int): Número de hormigas seleccionado para el algoritmo ACO-TSP.
+        n_cpu (int, optional): Número de cpu (s) o workers. Defaults es todos los cores.
+
+    Returns:
+        [lst]: Lista con la asignación de hormigas de cada worker.
+    """
+    
     mod = n_ants % n_cpu
     no_mod = n_ants - mod
     N_all = int(no_mod/n_cpu) # every thread will have at least N_all ants
@@ -23,12 +34,12 @@ def assign_ants_threats(n_ants, n_cpu=cpu_count()):
         ants_per_threat[i][0] += 1
         
     return ants_per_threat
-    
+
 def flatten_list_of_list(list_of_list):
-    """[summary]
+    """Convierte una lista de listas anidada en una lista simple.
 
     Args:
-        list_of_list ([lst of lst]): Lista de listas.
+        list_of_list (lst of lst): Lista de listas.
 
     Returns:
         [lst]: Lista original removiendo un nivel de anidación.
