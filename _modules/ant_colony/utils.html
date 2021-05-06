@@ -163,14 +163,42 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">cpu_count</span>
 <span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance_matrix</span>
 
 <span class="c1">###</span>
+<span class="k">def</span> <span class="nf">assign_ants_threats</span><span class="p">(</span><span class="n">n_ants</span><span class="p">,</span> <span class="n">n_cpu</span><span class="o">=</span><span class="n">cpu_count</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;Crea una lista para asignar el número de hormigas que procesará</span>
+<span class="sd">    cada uno de los workers seleccionados. </span>
+<span class="sd">    Args:</span>
+<span class="sd">        n_ants (int): Número de hormigas seleccionado para el algoritmo ACO-TSP.</span>
+<span class="sd">        n_cpu (int, optional): Número de cpu (s) o workers. Defaults es todos los cores.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        [lst]: Lista con la asignación de hormigas de cada worker.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">n_ants</span> <span class="o">%</span> <span class="n">n_cpu</span>
+    <span class="n">no_mod</span> <span class="o">=</span> <span class="n">n_ants</span> <span class="o">-</span> <span class="n">mod</span>
+    <span class="n">N_all</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">no_mod</span><span class="o">/</span><span class="n">n_cpu</span><span class="p">)</span> <span class="c1"># every thread will have at least N_all ants</span>
+    
+    <span class="c1"># list of ants for every thread</span>
+    <span class="k">if</span> <span class="n">n_ants</span> <span class="o">&lt;</span> <span class="n">n_cpu</span><span class="p">:</span>
+        <span class="n">ants_per_threat</span> <span class="o">=</span> <span class="p">[[</span><span class="n">N_all</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_ants</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ants_per_threat</span> <span class="o">=</span> <span class="p">[[</span><span class="n">N_all</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cpu</span><span class="p">)]</span>
+
+    <span class="c1"># Assign module</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mod</span><span class="p">):</span>
+        <span class="n">ants_per_threat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+    <span class="k">return</span> <span class="n">ants_per_threat</span>
+
 <span class="k">def</span> <span class="nf">flatten_list_of_list</span><span class="p">(</span><span class="n">list_of_list</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;[summary]</span>
+    <span class="sd">&quot;&quot;&quot;Convierte una lista de listas anidada en una lista simple.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        list_of_list ([lst of lst]): Lista de listas.</span>
+<span class="sd">        list_of_list (lst of lst): Lista de listas.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        [lst]: Lista original removiendo un nivel de anidación.</span>
