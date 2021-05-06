@@ -7,6 +7,13 @@ import matplotlib.pyplot as plt
 from scipy.spatial import distance_matrix
 
 ###
+def flatten_list_of_list(list_of_list):
+    flatten_lst = []
+    for l in list_of_list:
+        for j in l:
+            flatten_lst.append(j) 
+    return flatten_lst
+    
 def create_dic_dist(dist):
     """Crea diccionario de distancias entre nodos a partir de la versión
     numérica de la matriz de distancias.
