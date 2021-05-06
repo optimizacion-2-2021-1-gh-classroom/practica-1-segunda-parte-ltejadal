@@ -7,6 +7,23 @@ import matplotlib.pyplot as plt
 from scipy.spatial import distance_matrix
 
 ###
+def assign_ants_threats(n_ants, n_cpu=cpu_count()):
+    mod = n_ants % n_cpu
+    no_mod = n_ants - mod
+    N_all = int(no_mod/n_cpu) # every thread will have at least N_all ants
+    
+    # list of ants for every thread
+    if n_ants < n_cpu:
+        ants_per_threat = [[N_all] for t in range(n_ants)]
+    else:
+        ants_per_threat = [[N_all] for t in range(n_cpu)]
+
+    # Assign module
+    for i in range(mod):
+        ants_per_threat[i][0] += 1
+        
+    return ants_per_threat
+    
 def flatten_list_of_list(list_of_list):
     """[summary]
 
