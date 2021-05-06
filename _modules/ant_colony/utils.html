@@ -167,12 +167,20 @@
 
 <span class="c1">###</span>
 <span class="k">def</span> <span class="nf">flatten_list_of_list</span><span class="p">(</span><span class="n">list_of_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;[summary]</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        list_of_list ([lst of lst]): Lista de listas.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        [lst]: Lista original removiendo un nivel de anidación.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">flatten_lst</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">list_of_list</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
             <span class="n">flatten_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> 
     <span class="k">return</span> <span class="n">flatten_lst</span>
-    
+
 <div class="viewcode-block" id="create_dic_dist"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.create_dic_dist.html#ant_colony.utils.create_dic_dist">[docs]</a><span class="k">def</span> <span class="nf">create_dic_dist</span><span class="p">(</span><span class="n">dist</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Crea diccionario de distancias entre nodos a partir de la versión</span>
 <span class="sd">    numérica de la matriz de distancias.</span>
