@@ -4,6 +4,7 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 from .utils import *
+from multiprocessing import Pool
 
 class colony_multiw():
     """Clase que representa una colonia de hormigas que recorren
