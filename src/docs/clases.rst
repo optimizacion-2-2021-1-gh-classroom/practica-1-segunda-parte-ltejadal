@@ -16,6 +16,11 @@ Módulo aco_tsp_oo
     :members:
     :undoc-members:
 
+.. autoclass:: ant_colony.aco_tsp_oo.colony_multiw
+    :noindex:
+    :members:
+    :undoc-members:
+    
 Módulo optim_hyper
 ==================
 
