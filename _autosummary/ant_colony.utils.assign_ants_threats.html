@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>ant_colony.utils.read_coord_data &mdash; &#34;ant_colony&#34; 0.1 documentation</title>
+  <title>ant_colony.utils.assign_ants_threats &mdash; &#34;ant_colony&#34; 0.1 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ant_colony.utils.flatten_list_of_list" href="ant_colony.utils.flatten_list_of_list.html" />
-    <link rel="prev" title="ant_colony.utils.plot_graph" href="ant_colony.utils.plot_graph.html" /> 
+    <link rel="next" title="ant_colony.optim_hyper.load_params" href="ant_colony.optim_hyper.load_params.html" />
+    <link rel="prev" title="ant_colony.utils.flatten_list_of_list" href="ant_colony.utils.flatten_list_of_list.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -102,9 +102,9 @@
 <li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.atraccion_nodos.html">ant_colony.utils.atraccion_nodos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.graph_optim_path.html">ant_colony.utils.graph_optim_path</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.plot_graph.html">ant_colony.utils.plot_graph</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">ant_colony.utils.read_coord_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.read_coord_data.html">ant_colony.utils.read_coord_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.flatten_list_of_list.html">ant_colony.utils.flatten_list_of_list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ant_colony.utils.assign_ants_threats.html">ant_colony.utils.assign_ants_threats</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ant_colony.utils.assign_ants_threats</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../functions_autosummary.html#modulo-optim-hyper">Módulo optim_hyper</a></li>
@@ -161,13 +161,13 @@
         
           <li><a href="../functions_autosummary.html">Funciones</a> &raquo;</li>
         
-      <li>ant_colony.utils.read_coord_data</li>
+      <li>ant_colony.utils.assign_ants_threats</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/_autosummary/ant_colony.utils.read_coord_data.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/ant_colony.utils.assign_ants_threats.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -180,26 +180,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="ant-colony-utils-read-coord-data">
-<h1>ant_colony.utils.read_coord_data<a class="headerlink" href="#ant-colony-utils-read-coord-data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="ant-colony-utils-assign-ants-threats">
+<h1>ant_colony.utils.assign_ants_threats<a class="headerlink" href="#ant-colony-utils-assign-ants-threats" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="ant_colony.utils.read_coord_data">
-<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">read_coord_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">n_cities</span></em>, <em class="sig-param"><span class="n">seed</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ant_colony/utils.html#read_coord_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.read_coord_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Basado en la solución propuesta en el siguiente repositorio: <a class="reference external" href="https://github.com/DiegoVicen/som-tsp">https://github.com/DiegoVicen/som-tsp</a>
-Convierte en grafo datos de matrices de coordenadas leídas desde un archivo .tsp.</p>
+<dt id="ant_colony.utils.assign_ants_threats">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">assign_ants_threats</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_ants</span></em>, <em class="sig-param"><span class="n">n_cpu</span><span class="o">=</span><span class="default_value">2</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ant_colony/utils.html#assign_ants_threats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.assign_ants_threats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea una lista para asignar el número de hormigas que procesará
+cada uno de los workers seleccionados.
+:param n_ants: Número de hormigas seleccionado para el algoritmo ACO-TSP.
+:type n_ants: int
+:param n_cpu: Número de cpu (s) o workers. Defaults es todos los cores.
+:type n_cpu: int, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<em>str</em>) – Ruta del archivo.</p></li>
-<li><p><strong>n_cities</strong> (<em>int</em>) – número de ciudades a samplear.</p></li>
-<li><p><strong>seed</strong> (<em>int</em>) – seed para el sampleo.</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Lista con la asignación de hormigas de cada worker.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Grafo asociado a la matriz de distancias.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>(graph networkx)</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>[lst]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -212,8 +209,8 @@ Convierte en grafo datos de matrices de coordenadas leídas desde un archivo .ts
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ant_colony.utils.flatten_list_of_list.html" class="btn btn-neutral float-right" title="ant_colony.utils.flatten_list_of_list" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="ant_colony.utils.plot_graph.html" class="btn btn-neutral float-left" title="ant_colony.utils.plot_graph" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ant_colony.optim_hyper.load_params.html" class="btn btn-neutral float-right" title="ant_colony.optim_hyper.load_params" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ant_colony.utils.flatten_list_of_list.html" class="btn btn-neutral float-left" title="ant_colony.utils.flatten_list_of_list" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

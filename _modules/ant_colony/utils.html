@@ -167,7 +167,7 @@
 <span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance_matrix</span>
 
 <span class="c1">###</span>
-<span class="k">def</span> <span class="nf">assign_ants_threats</span><span class="p">(</span><span class="n">n_ants</span><span class="p">,</span> <span class="n">n_cpu</span><span class="o">=</span><span class="n">cpu_count</span><span class="p">()):</span>
+<div class="viewcode-block" id="assign_ants_threats"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.assign_ants_threats.html#ant_colony.utils.assign_ants_threats">[docs]</a><span class="k">def</span> <span class="nf">assign_ants_threats</span><span class="p">(</span><span class="n">n_ants</span><span class="p">,</span> <span class="n">n_cpu</span><span class="o">=</span><span class="n">cpu_count</span><span class="p">()):</span>
     <span class="sd">&quot;&quot;&quot;Crea una lista para asignar el número de hormigas que procesará</span>
 <span class="sd">    cada uno de los workers seleccionados. </span>
 <span class="sd">    Args:</span>
@@ -192,9 +192,9 @@
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mod</span><span class="p">):</span>
         <span class="n">ants_per_threat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
         
-    <span class="k">return</span> <span class="n">ants_per_threat</span>
+    <span class="k">return</span> <span class="n">ants_per_threat</span></div>
 
-<span class="k">def</span> <span class="nf">flatten_list_of_list</span><span class="p">(</span><span class="n">list_of_list</span><span class="p">):</span>
+<div class="viewcode-block" id="flatten_list_of_list"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.flatten_list_of_list.html#ant_colony.utils.flatten_list_of_list">[docs]</a><span class="k">def</span> <span class="nf">flatten_list_of_list</span><span class="p">(</span><span class="n">list_of_list</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Convierte una lista de listas anidada en una lista simple.</span>
 
 <span class="sd">    Args:</span>
@@ -207,7 +207,7 @@
     <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">list_of_list</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
             <span class="n">flatten_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> 
-    <span class="k">return</span> <span class="n">flatten_lst</span>
+    <span class="k">return</span> <span class="n">flatten_lst</span></div>
 
 <div class="viewcode-block" id="create_dic_dist"><a class="viewcode-back" href="../../_autosummary/ant_colony.utils.create_dic_dist.html#ant_colony.utils.create_dic_dist">[docs]</a><span class="k">def</span> <span class="nf">create_dic_dist</span><span class="p">(</span><span class="n">dist</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Crea diccionario de distancias entre nodos a partir de la versión</span>

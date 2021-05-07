@@ -28,6 +28,8 @@ Módulo utils
    utils.graph_optim_path
    utils.plot_graph
    utils.read_coord_data
+   utils.flatten_list_of_list
+   utils.assign_ants_threats
 
 Módulo optim_hyper
 ==================
