@@ -1,6 +1,0 @@
-﻿ant\_colony.utils.assign\_ants\_threats
-=======================================
-
-.. currentmodule:: ant_colony.utils
-
-.. autofunction:: assign_ants_threats

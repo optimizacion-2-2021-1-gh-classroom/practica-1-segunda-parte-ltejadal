@@ -1,0 +1,836 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ant_colony package &mdash; &#34;ant_colony&#34; 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="ant_colony" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> "ant_colony"
+          
+
+          
+            
+            <img src="_static/aco_tsp_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="instalacion.html">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker_images.html">Imágenes de <code class="docutils literal notranslate"><span class="pre">Docker</span></code></a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ant_colony</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ant_colony package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ant_colony.aco_tsp">ant_colony.aco_tsp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ant_colony.aco_tsp_oo">ant_colony.aco_tsp_oo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ant_colony.optim_hyper">ant_colony.optim_hyper module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ant_colony.test_aco">ant_colony.test_aco module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ant_colony.utils">ant_colony.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ant_colony">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">"ant_colony"</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">ant_colony</a> &raquo;</li>
+        
+      <li>ant_colony package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/ant_colony.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ant-colony-package">
+<h1>ant_colony package<a class="headerlink" href="#ant-colony-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ant_colony.aco_tsp">
+<span id="ant-colony-aco-tsp-module"></span><h2>ant_colony.aco_tsp module<a class="headerlink" href="#module-ant_colony.aco_tsp" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="ant_colony.aco_tsp.ant_colony">
+<code class="sig-prename descclassname">ant_colony.aco_tsp.</code><code class="sig-name descname">ant_colony</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">lenghts</span></em>, <em class="sig-param"><span class="n">init</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">graph</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">ants</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">max_iter</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">rho</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp.html#ant_colony"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp.ant_colony" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computa el algoritmo ant-colony para encontra la ruta con menor distancia en el problema
+TSP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>lenghts</strong> (<em>dic</em>) – Diccionario de distancias</p></li>
+<li><p><strong>init</strong> (<em>int</em><em>, </em><em>optional</em>) – Nodo inicial del recorrido. Defaults to 0.</p></li>
+<li><p><strong>graph</strong> (<em>bool</em><em>, </em><em>optional</em>) – Grafica la mejor ruta encontrada. Default es True.</p></li>
+<li><p><strong>ants</strong> (<em>int</em><em>, </em><em>optional</em>) – Número de hormigas por iteracion. Defaults to 200.</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – Número máximo de iteraciones. Defaults to 100.</p></li>
+<li><p><strong>alpha</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de tau. Defaults to 1.</p></li>
+<li><p><strong>beta</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de eta. Defaults to 5.</p></li>
+<li><p><strong>rho</strong> (<em>float</em><em>, </em><em>optional</em>) – Tasa de evaporación de las feromonas. Defaults to .5.</p></li>
+<li><p><strong>verbose</strong> (<em>int</em><em>, </em><em>optional</em>) – Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Mejor ruta, mejor distancia</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list, float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.aco_tsp.hormiga_recorre">
+<code class="sig-prename descclassname">ant_colony.aco_tsp.</code><code class="sig-name descname">hormiga_recorre</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">lenghts</span></em>, <em class="sig-param"><span class="n">dic_attr</span></em>, <em class="sig-param"><span class="n">tau</span></em>, <em class="sig-param"><span class="n">init_point</span></em>, <em class="sig-param"><span class="n">x_best</span></em>, <em class="sig-param"><span class="n">y_best</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp.html#hormiga_recorre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp.hormiga_recorre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcula la ruta y distancia más cortas con respecto al benchmark provisto,
+luego del recorrido (o su intento) de una hormiga por la red.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>lenghts</strong> (<em>dic</em>) – Diccionario de distancias</p></li>
+<li><p><strong>dic_attr</strong> (<em>dic</em>) – [description]</p></li>
+<li><p><strong>tau</strong> (<em>dic</em>) – Diccionario con niveles de feromonas de los vecinos de cada nodo</p></li>
+<li><p><strong>init_point</strong> (<em>int</em>) – Nodo inicial del recorrido</p></li>
+<li><p><strong>x_best</strong> (<em>list</em>) – Ruta con respecto a la cual se quiere mejorar</p></li>
+<li><p><strong>y_best</strong> (<em>float</em>) – Distancia total del recorrido x_best</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Mejor ruta, mejor distancia</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list, float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ant_colony.aco_tsp_oo">
+<span id="ant-colony-aco-tsp-oo-module"></span><h2>ant_colony.aco_tsp_oo module<a class="headerlink" href="#module-ant_colony.aco_tsp_oo" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="ant_colony.aco_tsp_oo.ant">
+<em class="property">class </em><code class="sig-prename descclassname">ant_colony.aco_tsp_oo.</code><code class="sig-name descname">ant</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">r_len</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">route</span><span class="o">=</span><span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#ant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp_oo.ant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que representa una hormiga de la colonia y realizará
+recorridos por el grafo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="ant_colony.aco_tsp_oo.ant.plot_route">
+<code class="sig-name descname">plot_route</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plt_size</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#ant.plot_route"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp_oo.ant.plot_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grafica la trayectoria encontrada por la colonia en el grafo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plt_size</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Tamaño del gŕafico (ancho x altura). Defaults es (12, 8).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ant_colony.aco_tsp_oo.ant.walk_over_graph">
+<code class="sig-name descname">walk_over_graph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">init_node</span></em>, <em class="sig-param"><span class="n">dist</span></em>, <em class="sig-param"><span class="n">atrac</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#ant.walk_over_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp_oo.ant.walk_over_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>La hormiga intenta recorrer el grafo y volver
+al origen sin repetir otros nodos.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>init_node</strong> (<em>int</em>) – Nodo inicial del recorrido.</p></li>
+<li><p><strong>dist</strong> (<em>dic</em>) – Diccionario de distancias de las trayectorias.</p></li>
+<li><p><strong>atrac</strong> (<em>dic</em>) – Diccionario de atracción de los nodos con</p></li>
+<li><p><strong>a sus vecinos.</strong> (<em>relación</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="ant_colony.aco_tsp_oo.colony">
+<em class="property">class </em><code class="sig-prename descclassname">ant_colony.aco_tsp_oo.</code><code class="sig-name descname">colony</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">init_node</span></em>, <em class="sig-param"><span class="n">best_route</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">best_dist</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">n_ants</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">max_iter</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">rho</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#colony"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp_oo.colony" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que representa una colonia de hormigas que recorren
+el grafo asignado para resolver el problema TSP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>init_node</strong> (<em>int</em>) – Nodo inicial del recorrido.</p></li>
+<li><p><strong>best_route</strong> (<em>list</em><em>, </em><em>optional</em>) – Ruta con respecto a la cual se quiere mejorar.</p></li>
+<li><p><strong>best_dist</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – Distancia total del recorrido x_best.</p></li>
+<li><p><strong>n_ants</strong> (<em>int</em><em>, </em><em>optional</em>) – Número de hormigas. Default es 2.</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – [description]. Default es 100.</p></li>
+<li><p><strong>alpha</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de tau. Defaults to 1.</p></li>
+<li><p><strong>beta</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de eta. Defaults to 5.</p></li>
+<li><p><strong>rho</strong> (<em>float</em><em>, </em><em>optional</em>) – Tasa de evaporación de las feromonas. Defaults to .5.</p></li>
+<li><p><strong>verbose</strong> (<em>int</em><em>, </em><em>optional</em>) – Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="ant_colony.aco_tsp_oo.colony.plot_route">
+<code class="sig-name descname">plot_route</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plt_size</span><span class="o">=</span><span class="default_value">(12, 8)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#colony.plot_route"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp_oo.colony.plot_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grafica la trayectoria encontrada por la colonia en el grafo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plt_size</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Tamaño del gŕafico (ancho x altura). Defaults es (12, 8).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ant_colony.aco_tsp_oo.colony.solve_tsp">
+<code class="sig-name descname">solve_tsp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#colony.solve_tsp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp_oo.colony.solve_tsp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resuelve el problema TSP.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="ant_colony.aco_tsp_oo.colony_multiw">
+<em class="property">class </em><code class="sig-prename descclassname">ant_colony.aco_tsp_oo.</code><code class="sig-name descname">colony_multiw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">init_node</span></em>, <em class="sig-param"><span class="n">best_route</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">best_dist</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">n_ants</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">max_iter</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">rho</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">n_workers</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#colony_multiw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp_oo.colony_multiw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que representa una colonia de hormigas que recorren
+el grafo asignado para resolver el problema TSP. A diferencia de la
+clase colony(), esta clase implementa multiprocesamiento para computar
+la solución del problema utilizando un pool de workers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>init_node</strong> (<em>int</em>) – Nodo inicial del recorrido.</p></li>
+<li><p><strong>best_route</strong> (<em>list</em><em>, </em><em>optional</em>) – Ruta con respecto a la cual se quiere mejorar.</p></li>
+<li><p><strong>best_dist</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – Distancia total del recorrido x_best.</p></li>
+<li><p><strong>n_ants</strong> (<em>int</em><em>, </em><em>optional</em>) – Número de hormigas. Default es 2.</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – [description]. Default es 100.</p></li>
+<li><p><strong>alpha</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de tau. Defaults to 1.</p></li>
+<li><p><strong>beta</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de eta. Defaults to 5.</p></li>
+<li><p><strong>rho</strong> (<em>float</em><em>, </em><em>optional</em>) – Tasa de evaporación de las feromonas. Defaults to .5.</p></li>
+<li><p><strong>verbose</strong> (<em>int</em><em>, </em><em>optional</em>) – Imprime progreso del algoritmo cada K iteraciones. Defaults to 10.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="ant_colony.aco_tsp_oo.colony_multiw.plot_route">
+<code class="sig-name descname">plot_route</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plt_size</span><span class="o">=</span><span class="default_value">(12, 8)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#colony_multiw.plot_route"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp_oo.colony_multiw.plot_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grafica la trayectoria encontrada por la colonia en el grafo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plt_size</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Tamaño del gŕafico (ancho x altura). Defaults es (12, 8).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ant_colony.aco_tsp_oo.colony_multiw.solve_tsp">
+<code class="sig-name descname">solve_tsp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/aco_tsp_oo.html#colony_multiw.solve_tsp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.aco_tsp_oo.colony_multiw.solve_tsp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resuelve el problema TSP.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ant_colony.optim_hyper">
+<span id="ant-colony-optim-hyper-module"></span><h2>ant_colony.optim_hyper module<a class="headerlink" href="#module-ant_colony.optim_hyper" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="ant_colony.optim_hyper.Objective">
+<em class="property">class </em><code class="sig-prename descclassname">ant_colony.optim_hyper.</code><code class="sig-name descname">Objective</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">init_node</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/optim_hyper.html#Objective"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.optim_hyper.Objective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="simple">
+<dt>Clase para definir la función objetivo a optimizar en la búsqueda de los mejores</dt><dd><p>hiper-parámetros del algoritmo. Minimiza tiempo + (distancia)^2.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos.</p></li>
+<li><p><strong>init_node</strong> (<em>int</em>) – Nodo inicial del recorrido.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.optim_hyper.load_params">
+<code class="sig-prename descclassname">ant_colony.optim_hyper.</code><code class="sig-name descname">load_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/optim_hyper.html#load_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.optim_hyper.load_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carga los mejores parámetros de un estudio previo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>db</em>) – Base de datos con el estudio previo, correspondiente</p></li>
+<li><p><strong>best_hiper_params.</strong> (<em>a</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Lista con los mejores hiperparámetros encontrados</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[lst]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.optim_hyper.optim_h_params">
+<code class="sig-prename descclassname">ant_colony.optim_hyper.</code><code class="sig-name descname">optim_h_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">init_node</span></em>, <em class="sig-param"><span class="n">trials</span></em>, <em class="sig-param"><span class="n">save</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/optim_hyper.html#optim_h_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.optim_hyper.optim_h_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Genera estudio de optimización para buscar los mejores hiper-parámetros del algoritmo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos.</p></li>
+<li><p><strong>init_node</strong> (<em>int</em>) – Nodo inicial del recorrido.</p></li>
+<li><p><strong>trials</strong> (<em>int</em>) – Numero de intentos para hacer el muestreo.</p></li>
+<li><p><strong>save</strong> (<em>bool</em><em>, </em><em>optional</em>) – Se especifica si se quiere guardar el estudio en disco. Default es False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Diccionario con la información del estudio de optimización</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.optim_hyper.sample_params">
+<code class="sig-prename descclassname">ant_colony.optim_hyper.</code><code class="sig-name descname">sample_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">trial</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/optim_hyper.html#sample_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.optim_hyper.sample_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define el modo en que se va a hacer el meustro de los hiper-parametros del algoritmo
+en optuna. No está disponible para los usuarios.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>trial</strong> (<em>optuna trial</em>) – Ninguno</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ant_colony.test_aco">
+<span id="ant-colony-test-aco-module"></span><h2>ant_colony.test_aco module<a class="headerlink" href="#module-ant_colony.test_aco" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="ant_colony.test_aco.revisar_ceros_diagonal">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">revisar_ceros_diagonal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matriz</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#revisar_ceros_diagonal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.revisar_ceros_diagonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa si una matriz tiene ceros en la diagonal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matriz</strong> (<em>[</em><em>numpy matrix</em><em>]</em>) – [Matriz que se quiere revisar]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[Si la matriz posee solo ceros en la diagonal, regresa True, de lo contrario False]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[boolean]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.revisar_simetria">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">revisar_simetria</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matriz</span></em>, <em class="sig-param"><span class="n">rtol</span><span class="o">=</span><span class="default_value">1e-05</span></em>, <em class="sig-param"><span class="n">atol</span><span class="o">=</span><span class="default_value">1e-08</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#revisar_simetria"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.revisar_simetria" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa si la matriz ingresada es simétrica o no</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matriz</strong> (<em>[</em><em>numpy matrix</em><em>]</em>) – Matriz a revisar.</p></li>
+<li><p><strong>rtol</strong> (<em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – [Parámetro de tolerancia relativa]. Defaults to 1e-05.</p></li>
+<li><p><strong>atol</strong> (<em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – [Parámetro de tolerancia absoluta]. Defaults to 1e-08.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[si la matriz es simétrica, regresará True, de lo contrario False]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[boolean]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.solve_distance">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">solve_distance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#solve_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.solve_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa el ejemplo para resolver el TSP para el dataset de distancias de 17 ciudades.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_atracciones_por_nodo">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_atracciones_por_nodo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_atracciones_por_nodo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_atracciones_por_nodo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa si existen n-1 atracciones para cada nodo, pues se quita el nodo actual.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_creacion_llaves_de_diccionario">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_creacion_llaves_de_diccionario</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_creacion_llaves_de_diccionario"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_creacion_llaves_de_diccionario" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueba si existe una llave para cada nodo.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_diagonal_ceros">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_diagonal_ceros</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_diagonal_ceros"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_diagonal_ceros" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueba si la matriz que genera la función “utils.rand_dist_matrix” tiene ceros en la diagonal.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_distancia_hormiga_dif_de_cero">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_distancia_hormiga_dif_de_cero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_distancia_hormiga_dif_de_cero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_distancia_hormiga_dif_de_cero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa que la distancia de la hormiga sea distinta de cero.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_ejemplo_completo">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_ejemplo_completo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_ejemplo_completo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_ejemplo_completo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa el ejemplo completo para ver si la distancia es cero. Pasa la prueba si es distinto a cero.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_feromonas_por_nodo">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_feromonas_por_nodo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_feromonas_por_nodo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_feromonas_por_nodo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueba si existe una feromona para cada nodo.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_hormiga_por_todo_nodo">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_hormiga_por_todo_nodo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_hormiga_por_todo_nodo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_hormiga_por_todo_nodo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueba si la ruta de la hormiga cubre todos los nodos y regresa al nodo inicial.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_probar_matriz_cuadrada">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_probar_matriz_cuadrada</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_probar_matriz_cuadrada"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_probar_matriz_cuadrada" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueba si la matriz que genera la función propia es cuadrada.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ant_colony.utils">
+<span id="ant-colony-utils-module"></span><h2>ant_colony.utils module<a class="headerlink" href="#module-ant_colony.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="ant_colony.utils.assign_ants_threats">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">assign_ants_threats</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_ants</span></em>, <em class="sig-param"><span class="n">n_cpu</span><span class="o">=</span><span class="default_value">2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#assign_ants_threats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.assign_ants_threats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea una lista para asignar el número de hormigas que procesará
+cada uno de los workers seleccionados.
+:param n_ants: Número de hormigas seleccionado para el algoritmo ACO-TSP.
+:type n_ants: int
+:param n_cpu: Número de cpu (s) o workers. Defaults es todos los cores.
+:type n_cpu: int, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Lista con la asignación de hormigas de cada worker.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>[lst]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.atraccion_nodos">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">atraccion_nodos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">tau</span></em>, <em class="sig-param"><span class="n">eta</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#atraccion_nodos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.atraccion_nodos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcula el grado de atracción de todos los nodos pertenicientes al
+grafo G.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>tau</strong> (<em>dic</em>) – Diccionario con niveles de feromonas de los vecinos de</p></li>
+<li><p><strong>nodo</strong> (<em>cada</em>) – </p></li>
+<li><p><strong>eta</strong> (<em>dic</em>) – Diccionario con nivel de atracción inicial de los vecinos</p></li>
+<li><p><strong>cada nodo</strong> (<em>de</em>) – </p></li>
+<li><p><strong>alpha</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de tau. Defaults to 1.</p></li>
+<li><p><strong>beta</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de influencia de eta. Defaults to 5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Diccionario con los valores de atracción de los vecinos del
+nodo j</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(dic)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.create_dic_dist">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">create_dic_dist</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dist</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#create_dic_dist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.create_dic_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea diccionario de distancias entre nodos a partir de la versión
+numérica de la matriz de distancias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dist</strong> (<em>np.array</em>) – Arreglo con la matriz de distancias</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Diccionario de distancias de los nodos</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(dic)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.create_dic_dist_from_graph">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">create_dic_dist_from_graph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#create_dic_dist_from_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.create_dic_dist_from_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea diccionario de distancias entre nodos a partir de un grafo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Diccionario de distancias de los nodos</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(dic)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.flatten_list_of_list">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">flatten_list_of_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_list</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#flatten_list_of_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.flatten_list_of_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convierte una lista de listas anidada en una lista simple.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_list</strong> (<em>lst of lst</em>) – Lista de listas.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Lista original removiendo un nivel de anidación.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[lst]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.graph_optim_path">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">graph_optim_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">route</span></em>, <em class="sig-param"><span class="n">dist</span></em>, <em class="sig-param"><span class="n">plt_size</span><span class="o">=</span><span class="default_value">(15, 6)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#graph_optim_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.graph_optim_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grafica la ruta direccionada de un grafo asociado a una ruta</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>route</strong> (<em>list</em>) – Ruta con la direccion a graficar.</p></li>
+<li><p><strong>dist</strong> (<em>float</em>) – Distancia asociada a la ruta.</p></li>
+<li><p><strong>plt_size</strong> (<em>tpl</em>) – Tamaño de la gráfica en matplotlib.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.init_atrac">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">init_atrac</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">lenghts</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#init_atrac"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.init_atrac" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inicialización de diccionario con nivel de atracción a priori de los
+nodos utilizando la inversa de las distancias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>lenghts</strong> (<em>dic</em>) – Diccionario de distancias</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Diccionario con nivel de atracción inicial de las trayectorias
+de los nodos</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(dic)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.init_ferom">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">init_ferom</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">init_lev</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#init_ferom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.init_ferom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inicialización de diccionario con nivel de feromonas de los nodos.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>init_lev</strong> (<em>float</em><em>, </em><em>optional</em>) – Nivel de inicialización de feromona para</p></li>
+<li><p><strong>las trayectorias de los nodos. Default es 1.0.</strong> (<em>todas</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Diccionario con nivel de feronomas de las trayectorias</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(dic)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.plot_graph">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">plot_graph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">G</span></em>, <em class="sig-param"><span class="n">m_plot</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">19511959</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#plot_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.plot_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grafica red en su versión de coordenadas o de grafo. Fija las
+posiciones
+de forma deterministica con una semilla (seed).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx graph</em>) – Grafo con relaciones asociadas entre nodos</p></li>
+<li><p><strong>m_plot</strong> (<em>str</em>) – Tipo de gráfico
+- coordinate: Coordenadas X, Y
+- graph: Grafo</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Semilla para determinar las posiciones de los</p></li>
+<li><p><strong>en la</strong> (<em>nodos</em>) – visualización. Default es 19511959.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.rand_dist_matrix">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">rand_dist_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_points</span></em>, <em class="sig-param"><span class="n">graph</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">scale_factor</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">round_factor</span><span class="o">=</span><span class="default_value">4</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">1951959</span></em>, <em class="sig-param"><span class="n">int</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#rand_dist_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.rand_dist_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea matriz aleatoria de distancias. Retorna su versión numérica en
+numpy o su versión en grafo con networksx.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_points</strong> (<em>int</em>) – Número de nodos de la matriz de distancias.</p></li>
+<li><p><strong>graph</strong> (<em>bool</em><em>, </em><em>optional</em>) – Retorna la matriz como un grafo de networkx.</p></li>
+<li><p><strong>es True.</strong> (<em>Default</em>) – </p></li>
+<li><p><strong>scale_factor</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de escala de la matriz. Default</p></li>
+<li><p><strong>1.</strong> (<em>es</em>) – </p></li>
+<li><p><strong>round_factor</strong> (<em>int</em><em>, </em><em>optional</em>) – Factor de redondeo de la matriz. Default
+es 4.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Semilla aleatoria. Default es 1951959.</p></li>
+<li><p><strong>int</strong> (<em>bool</em><em>, </em><em>optional</em>) – Retorna matriz de enteros. Default es False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Matrix de distancias o grafo no direccionado</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(mat or graph)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.read_coord_data">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">read_coord_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">n_cities</span></em>, <em class="sig-param"><span class="n">seed</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#read_coord_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.read_coord_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basado en la solución propuesta en el siguiente repositorio: <a class="reference external" href="https://github.com/DiegoVicen/som-tsp">https://github.com/DiegoVicen/som-tsp</a>
+Convierte en grafo datos de matrices de coordenadas leídas desde un archivo .tsp.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – Ruta del archivo.</p></li>
+<li><p><strong>n_cities</strong> (<em>int</em>) – número de ciudades a samplear.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – seed para el sampleo.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Grafo asociado a la matriz de distancias.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(graph networkx)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.utils.read_data">
+<code class="sig-prename descclassname">ant_colony.utils.</code><code class="sig-name descname">read_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/utils.html#read_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.utils.read_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convierte en grafo datos de matrices de distancias en
+formato .txt o .tsp</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Ruta del archivo.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Grafo asociado a la matriz de distancias.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(graph networkx)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ant_colony">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ant_colony" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modules.html" class="btn btn-neutral float-left" title="ant_colony" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Santiago Battezatti - Sebastián Cadavid-Sánchez - Rafael Ortega - Laura Tejada.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+ant\_colony package
+===================
+
+Submodules
+----------
+
+ant\_colony.aco\_tsp module
+---------------------------
+
+.. automodule:: ant_colony.aco_tsp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ant\_colony.aco\_tsp\_oo module
+-------------------------------
+
+.. automodule:: ant_colony.aco_tsp_oo
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ant\_colony.optim\_hyper module
+-------------------------------
+
+.. automodule:: ant_colony.optim_hyper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ant\_colony.test\_aco module
+----------------------------
+
+.. automodule:: ant_colony.test_aco
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ant\_colony.utils module
+------------------------
+
+.. automodule:: ant_colony.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: ant_colony
+   :members:
+   :undoc-members:
+   :show-inheritance:

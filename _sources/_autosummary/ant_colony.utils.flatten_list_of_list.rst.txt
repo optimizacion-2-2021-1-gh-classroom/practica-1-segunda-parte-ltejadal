@@ -1,6 +1,0 @@
-﻿ant\_colony.utils.flatten\_list\_of\_list
-=========================================
-
-.. currentmodule:: ant_colony.utils
-
-.. autofunction:: flatten_list_of_list

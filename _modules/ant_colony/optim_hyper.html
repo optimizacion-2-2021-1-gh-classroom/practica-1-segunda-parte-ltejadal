@@ -89,8 +89,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../instalacion.html">Instalación</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../docker_images.html">Imágenes de <code class="docutils literal notranslate"><span class="pre">Docker</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../functions_autosummary.html">Funciones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../clases.html">Clases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">ant_colony</a></li>
 </ul>
 
             
@@ -161,7 +160,7 @@
 <span class="kn">import</span> <span class="nn">optuna</span>
 <span class="kn">from</span> <span class="nn">.aco_tsp_oo</span> <span class="kn">import</span> <span class="n">colony</span>
 
-<div class="viewcode-block" id="load_params"><a class="viewcode-back" href="../../_autosummary/ant_colony.optim_hyper.load_params.html#ant_colony.optim_hyper.load_params">[docs]</a><span class="k">def</span> <span class="nf">load_params</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+<div class="viewcode-block" id="load_params"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.optim_hyper.load_params">[docs]</a><span class="k">def</span> <span class="nf">load_params</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Carga los mejores parámetros de un estudio previo.</span>
 
 <span class="sd">    Args:</span>
@@ -175,7 +174,7 @@
     <span class="n">study</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">load_study</span><span class="p">(</span><span class="n">study_name</span><span class="o">=</span><span class="s1">&#39;optimize_aco&#39;</span><span class="p">,</span> <span class="n">storage</span><span class="o">=</span><span class="n">sq_path</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">study</span><span class="o">.</span><span class="n">best_trial</span><span class="o">.</span><span class="n">params</span></div>
 
-<div class="viewcode-block" id="optim_h_params"><a class="viewcode-back" href="../../_autosummary/ant_colony.optim_hyper.optim_h_params.html#ant_colony.optim_hyper.optim_h_params">[docs]</a><span class="k">def</span> <span class="nf">optim_h_params</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="optim_h_params"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.optim_hyper.optim_h_params">[docs]</a><span class="k">def</span> <span class="nf">optim_h_params</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Genera estudio de optimización para buscar los mejores hiper-parámetros del algoritmo.</span>
 
 <span class="sd">    Args:</span>
@@ -204,7 +203,7 @@
 
     <span class="k">return</span> <span class="n">study</span><span class="o">.</span><span class="n">best_trial</span></div>
 
-<span class="k">def</span> <span class="nf">sample_params</span><span class="p">(</span><span class="n">trial</span><span class="p">):</span>
+<div class="viewcode-block" id="sample_params"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.optim_hyper.sample_params">[docs]</a><span class="k">def</span> <span class="nf">sample_params</span><span class="p">(</span><span class="n">trial</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Define el modo en que se va a hacer el meustro de los hiper-parametros del algoritmo</span>
 <span class="sd">    en optuna. No está disponible para los usuarios.</span>
 
@@ -217,9 +216,9 @@
         <span class="s1">&#39;rho&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_uniform</span><span class="p">(</span><span class="s1">&#39;rho&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
         <span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
         <span class="s1">&#39;beta&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-    <span class="p">}</span>
+    <span class="p">}</span></div>
 
-<div class="viewcode-block" id="Objective"><a class="viewcode-back" href="../../clases.html#ant_colony.optim_hyper.Objective">[docs]</a><span class="k">class</span> <span class="nc">Objective</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Objective"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.optim_hyper.Objective">[docs]</a><span class="k">class</span> <span class="nc">Objective</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Clase para definir la función objetivo a optimizar en la búsqueda de los mejores</span>
 <span class="sd">        hiper-parámetros del algoritmo. Minimiza tiempo + (distancia)^2.</span>
 

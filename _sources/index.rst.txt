@@ -12,8 +12,8 @@ Bienvenido a la documentación de ``ACO_TSP``
 
    instalacion
    docker_images
-   functions_autosummary
-   clases
+   modules
+   
 
 Índices y tablas
 ==================

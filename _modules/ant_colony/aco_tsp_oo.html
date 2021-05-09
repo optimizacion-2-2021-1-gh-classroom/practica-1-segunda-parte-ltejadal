@@ -89,8 +89,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../instalacion.html">Instalación</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../docker_images.html">Imágenes de <code class="docutils literal notranslate"><span class="pre">Docker</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../functions_autosummary.html">Funciones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../clases.html">Clases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">ant_colony</a></li>
 </ul>
 
             
@@ -165,7 +164,7 @@
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 
-<div class="viewcode-block" id="colony_multiw"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.colony_multiw">[docs]</a><span class="k">class</span> <span class="nc">colony_multiw</span><span class="p">():</span>
+<div class="viewcode-block" id="colony_multiw"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.colony_multiw">[docs]</a><span class="k">class</span> <span class="nc">colony_multiw</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Clase que representa una colonia de hormigas que recorren</span>
 <span class="sd">    el grafo asignado para resolver el problema TSP. A diferencia de la</span>
 <span class="sd">    clase colony(), esta clase implementa multiprocesamiento para computar </span>
@@ -306,7 +305,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">best_dist</span> <span class="o">=</span> <span class="n">min_dist</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">best_route</span> <span class="o">=</span> <span class="n">bst_route</span>
             
-<div class="viewcode-block" id="colony_multiw.solve_tsp"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.colony_multiw.solve_tsp">[docs]</a>    <span class="k">def</span> <span class="nf">solve_tsp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="colony_multiw.solve_tsp"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.colony_multiw.solve_tsp">[docs]</a>    <span class="k">def</span> <span class="nf">solve_tsp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Resuelve el problema TSP.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">route</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_route</span>
@@ -322,7 +321,7 @@
             <span class="c1"># ants running across the graph</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_colony_run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span></div>
             
-<div class="viewcode-block" id="colony_multiw.plot_route"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.colony_multiw.plot_route">[docs]</a>    <span class="k">def</span> <span class="nf">plot_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plt_size</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)):</span>
+<div class="viewcode-block" id="colony_multiw.plot_route"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.colony_multiw.plot_route">[docs]</a>    <span class="k">def</span> <span class="nf">plot_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plt_size</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)):</span>
         <span class="sd">&quot;&quot;&quot;Grafica la trayectoria encontrada por la colonia en el grafo.</span>
 
 <span class="sd">        Args:</span>
@@ -330,7 +329,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">graph_optim_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_route</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_dist</span><span class="p">,</span> <span class="n">plt_size</span><span class="p">)</span></div></div>
 
-<div class="viewcode-block" id="colony"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.colony">[docs]</a><span class="k">class</span> <span class="nc">colony</span><span class="p">():</span>
+<div class="viewcode-block" id="colony"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.colony">[docs]</a><span class="k">class</span> <span class="nc">colony</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Clase que representa una colonia de hormigas que recorren</span>
 <span class="sd">    el grafo asignado para resolver el problema TSP.</span>
 
@@ -434,7 +433,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">best_dist</span> <span class="o">=</span> <span class="n">min_dist</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">best_route</span> <span class="o">=</span> <span class="n">bst_route</span>
             
-<div class="viewcode-block" id="colony.solve_tsp"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.colony.solve_tsp">[docs]</a>    <span class="k">def</span> <span class="nf">solve_tsp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="colony.solve_tsp"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.colony.solve_tsp">[docs]</a>    <span class="k">def</span> <span class="nf">solve_tsp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Resuelve el problema TSP.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">route</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_route</span>
@@ -450,7 +449,7 @@
             <span class="c1"># ants running across the graph</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_colony_run</span><span class="p">(</span><span class="n">A</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="colony.plot_route"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.colony.plot_route">[docs]</a>    <span class="k">def</span> <span class="nf">plot_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plt_size</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)):</span>
+<div class="viewcode-block" id="colony.plot_route"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.colony.plot_route">[docs]</a>    <span class="k">def</span> <span class="nf">plot_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plt_size</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)):</span>
         <span class="sd">&quot;&quot;&quot;Grafica la trayectoria encontrada por la colonia en el grafo.</span>
 
 <span class="sd">        Args:</span>
@@ -458,7 +457,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">graph_optim_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_route</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_dist</span><span class="p">,</span> <span class="n">plt_size</span><span class="p">)</span></div></div>
 
-<div class="viewcode-block" id="ant"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.ant">[docs]</a><span class="k">class</span> <span class="nc">ant</span><span class="p">():</span>
+<div class="viewcode-block" id="ant"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.ant">[docs]</a><span class="k">class</span> <span class="nc">ant</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Clase que representa una hormiga de la colonia y realizará</span>
 <span class="sd">    recorridos por el grafo.</span>
 
@@ -473,7 +472,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">r_len</span> <span class="o">=</span> <span class="n">r_len</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atraction_mat</span> <span class="o">=</span> <span class="kc">None</span>
         
-<div class="viewcode-block" id="ant.walk_over_graph"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.ant.walk_over_graph">[docs]</a>    <span class="k">def</span> <span class="nf">walk_over_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+<div class="viewcode-block" id="ant.walk_over_graph"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.ant.walk_over_graph">[docs]</a>    <span class="k">def</span> <span class="nf">walk_over_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
                       <span class="n">init_node</span><span class="p">,</span>
                       <span class="n">dist</span><span class="p">,</span> 
                       <span class="n">atrac</span><span class="p">):</span>
@@ -508,7 +507,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">route</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">[</span><span class="n">init_node</span><span class="p">]</span>   
         <span class="bp">self</span><span class="o">.</span><span class="n">r_len</span> <span class="o">=</span> <span class="n">l</span></div>
             
-<div class="viewcode-block" id="ant.plot_route"><a class="viewcode-back" href="../../clases.html#ant_colony.aco_tsp_oo.ant.plot_route">[docs]</a>    <span class="k">def</span> <span class="nf">plot_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plt_size</span><span class="p">):</span>
+<div class="viewcode-block" id="ant.plot_route"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.ant.plot_route">[docs]</a>    <span class="k">def</span> <span class="nf">plot_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plt_size</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Grafica la trayectoria encontrada por la colonia en el grafo.</span>
 
 <span class="sd">        Args:</span>
