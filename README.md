@@ -24,7 +24,9 @@ Para instalar este paquete de python:
  - ya puedes importar los modulos y funciones del paquete :-) 
  
 
-Para revisar la documentación da click [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-ltejadal/) :)
+Para revisar la documentación da click en el siguiente botón:  
+
+[![Documentation](https://img.shields.io/static/v1.svg?label=Documentation&message=v1&color=blue)](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-ltejadal/)
 
 ## Github Actions
 
