@@ -24,4 +24,13 @@ Para instalar este paquete de python:
  - ya puedes importar los modulos y funciones del paquete :-) 
  
 
-Para revisar la documentación de las funciones da clic [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-ltejadal/) :)
+Para revisar la documentación da click [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-ltejadal/) :)
+
+## Github Actions
+
+[![sphinx-doc](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions/workflows/sphinx-doc.yml/badge.svg)](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions)
+
+[![docker-image-build-and-push.yml](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions/workflows/docker-image-build-and-push.yml/badge.svg)](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions)
+
+[![ci.yml](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions/workflows/ci.yml/badge.svg)](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions)
+
