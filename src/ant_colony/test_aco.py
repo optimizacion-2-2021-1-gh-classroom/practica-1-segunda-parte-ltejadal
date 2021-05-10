@@ -148,7 +148,7 @@ def test_ejemplo_completo():
 def test_solve_distance():
     """Revisa el ejemplo para resolver el TSP para el dataset de distancias de 17 ciudades.
     """
-    path = '../../datasets/gr17_d_city_distances.txt'
+    path = './datasets/gr17_d_city_distances.txt'
     G = read_data(path)
     
     colonia_2 = colony(G, 
@@ -168,7 +168,7 @@ def test_solve_distance():
 def test_colony_multiw():
     n_ants = 1000
     n_cities =100
-    path_china = '../../datasets/ch71009.tsp'
+    path_china = './datasets/ch71009.tsp'
     G = ac.read_coord_data(path_china, n_cities=n_cities, seed=1999)
     colony_mw = ac.colony_multiw(G, init_node=0,  n_ants= n_ants, n_workers=12)
     start_time = time.time()
