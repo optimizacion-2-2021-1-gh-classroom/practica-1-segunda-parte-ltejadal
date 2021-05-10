@@ -4,6 +4,7 @@ import numpy as np
 import random
 from . import aco_tsp
 from . import utils
+import . as ac
 
 from .utils import create_dic_dist
 from .utils import create_dic_dist_from_graph
@@ -167,7 +168,6 @@ def test_solve_distance():
 
 
 def test_colony_multiw():
-    import ant_colony as ac
     n_ants = 1000
     n_cities =100
     path_china = './datasets/ch71009.tsp'
