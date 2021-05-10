@@ -96,7 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-ant_colony.aco_tsp">ant_colony.aco_tsp module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ant_colony.aco_tsp_oo">ant_colony.aco_tsp_oo module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ant_colony.optim_hyper">ant_colony.optim_hyper module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ant-colony-test-aco-module">ant_colony.test_aco module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ant_colony.test_aco">ant_colony.test_aco module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ant_colony.utils">ant_colony.utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ant_colony">Module contents</a></li>
 </ul>
@@ -438,8 +438,105 @@ en optuna. No está disponible para los usuarios.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="ant-colony-test-aco-module">
-<h2>ant_colony.test_aco module<a class="headerlink" href="#ant-colony-test-aco-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-ant_colony.test_aco">
+<span id="ant-colony-test-aco-module"></span><h2>ant_colony.test_aco module<a class="headerlink" href="#module-ant_colony.test_aco" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="ant_colony.test_aco.revisar_ceros_diagonal">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">revisar_ceros_diagonal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matriz</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#revisar_ceros_diagonal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.revisar_ceros_diagonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa si una matriz tiene ceros en la diagonal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matriz</strong> (<em>[</em><em>numpy matrix</em><em>]</em>) – [Matriz que se quiere revisar]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[Si la matriz posee solo ceros en la diagonal, regresa True, de lo contrario False]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[boolean]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.revisar_simetria">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">revisar_simetria</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matriz</span></em>, <em class="sig-param"><span class="n">rtol</span><span class="o">=</span><span class="default_value">1e-05</span></em>, <em class="sig-param"><span class="n">atol</span><span class="o">=</span><span class="default_value">1e-08</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#revisar_simetria"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.revisar_simetria" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa si la matriz ingresada es simétrica o no</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matriz</strong> (<em>[</em><em>numpy matrix</em><em>]</em>) – Matriz a revisar.</p></li>
+<li><p><strong>rtol</strong> (<em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – [Parámetro de tolerancia relativa]. Defaults to 1e-05.</p></li>
+<li><p><strong>atol</strong> (<em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – [Parámetro de tolerancia absoluta]. Defaults to 1e-08.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[si la matriz es simétrica, regresará True, de lo contrario False]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[boolean]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_atracciones_por_nodo">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_atracciones_por_nodo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_atracciones_por_nodo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_atracciones_por_nodo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa si existen n-1 atracciones para cada nodo, pues se quita el nodo actual.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_colony_multiw">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_colony_multiw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_colony_multiw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_colony_multiw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_creacion_llaves_de_diccionario">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_creacion_llaves_de_diccionario</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_creacion_llaves_de_diccionario"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_creacion_llaves_de_diccionario" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueba si existe una llave para cada nodo.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_diagonal_ceros">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_diagonal_ceros</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_diagonal_ceros"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_diagonal_ceros" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueba si la matriz que genera la función “utils.rand_dist_matrix” tiene ceros en la diagonal.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_distancia_hormiga_dif_de_cero">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_distancia_hormiga_dif_de_cero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_distancia_hormiga_dif_de_cero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_distancia_hormiga_dif_de_cero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa que la distancia de la hormiga sea distinta de cero.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_ejemplo_completo">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_ejemplo_completo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_ejemplo_completo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_ejemplo_completo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa el ejemplo completo para ver si la distancia es cero. Pasa la prueba si es distinto a cero.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_feromonas_por_nodo">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_feromonas_por_nodo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_feromonas_por_nodo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_feromonas_por_nodo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueba si existe una feromona para cada nodo.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_hormiga_por_todo_nodo">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_hormiga_por_todo_nodo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_hormiga_por_todo_nodo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_hormiga_por_todo_nodo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueba si la ruta de la hormiga cubre todos los nodos y regresa al nodo inicial.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_probar_matriz_cuadrada">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_probar_matriz_cuadrada</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_probar_matriz_cuadrada"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_probar_matriz_cuadrada" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueba si la matriz que genera la función propia es cuadrada.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ant_colony.test_aco.test_solve_distance">
+<code class="sig-prename descclassname">ant_colony.test_aco.</code><code class="sig-name descname">test_solve_distance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ant_colony/test_aco.html#test_solve_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ant_colony.test_aco.test_solve_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revisa el ejemplo para resolver el TSP para el dataset de distancias de 17 ciudades.</p>
+</dd></dl>
+
 </div>
 <div class="section" id="module-ant_colony.utils">
 <span id="ant-colony-utils-module"></span><h2>ant_colony.utils module<a class="headerlink" href="#module-ant_colony.utils" title="Permalink to this headline">¶</a></h2>
