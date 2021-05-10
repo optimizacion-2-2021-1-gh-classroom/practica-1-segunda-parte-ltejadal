@@ -180,3 +180,26 @@ def test_colony_multiw():
     print(secs)
     # Se toman en cuenta 130 segundos debido a las diferencias de procesamiento en la instancia vs los tests de github
     assert secs < 130
+
+
+def test_compara_tiempos_colony_multiw_vs_colony():
+    n_ants = 1000
+    n_cities =100
+    path_china = './datasets/ch71009.tsp'
+    G = read_coord_data(path_china, n_cities=n_cities, seed=1999)
+    colony_mw = colony_multiw(G, init_node=0,  n_ants= n_ants, n_workers=12)
+    start_time = time.time()
+    colony_mw.solve_tsp()
+    end_time = time.time()
+    secs_colony_mw = end_time-start_time
+    print(secs_colony_mw)
+    
+    # Comparamos contra la versión anterio de Colony para asegurarnos de que se redujo el tiempo de ejecución
+    colony_old = colony(G, init_node=0,  n_ants= n_ants)
+    start_time = time.time()
+    colony_old.solve_tsp()
+    end_time = time.time()
+    
+    secs_old = end_time-start_time
+    
+    assert secs_colony_mw < secs_old
