@@ -13,18 +13,14 @@
 
  En la segunda parte de esta práctica daremos seguimiento al problema planteado en la [primera parte](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-primera-parte-ltejadal), donde se propuso un dataset y el problema de *Traveller Sales Person*, así como el software que se utilizará para la solución del problema. En esta segunda parte de la práctica se resolverá el problema planteado y se hará una implementación en AWS.
 
+## Ejecución en `Binder`
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git/main)
 
+## Imagen de Docker
 
-Para instalar este paquete de python: 
+[![Dockerfile](https://badges.aleen42.com/src/docker.svg)](https://hub.docker.com/r/santibatte/ant_colony_jupyter/tags?page=1&ordering=last_updated)
 
- - clonar el repositorio
- - Posicionarse en la carpeta src
- - escribir desde la linea de comandos: `pip install .` 
- - ya puedes importar los modulos y funciones del paquete :-) 
- 
-
-Para revisar la documentación da click en el siguiente botón:  
+## Documentación
 
 [![Documentation](https://img.shields.io/static/v1.svg?label=Documentation%20ACO-TSP&message=v1&color=blue)](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-ltejadal/)
 
