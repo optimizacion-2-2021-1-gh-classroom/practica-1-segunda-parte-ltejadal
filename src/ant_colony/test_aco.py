@@ -17,6 +17,7 @@ from .utils import graph_optim_path
 
 from .aco_tsp_oo import *
 
+
 # Auxiliares
 def revisar_simetria(matriz, rtol=1e-05, atol=1e-08):
     """Revisa si la matriz ingresada es simétrica o no
@@ -166,6 +167,7 @@ def test_solve_distance():
 
 
 def test_colony_multiw():
+    import ant_colony as ac
     n_ants = 1000
     n_cities =100
     path_china = './datasets/ch71009.tsp'
