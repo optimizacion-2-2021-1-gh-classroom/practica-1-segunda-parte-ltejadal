@@ -162,6 +162,7 @@
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">aco_tsp</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">create_dic_dist</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">create_dic_dist_from_graph</span>
@@ -329,11 +330,12 @@
     <span class="n">n_cities</span> <span class="o">=</span><span class="mi">100</span>
     <span class="n">path_china</span> <span class="o">=</span> <span class="s1">&#39;./datasets/ch71009.tsp&#39;</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">read_coord_data</span><span class="p">(</span><span class="n">path_china</span><span class="p">,</span> <span class="n">n_cities</span><span class="o">=</span><span class="n">n_cities</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1999</span><span class="p">)</span>
-    <span class="n">colony_mw</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">colony_multiw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="n">n_ants</span><span class="o">=</span> <span class="n">n_ants</span><span class="p">,</span> <span class="n">n_workers</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">colony_mw</span> <span class="o">=</span> <span class="n">colony_multiw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="n">n_ants</span><span class="o">=</span> <span class="n">n_ants</span><span class="p">,</span> <span class="n">n_workers</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
     <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">colony_mw</span><span class="o">.</span><span class="n">solve_tsp</span><span class="p">()</span>
     <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">secs</span> <span class="o">=</span> <span class="n">end_time</span><span class="o">-</span><span class="n">start_time</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">secs</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">secs</span> <span class="o">&lt;</span> <span class="mi">30</span></div>
 </pre></div>
 
