@@ -4,7 +4,7 @@ import numpy as np
 import random
 from . import aco_tsp
 from . import utils
-import . as ac
+import .aco_tsp_oo as ac
 
 from .utils import create_dic_dist
 from .utils import create_dic_dist_from_graph
