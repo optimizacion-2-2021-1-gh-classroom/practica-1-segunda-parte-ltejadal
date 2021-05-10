@@ -175,6 +175,7 @@
 
 <span class="kn">from</span> <span class="nn">.aco_tsp_oo</span> <span class="kn">import</span> <span class="o">*</span>
 
+
 <span class="c1"># Auxiliares</span>
 <div class="viewcode-block" id="revisar_simetria"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.test_aco.revisar_simetria">[docs]</a><span class="k">def</span> <span class="nf">revisar_simetria</span><span class="p">(</span><span class="n">matriz</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Revisa si la matriz ingresada es simétrica o no</span>
@@ -324,6 +325,7 @@
 
 
 <div class="viewcode-block" id="test_colony_multiw"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.test_aco.test_colony_multiw">[docs]</a><span class="k">def</span> <span class="nf">test_colony_multiw</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">ant_colony</span> <span class="k">as</span> <span class="nn">ac</span>
     <span class="n">n_ants</span> <span class="o">=</span> <span class="mi">1000</span>
     <span class="n">n_cities</span> <span class="o">=</span><span class="mi">100</span>
     <span class="n">path_china</span> <span class="o">=</span> <span class="s1">&#39;./datasets/ch71009.tsp&#39;</span>
