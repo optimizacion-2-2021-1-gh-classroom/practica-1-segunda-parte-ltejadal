@@ -376,7 +376,7 @@ class ant():
             x = x + next_
 
         # distancia total del recorrido (se adiciona retorno al origen)
-        l = sum([lenghts[x[i]][x[i+1]] for i in range(0, len(x)-1)]) + lenghts[x[-1]][init_point] 
+        l = sum([lenghts[x[i]][x[i+1]] for i in range(0, len(x)-1)]) + lenghts[x[-1]][init_node] 
 
         # sumar regreso al origen
         self.route = x + [init_node]   
