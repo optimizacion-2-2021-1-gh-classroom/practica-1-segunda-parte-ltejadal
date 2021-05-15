@@ -1,17 +1,30 @@
+import folium
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+import pandas as pd
 import random
 import tsplib95
-import pandas as pd
-import numpy as np
-import networkx as nx
-import matplotlib.pyplot as plt
+
+from folium import plugins
 from multiprocessing import cpu_count
 from scipy.spatial import distance_matrix
 
 ###
 def plot_rout_map(df, route, path_type='ants'):
+    """genera 
+
+    Args:
+        df ([type]): [description]
+        route ([type]): [description]
+        path_type (str, optional): [description]. Defaults to 'ants'.
+
+    Returns:
+        [type]: [description]
+    """
     df_coord = df.copy()
     sorter = route[:-1]
-    
+
     # reorder df using thr route
     df_coord.reset_index(inplace=True, drop=True)
     df_coord.reset_index(inplace=True)
