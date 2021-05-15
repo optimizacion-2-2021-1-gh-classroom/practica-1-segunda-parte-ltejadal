@@ -9,7 +9,7 @@ setup(name="ant_colony",
       author_email="",
       license="MIT",
       packages=find_packages(),
-      install_requires = [
+      install_requires = ["folium",
                           "line-profiler",
                           "line-profiler",
                           "matplotlib",
