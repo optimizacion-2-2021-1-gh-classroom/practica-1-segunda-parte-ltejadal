@@ -185,7 +185,7 @@ def read_data(path):
         data = tsplib95.load(path)
         return data.get_graph() 
 
-def read_coord_data(path, n_cities, seed):
+def read_coord_data(path, n_cities, seed=1999, coord_df=False):
     """
     Basado en la solución propuesta en el siguiente repositorio: https://github.com/DiegoVicen/som-tsp
     Convierte en grafo datos de matrices de coordenadas leídas desde un archivo .tsp.
@@ -230,6 +230,10 @@ def read_coord_data(path, n_cities, seed):
     print('Problem with {} cities. Selected {}.'.format(dimension, n_cities))
     
     sample_df = cities_df.sample(n_cities, random_state=seed)
+
+    if coord_df:
+        return sample_df
+        
     array_coord = sample_df[['lat','lon']].to_numpy()
     
     d_mat = distance_matrix(array_coord, array_coord)
