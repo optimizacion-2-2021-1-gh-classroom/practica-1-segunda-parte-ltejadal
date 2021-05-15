@@ -166,7 +166,7 @@ class colony_multiw():
             # ants running across the graph
             self._colony_run(self.A)
 
-            if self.verbose and k%self.k_verbose:
+            if self.verbose and (k%self.k_verbose==0):
                 print(f'iter: {k} / {self.max_iter} - dist: {round(self.best_dist, 2)}')
 
         if self.verbose:
@@ -311,7 +311,7 @@ class colony():
             # ants running across the graph
             self._colony_run(A)
 
-            if self.verbose and k%self.k_verbose:
+            if self.verbose and (k%self.k_verbose==0):
                 print(f'iter: {k} / {self.max_iter} - dist: {round(self.best_dist, 2)}')
 
         if self.verbose:
