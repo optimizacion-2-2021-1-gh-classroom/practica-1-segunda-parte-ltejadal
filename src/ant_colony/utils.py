@@ -194,9 +194,10 @@ def read_coord_data(path, n_cities, seed=1999, coord_df=False):
         path (str): Ruta del archivo.
         n_cities (int): número de ciudades a samplear.
         seed (int): seed para el sampleo.
+        coord_df (bool): Si se quiere retornar df con coordenadas.
 
     Returns:
-        (graph networkx): Grafo asociado a la matriz de distancias. 
+        (graph networkx or df): Grafo asociado a la matriz de distancias ó df con coordenadas. 
     """
     
     with open(path) as f:
@@ -233,7 +234,7 @@ def read_coord_data(path, n_cities, seed=1999, coord_df=False):
 
     if coord_df:
         return sample_df
-        
+
     array_coord = sample_df[['lat','lon']].to_numpy()
     
     d_mat = distance_matrix(array_coord, array_coord)
