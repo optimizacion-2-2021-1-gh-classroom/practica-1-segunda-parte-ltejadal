@@ -38,7 +38,7 @@ def hormiga_recorre(G, lenghts, dic_attr, tau, init_point, x_best, y_best):
         x = x + next_
 
     # distancia total del recorrido (se adiciona retorno al origen)
-    l = sum([lenghts[i-1][i] for i in range(1, len(x))]) + lenghts[x[-1]][init_point] 
+    l = sum([lenghts[x[i]][x[i+1]] for i in range(0, len(x)-1)]) + lenghts[x[-1]][0]
 
     # aportación a los niveles de feromonas
     for i in range(1, len(x)):
