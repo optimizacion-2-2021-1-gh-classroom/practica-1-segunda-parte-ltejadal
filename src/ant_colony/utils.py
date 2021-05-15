@@ -15,12 +15,12 @@ def plot_rout_map(df, route, path_type='ants'):
     """genera 
 
     Args:
-        df ([type]): [description]
-        route ([type]): [description]
-        path_type (str, optional): [description]. Defaults to 'ants'.
+        df (df): df con coordenadas de cada nodo. Debe incluir cols 'lat' y 'lon'.
+        route (lst): Ruta con identificador de los nodos a graficar en el mapa.
+        path_type (str, optional): Tipo de línea para la trayectoria. Opciones son 'plain' y 'ants'. Defaults es 'ants'.
 
     Returns:
-        [type]: [description]
+        [folium map]: Mapa con los nodos conectados por la ruta provista
     """
     df_coord = df.copy()
     sorter = route[:-1]
