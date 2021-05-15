@@ -11,13 +11,14 @@ from multiprocessing import cpu_count
 from scipy.spatial import distance_matrix
 
 ###
-def plot_rout_map(df, route, path_type='ants'):
+def plot_rout_map(df, route, path_type='ants', nodes=True):
     """genera 
 
     Args:
         df (df): df con coordenadas de cada nodo. Debe incluir cols 'lat' y 'lon'.
         route (lst): Ruta con identificador de los nodos a graficar en el mapa.
-        path_type (str, optional): Tipo de línea para la trayectoria. Opciones son 'plain' y 'ants'. Defaults es 'ants'.
+        path_type (str, optional): Tipo de línea para la trayectoria. Opciones son 'plain' y 'ants'. Default es 'ants'.
+        nodes (bool, optional): Indica si graficar los nodos. Default es True.
 
     Returns:
         [folium map]: Mapa con los nodos conectados por la ruta provista.
@@ -42,13 +43,14 @@ def plot_rout_map(df, route, path_type='ants'):
     # map
     map_cities = folium.Map(zoom_start=3, location=[mean_x, mean_y])
 
-    for index, row in df_coord.iterrows():
-        folium.Marker(location=[row['lat'], row['lon']],
-        icon=plugins.BeautifyIcon(number=row['index'],
-                              border_color='blue',
-                              border_width=1,
-                              text_color='red',
-                              inner_icon_style='margin-top:0px;')).add_to(map_cities)
+    if nodes:
+        for index, row in df_coord.iterrows():
+            folium.Marker(location=[row['lat'], row['lon']],
+            icon=plugins.BeautifyIcon(number=row['index'],
+                                border_color='blue',
+                                border_width=1,
+                                text_color='red',
+                                inner_icon_style='margin-top:0px;')).add_to(map_cities)
     
     # add route
     if path_type=='ants':
