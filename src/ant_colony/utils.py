@@ -20,7 +20,7 @@ def plot_rout_map(df, route, path_type='ants'):
         path_type (str, optional): Tipo de línea para la trayectoria. Opciones son 'plain' y 'ants'. Defaults es 'ants'.
 
     Returns:
-        [folium map]: Mapa con los nodos conectados por la ruta provista
+        [folium map]: Mapa con los nodos conectados por la ruta provista.
     """
     df_coord = df.copy()
     sorter = route[:-1]
