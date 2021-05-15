@@ -33,7 +33,8 @@ class colony_multiw():
                  beta=5, 
                  rho=.5,
                  n_workers = 1,
-                 verbose=10):
+                 verbose=False, 
+                 k_verbose=10):
         self.graph = G
         self.A = None
         self.init_node = init_node
@@ -49,8 +50,8 @@ class colony_multiw():
         self.ants_per_worker = assign_ants_threats(self.n_ants, self.n_workers)
         self.tau = init_ferom(self.graph)
         self.eta = init_atrac(self.graph, self.lenghts)
-        self.verbose = False
-        self.k_verbose = 100
+        self.verbose = verbose
+        self.k_verbose = k_verbose
 
     def _update_pheromone_levels(self, route, dist_route):
         """Actualiza el nivel de feromonas en las respectivas trayectorias
@@ -211,7 +212,8 @@ class colony():
                  alpha=1, 
                  beta=5, 
                  rho=.5, 
-                 verbose=10):
+                 verbose=False, 
+                 k_verbose=100):
         self.graph = G
         self.init_node = init_node
         self.best_route = best_route
@@ -225,8 +227,8 @@ class colony():
         self.rho = rho
         self.tau = init_ferom(self.graph)
         self.eta = init_atrac(self.graph, self.lenghts)
-        self.verbose = False
-        self.k_verbose = 100
+        self.verbose = verbose
+        self.k_verbose = k_verbose
         
     def _update_pheromone_levels(self, route, dist_route):
         """Actualiza el nivel de feromonas en las respectivas trayectorias
