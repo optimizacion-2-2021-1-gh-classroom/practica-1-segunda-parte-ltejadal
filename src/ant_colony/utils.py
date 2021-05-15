@@ -8,6 +8,44 @@ from multiprocessing import cpu_count
 from scipy.spatial import distance_matrix
 
 ###
+def plot_rout_map(df, route, path_type='ants'):
+    df_coord = df.copy()
+    sorter = route[:-1]
+    
+    # reorder df using thr route
+    df_coord.reset_index(inplace=True, drop=True)
+    df_coord.reset_index(inplace=True)
+    df_coord = df_coord.loc[sorter]
+    
+    # route 
+    route_coord = [(x, y) for x, y in zip(df_coord['lat'], df_coord['lon'])]
+    # adds origin
+    route_coord.append(route_coord[0])
+    # avg point
+    x,  y= zip(*route_coord)
+    mean_x = np.mean(x)
+    mean_y = np.mean(y)
+    
+    # map
+    map_cities = folium.Map(zoom_start=3, location=[mean_x, mean_y])
+
+    for index, row in df_coord.iterrows():
+        folium.Marker(location=[row['lat'], row['lon']],
+        icon=plugins.BeautifyIcon(number=row['index'],
+                              border_color='blue',
+                              border_width=1,
+                              text_color='red',
+                              inner_icon_style='margin-top:0px;')).add_to(map_cities)
+    
+    # add route
+    if path_type=='ants':
+        plugins.AntPath(route_coord).add_to(map_cities)
+    elif path_type=='plain':
+        folium.PolyLine(route).add_to(map_cities)
+
+    return map_cities
+
+
 def assign_ants_threats(n_ants, n_cpu=cpu_count()):
     """Crea una lista para asignar el número de hormigas que procesará
     cada uno de los workers seleccionados. 
