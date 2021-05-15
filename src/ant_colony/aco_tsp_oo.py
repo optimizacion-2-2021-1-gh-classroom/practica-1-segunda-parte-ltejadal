@@ -49,7 +49,9 @@ class colony_multiw():
         self.ants_per_worker = assign_ants_threats(self.n_ants, self.n_workers)
         self.tau = init_ferom(self.graph)
         self.eta = init_atrac(self.graph, self.lenghts)
-        
+        self.verbose = False
+        self.k_verbose = 100
+
     def _update_pheromone_levels(self, route, dist_route):
         """Actualiza el nivel de feromonas en las respectivas trayectorias
         del grafo.
@@ -162,7 +164,21 @@ class colony_multiw():
                 
             # ants running across the graph
             self._colony_run(self.A)
-            
+
+            if self.verbose and k%self.k_verbose:
+                print(f'iter: {k} / {self.max_iter} - dist: {round(self.best_dist, 2)}')
+
+        if self.verbose:
+            print('\n')
+            print("-"*30)
+            print('Resumen:')
+            print(f'\tNro. de hormigas: {self.n_ants}')  
+            print(f'\tIteraciones: {self.max_iter}')  
+            print(f'\tDistancia: {self.best_dist}') 
+            print(f'\tNodo inicial: {self.init_node}')  
+            print(f'\tRuta: {self.best_route}') 
+            print("-"*30)
+
     def plot_route(self, plt_size=(12, 8)):
         """Grafica la trayectoria encontrada por la colonia en el grafo.
 
@@ -209,6 +225,8 @@ class colony():
         self.rho = rho
         self.tau = init_ferom(self.graph)
         self.eta = init_atrac(self.graph, self.lenghts)
+        self.verbose = False
+        self.k_verbose = 100
         
     def _update_pheromone_levels(self, route, dist_route):
         """Actualiza el nivel de feromonas en las respectivas trayectorias
@@ -287,9 +305,24 @@ class colony():
             
             if k>1:
                 self._evaporates_pheromone()
-                
+
             # ants running across the graph
             self._colony_run(A)
+
+            if self.verbose and k%self.k_verbose:
+                print(f'iter: {k} / {self.max_iter} - dist: {round(self.best_dist, 2)}')
+
+        if self.verbose:
+            print('\n')
+            print("-"*30)
+            print('Resumen:')
+            print(f'\tNro. de hormigas: {self.n_ants}')  
+            print(f'\tIteraciones: {self.max_iter}')  
+            print(f'\tDistancia: {self.best_dist}') 
+            print(f'\tNodo inicial: {self.init_node}')  
+            print(f'\tRuta: {self.best_route}') 
+            print("-"*30)
+                
 
     def plot_route(self, plt_size=(12, 8)):
         """Grafica la trayectoria encontrada por la colonia en el grafo.
