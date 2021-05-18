@@ -11,8 +11,37 @@ from multiprocessing import cpu_count
 from scipy.spatial import distance_matrix
 
 ###
+def plot_nodes_map(df):
+    """Genera gŕafico con nodos numerados.
+
+    Args:
+        df (df): df con coordenadas de cada nodo. Debe incluir cols 'lat' y 'lon'.
+
+    Returns:
+        [folium map]: Mapa con los nodos de cada ubicación.
+    """
+    df_coord = df.copy()
+
+    df_coord.reset_index(inplace=True, drop=True)
+    df_coord.reset_index(inplace=True)
+    # avg point
+    mean_x = np.mean(coord_df['lat'])
+    mean_y = np.mean(coord_df['lon'])
+
+    # map
+    map_cities = folium.Map(zoom_start=3, location=[mean_x, mean_y])
+    for index, row in df_coord.iterrows():
+        folium.Marker(location=[row['lat'], row['lon']],
+                  icon=plugins.BeautifyIcon(number=row['index'],
+                                    border_color='blue',
+                                    border_width=1,
+                                    text_color='red',
+                                    inner_icon_style='margin-top:0px;')).add_to(map_cities)
+        
+    return map_cities   
+
 def plot_rout_map(df, route, path_type='ants', nodes=True):
-    """genera 
+    """Genera gŕafico con ruta entre nodos, y nodos numerados. 
 
     Args:
         df (df): df con coordenadas de cada nodo. Debe incluir cols 'lat' y 'lon'.
