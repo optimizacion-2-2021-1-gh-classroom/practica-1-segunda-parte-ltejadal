@@ -11,11 +11,13 @@ from multiprocessing import cpu_count
 from scipy.spatial import distance_matrix
 
 ###
-def plot_nodes_map(df):
+def plot_nodes_map(df, save=False, save_as='path'):
     """Genera gŕafico con nodos numerados.
 
     Args:
         df (df): df con coordenadas de cada nodo. Debe incluir cols 'lat' y 'lon'.
+        save (bool, optional): Indica si guardar el mapa como html. Default es False.
+        save_as (str, optional): Nombre del mapa a guardar como html.
 
     Returns:
         [folium map]: Mapa con los nodos de cada ubicación.
@@ -37,10 +39,13 @@ def plot_nodes_map(df):
                                     border_width=1,
                                     text_color='red',
                                     inner_icon_style='margin-top:0px;')).add_to(map_cities)
+    if save:
+        name_map = save_as + '.html'
+        map_cities.save(name_map)
         
     return map_cities   
 
-def plot_rout_map(df, route, path_type='ants', nodes=True):
+def plot_rout_map(df, route, path_type='ants', nodes=True, save=False, save_as='path'):
     """Genera gŕafico con ruta entre nodos, y nodos numerados. 
 
     Args:
@@ -49,6 +54,8 @@ def plot_rout_map(df, route, path_type='ants', nodes=True):
         only_nodes (str, optional): Indica si solo se quieren graficar los nodos. Default es True.
         path_type (str, optional): Tipo de línea para la trayectoria. Opciones son 'plain' y 'ants'. Default es 'ants'.
         nodes (bool, optional): Indica si graficar los nodos. Default es True.
+        save (bool, optional): Indica si guardar el mapa como html. Default es False.
+        save_as (str, optional): Nombre del mapa a guardar como html.
 
     Returns:
         [folium map]: Mapa con los nodos conectados por la ruta provista.
@@ -88,6 +95,10 @@ def plot_rout_map(df, route, path_type='ants', nodes=True):
     elif path_type=='plain':
         folium.PolyLine(route).add_to(map_cities)
 
+    if save:
+        name_map = save_as + '.html'
+        map_cities.save(name_map)
+        
     return map_cities
 
 
