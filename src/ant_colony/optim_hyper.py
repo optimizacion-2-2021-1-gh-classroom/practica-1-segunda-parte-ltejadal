@@ -1,6 +1,7 @@
 import time
 import optuna
-from .aco_tsp_oo import colony
+from .aco_tsp_oo import colony, colony_multiw
+from multiprocessing import cpu_count
 
 def load_params(file):
     """Carga los mejores parámetros de un estudio previo.
@@ -17,6 +18,35 @@ def load_params(file):
     return study.best_trial.params
 
 def optim_h_params(G, init_node, trials, save=False):
+    """Genera estudio de optimización para buscar los mejores hiper-parámetros del algoritmo.
+
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos.
+        init_node (int): Nodo inicial del recorrido.
+        trials (int): Numero de intentos para hacer el muestreo. 
+        save (bool, optional): Se especifica si se quiere guardar el estudio en disco. Default es False.
+
+    Returns:
+        [dict]: Diccionario con la información del estudio de optimización
+    """
+    objective = Objective_mp(G, init_node)
+    if save:
+        study = optuna.create_study(study_name='optimize_aco',
+                                    direction="minimize", 
+                                    storage='sqlite:///best_hiper_params.db', 
+                                    load_if_exists=True)
+        
+    else:
+        study = optuna.create_study(study_name='optimize_aco', direction="minimize")
+
+    study.optimize(objective, n_trials=trials)
+
+    if save:
+        print(f'Hyper-parameters saved in ./best_hiper_params.db')
+
+    return study.best_trial
+
+def optim_h_params_mp(G, init_node, trials, save=False):
     """Genera estudio de optimización para buscar los mejores hiper-parámetros del algoritmo.
 
     Args:
@@ -86,3 +116,30 @@ class Objective(object):
         
         return obj
 
+
+class Objective_mp(object):
+    """Clase para definir la función objetivo a optimizar en la búsqueda de los mejores
+        hiper-parámetros del algoritmo. Minimiza tiempo + (distancia)^2.
+
+    Args:
+        G (networkx graph): Grafo con relaciones asociadas entre nodos.
+        init_node (int): Nodo inicial del recorrido.
+    """
+    def __init__(self, G, init_node):
+        self.G = G
+        self.init_node = init_node
+        self.n_workers = cpu_count()
+
+    def __call__(self, trial):
+        aco_params = sample_params(trial)
+        colony_ = colony_multiw(self.G, self.init_node, self.n_workers, **aco_params)
+        
+        # time algorithm
+        start = time.time()
+        colony_.solve_tsp()
+        end = time.time() 
+        # total time in minutes
+        total_time = (end - start) / 60
+        obj = total_time + (colony_.best_dist)**2
+        
+        return obj
