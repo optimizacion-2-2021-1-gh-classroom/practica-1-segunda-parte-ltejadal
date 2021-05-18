@@ -25,8 +25,8 @@ def plot_nodes_map(df):
     df_coord.reset_index(inplace=True, drop=True)
     df_coord.reset_index(inplace=True)
     # avg point
-    mean_x = np.mean(coord_df['lat'])
-    mean_y = np.mean(coord_df['lon'])
+    mean_x = np.mean(df_coord['lat'])
+    mean_y = np.mean(df_coord['lon'])
 
     # map
     map_cities = folium.Map(zoom_start=3, location=[mean_x, mean_y])
