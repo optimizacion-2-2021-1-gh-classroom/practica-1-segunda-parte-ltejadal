@@ -11,7 +11,7 @@ from multiprocessing import cpu_count
 from scipy.spatial import distance_matrix
 
 ###
-def plot_rout_map(df, route=[], only_nodes='True', path_type='ants', nodes=True):
+def plot_rout_map(df, route, path_type='ants', nodes=True):
     """genera 
 
     Args:
@@ -53,9 +53,6 @@ def plot_rout_map(df, route=[], only_nodes='True', path_type='ants', nodes=True)
                                 text_color='red',
                                 inner_icon_style='margin-top:0px;')).add_to(map_cities)
     
-    if only_nodes:
-        return map_cities
-
     # add route
     if path_type=='ants':
         plugins.AntPath(route_coord).add_to(map_cities)
