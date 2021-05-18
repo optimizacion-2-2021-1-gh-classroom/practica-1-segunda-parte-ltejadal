@@ -11,12 +11,13 @@ from multiprocessing import cpu_count
 from scipy.spatial import distance_matrix
 
 ###
-def plot_rout_map(df, route, path_type='ants', nodes=True):
+def plot_rout_map(df, route, only_nodes='True', path_type='ants', nodes=True):
     """genera 
 
     Args:
         df (df): df con coordenadas de cada nodo. Debe incluir cols 'lat' y 'lon'.
         route (lst): Ruta con identificador de los nodos a graficar en el mapa.
+        only_nodes (str, optional): Indica si solo se quieren graficar los nodos. Default es True.
         path_type (str, optional): Tipo de línea para la trayectoria. Opciones son 'plain' y 'ants'. Default es 'ants'.
         nodes (bool, optional): Indica si graficar los nodos. Default es True.
 
@@ -52,6 +53,9 @@ def plot_rout_map(df, route, path_type='ants', nodes=True):
                                 text_color='red',
                                 inner_icon_style='margin-top:0px;')).add_to(map_cities)
     
+    if only_nodes:
+        return map_cities
+
     # add route
     if path_type=='ants':
         plugins.AntPath(route_coord).add_to(map_cities)
