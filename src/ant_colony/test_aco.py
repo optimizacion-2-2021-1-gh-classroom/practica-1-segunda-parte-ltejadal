@@ -183,11 +183,11 @@ def test_colony_multiw():
 
 
 def test_compara_tiempos_colony_multiw_vs_colony():
-    n_ants = 1000
-    n_cities =100
+    n_ants = 10
+    n_cities =30
     path_china = './datasets/ch71009.tsp'
     G = read_coord_data(path_china, n_cities=n_cities, seed=1999)
-    colony_mw = colony_multiw(G, init_node=0,  n_ants= n_ants, n_workers=12)
+    colony_mw = colony_multiw(G, init_node=0,  n_ants= n_ants, n_workers=4)
     start_time = time.time()
     colony_mw.solve_tsp()
     end_time = time.time()

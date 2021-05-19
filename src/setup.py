@@ -9,15 +9,15 @@ setup(name="ant_colony",
       author_email="",
       license="MIT",
       packages=find_packages(),
-      install_requires = [
-                          "tsplib95",
+      install_requires = ["folium",
+                          "line-profiler",
+                          "line-profiler",
                           "matplotlib",
                           "networkx",
-                          "scipy",
                           "optuna",
                           "pandas",
-                          "line-profiler",
-                          "line-profiler"
+                          "scipy",
+                          "tsplib95"
                           ],
       )
 

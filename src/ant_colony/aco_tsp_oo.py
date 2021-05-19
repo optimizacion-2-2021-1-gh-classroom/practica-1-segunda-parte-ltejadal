@@ -33,7 +33,8 @@ class colony_multiw():
                  beta=5, 
                  rho=.5,
                  n_workers = 1,
-                 verbose=10):
+                 verbose=False, 
+                 k_verbose=10):
         self.graph = G
         self.A = None
         self.init_node = init_node
@@ -49,7 +50,9 @@ class colony_multiw():
         self.ants_per_worker = assign_ants_threats(self.n_ants, self.n_workers)
         self.tau = init_ferom(self.graph)
         self.eta = init_atrac(self.graph, self.lenghts)
-        
+        self.verbose = verbose
+        self.k_verbose = k_verbose
+
     def _update_pheromone_levels(self, route, dist_route):
         """Actualiza el nivel de feromonas en las respectivas trayectorias
         del grafo.
@@ -162,7 +165,21 @@ class colony_multiw():
                 
             # ants running across the graph
             self._colony_run(self.A)
-            
+
+            if self.verbose and (k%self.k_verbose==0):
+                print(f'iter: {k} / {self.max_iter} - dist: {round(self.best_dist, 2)}')
+
+        if self.verbose:
+            print('\n')
+            print("-"*30)
+            print('Resumen:')
+            print(f'\tNro. de hormigas: {self.n_ants}')  
+            print(f'\tIteraciones: {self.max_iter}')  
+            print(f'\tDistancia: {self.best_dist}') 
+            print(f'\tNodo inicial: {self.init_node}')  
+            print(f'\tRuta: {self.best_route}') 
+            print("-"*30)
+
     def plot_route(self, plt_size=(12, 8)):
         """Grafica la trayectoria encontrada por la colonia en el grafo.
 
@@ -195,7 +212,8 @@ class colony():
                  alpha=1, 
                  beta=5, 
                  rho=.5, 
-                 verbose=10):
+                 verbose=False, 
+                 k_verbose=100):
         self.graph = G
         self.init_node = init_node
         self.best_route = best_route
@@ -209,6 +227,8 @@ class colony():
         self.rho = rho
         self.tau = init_ferom(self.graph)
         self.eta = init_atrac(self.graph, self.lenghts)
+        self.verbose = verbose
+        self.k_verbose = k_verbose
         
     def _update_pheromone_levels(self, route, dist_route):
         """Actualiza el nivel de feromonas en las respectivas trayectorias
@@ -287,9 +307,24 @@ class colony():
             
             if k>1:
                 self._evaporates_pheromone()
-                
+
             # ants running across the graph
             self._colony_run(A)
+
+            if self.verbose and (k%self.k_verbose==0):
+                print(f'iter: {k} / {self.max_iter} - dist: {round(self.best_dist, 2)}')
+
+        if self.verbose:
+            print('\n')
+            print("-"*30)
+            print('Resumen:')
+            print(f'\tNro. de hormigas: {self.n_ants}')  
+            print(f'\tIteraciones: {self.max_iter}')  
+            print(f'\tDistancia: {self.best_dist}') 
+            print(f'\tNodo inicial: {self.init_node}')  
+            print(f'\tRuta: {self.best_route}') 
+            print("-"*30)
+                
 
     def plot_route(self, plt_size=(12, 8)):
         """Grafica la trayectoria encontrada por la colonia en el grafo.
@@ -343,7 +378,7 @@ class ant():
             x = x + next_
 
         # distancia total del recorrido (se adiciona retorno al origen)
-        l = sum([lenghts[i-1][i] for i in range(1, len(x))]) + lenghts[x[-1]][init_node] 
+        l = sum([lenghts[x[i]][x[i+1]] for i in range(0, len(x)-1)]) + lenghts[x[-1]][init_node] 
 
         # sumar regreso al origen
         self.route = x + [init_node]   

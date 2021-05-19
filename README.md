@@ -1,4 +1,4 @@
-[![ACO-TSP](https://gist.githack.com/C1587S/6f2fccb2473f9c9c8a093db7a03f9ab3/raw/f895b41f3ea45fd26c529b7e80ea4a3c69b0e0a5/ACO%20TSP%20pkg.svg)](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal)
+[![ACO-TSP](https://gist.githack.com/C1587S/6f2fccb2473f9c9c8a093db7a03f9ab3/raw/f895b41f3ea45fd26c529b7e80ea4a3c69b0e0a5/ACO%20TSP%20pkg.svg)](https://github.com/C1587S/ACO-TSP/)
 
 # Optimización Avanzada: Práctica 1, Segunda Parte
 
@@ -25,11 +25,11 @@
 
 ## Documentación
 
-[![Documentation](https://gist.githack.com/C1587S/ccc36b3d60edb8329464588177bae5d2/raw/f91c3226a4e9627a1eef7c40d0356df75d114a30/ACO%20TSP%20Documentation.svg)](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-ltejadal/)
+[![Documentation](https://gist.githack.com/C1587S/ccc36b3d60edb8329464588177bae5d2/raw/f91c3226a4e9627a1eef7c40d0356df75d114a30/ACO%20TSP%20Documentation.svg)](https://c1587s.github.io/ACO-TSP/index.html)
 
 ## Github Actions
 
-[![sphinx-doc](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions/workflows/sphinx-doc.yml/badge.svg)](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions)
-[![docker-image-build-and-push.yml](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions/workflows/docker-image-build-and-push.yml/badge.svg)](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions)
-[![ci.yml](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions/workflows/ci.yml/badge.svg)](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions)
+[![sphinx-doc](https://github.com/C1587S/ACO-TSP/actions/workflows/sphinx-doc.yml/badge.svg)](https://github.com/C1587S/ACO-TSP/actions)
+[![docker-image-build-and-push.yml](https://github.com/C1587S/ACO-TSP/actions/workflows/docker-image-build-and-push.yml/badge.svg)](https://github.com/C1587S/ACO-TSP/actions)
+[![ci.yml](https://github.com/C1587S/ACO-TSP/actions/workflows/ci.yml/badge.svg)](https://github.com/C1587S/ACO-TSP/actions)
 

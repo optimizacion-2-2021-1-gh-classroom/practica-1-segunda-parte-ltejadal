@@ -1,13 +1,107 @@
+import folium
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+import pandas as pd
 import random
 import tsplib95
-import pandas as pd
-import numpy as np
-import networkx as nx
-import matplotlib.pyplot as plt
+
+from folium import plugins
 from multiprocessing import cpu_count
 from scipy.spatial import distance_matrix
 
 ###
+def plot_nodes_map(df, save=False, save_as='path'):
+    """Genera gŕafico con nodos numerados.
+
+    Args:
+        df (df): df con coordenadas de cada nodo. Debe incluir cols 'lat' y 'lon'.
+        save (bool, optional): Indica si guardar el mapa como html. Default es False.
+        save_as (str, optional): Nombre del mapa a guardar como html.
+
+    Returns:
+        [folium map]: Mapa con los nodos de cada ubicación.
+    """
+    df_coord = df.copy()
+
+    df_coord.reset_index(inplace=True, drop=True)
+    df_coord.reset_index(inplace=True)
+    # avg point
+    mean_x = np.mean(df_coord['lat'])
+    mean_y = np.mean(df_coord['lon'])
+
+    # map
+    map_cities = folium.Map(zoom_start=3, location=[mean_x, mean_y])
+    for index, row in df_coord.iterrows():
+        folium.Marker(location=[row['lat'], row['lon']],
+                  icon=plugins.BeautifyIcon(number=row['index'],
+                                    border_color='blue',
+                                    border_width=1,
+                                    text_color='red',
+                                    inner_icon_style='margin-top:0px;')).add_to(map_cities)
+    if save:
+        name_map = save_as + '.html'
+        map_cities.save(name_map)
+        
+    return map_cities   
+
+def plot_rout_map(df, route, path_type='ants', nodes=True, save=False, save_as='path'):
+    """Genera gŕafico con ruta entre nodos, y nodos numerados. 
+
+    Args:
+        df (df): df con coordenadas de cada nodo. Debe incluir cols 'lat' y 'lon'.
+        route (lst): Ruta con identificador de los nodos a graficar en el mapa.
+        only_nodes (str, optional): Indica si solo se quieren graficar los nodos. Default es True.
+        path_type (str, optional): Tipo de línea para la trayectoria. Opciones son 'plain' y 'ants'. Default es 'ants'.
+        nodes (bool, optional): Indica si graficar los nodos. Default es True.
+        save (bool, optional): Indica si guardar el mapa como html. Default es False.
+        save_as (str, optional): Nombre del mapa a guardar como html.
+
+    Returns:
+        [folium map]: Mapa con los nodos conectados por la ruta provista.
+    """
+    df_coord = df.copy()
+    sorter = route[:-1]
+
+    # reorder df using thr route
+    df_coord.reset_index(inplace=True, drop=True)
+    df_coord.reset_index(inplace=True)
+    df_coord = df_coord.loc[sorter]
+    
+    # route 
+    route_coord = [(x, y) for x, y in zip(df_coord['lat'], df_coord['lon'])]
+    # adds origin
+    route_coord.append(route_coord[0])
+    # avg point
+    x,  y= zip(*route_coord)
+    mean_x = np.mean(x)
+    mean_y = np.mean(y)
+    
+    # map
+    map_cities = folium.Map(zoom_start=3, location=[mean_x, mean_y])
+
+    if nodes:
+        for index, row in df_coord.iterrows():
+            folium.Marker(location=[row['lat'], row['lon']],
+            icon=plugins.BeautifyIcon(number=row['index'],
+                                border_color='blue',
+                                border_width=1,
+                                text_color='red',
+                                inner_icon_style='margin-top:0px;')).add_to(map_cities)
+    
+    # add route
+    if path_type=='ants':
+        plugins.AntPath(route_coord).add_to(map_cities)
+    elif path_type=='plain':
+        folium.PolyLine(route).add_to(map_cities)
+
+    if save:
+        name_map = save_as + '.html'
+        map_cities.save(name_map)
+        
+    return map_cities
+
+
 def assign_ants_threats(n_ants, n_cpu=cpu_count()):
     """Crea una lista para asignar el número de hormigas que procesará
     cada uno de los workers seleccionados. 
@@ -185,7 +279,7 @@ def read_data(path):
         data = tsplib95.load(path)
         return data.get_graph() 
 
-def read_coord_data(path, n_cities, seed):
+def read_coord_data(path, n_cities, seed=1999, coord_df=False):
     """
     Basado en la solución propuesta en el siguiente repositorio: https://github.com/DiegoVicen/som-tsp
     Convierte en grafo datos de matrices de coordenadas leídas desde un archivo .tsp.
@@ -194,9 +288,10 @@ def read_coord_data(path, n_cities, seed):
         path (str): Ruta del archivo.
         n_cities (int): número de ciudades a samplear.
         seed (int): seed para el sampleo.
+        coord_df (bool): Si se quiere retornar df con coordenadas.
 
     Returns:
-        (graph networkx): Grafo asociado a la matriz de distancias. 
+        (graph networkx or df): Grafo asociado a la matriz de distancias ó df con coordenadas. 
     """
     
     with open(path) as f:
@@ -230,6 +325,10 @@ def read_coord_data(path, n_cities, seed):
     print('Problem with {} cities. Selected {}.'.format(dimension, n_cities))
     
     sample_df = cities_df.sample(n_cities, random_state=seed)
+
+    if coord_df:
+        return sample_df
+
     array_coord = sample_df[['lat','lon']].to_numpy()
     
     d_mat = distance_matrix(array_coord, array_coord)
