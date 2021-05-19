@@ -30,8 +30,7 @@ RUN jupyter notebook --generate-config && \
 RUN pip3 install $PIP_PACKAGES_KALE --upgrade
 RUN jupyter labextension install kubeflow-kale-labextension
 
-
-RUN pip3 install --quiet "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git#egg=ant_colony&subdirectory=src"
+RUN pip3 install "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal.git#egg=ant_colony&subdirectory=src"
 
 VOLUME ["/shared_volume"]
 
