@@ -30,6 +30,6 @@
 ## Github Actions
 
 [![sphinx-doc](https://github.com/C1587S/ACO-TSP/actions/workflows/sphinx-doc.yml/badge.svg)](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions)
-[![docker-image-build-and-push.yml](https://github.com/C1587S/ACO-TSP/actions/workflows/docker-image-build-and-push.yml/badge.svg)](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions)
+[![docker-image-build-and-push.yml](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions/workflows/docker-image-build-and-push.yml/badge.svg)](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions)
 [![ci.yml](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-ltejadal/actions/workflows/ci.yml/badge.svg)](https://github.com/C1587S/ACO-TSP/actions)
 
