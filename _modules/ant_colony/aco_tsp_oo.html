@@ -191,7 +191,8 @@
                  <span class="n">beta</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
                  <span class="n">rho</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span>
                  <span class="n">n_workers</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-                 <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                 <span class="n">k_verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">graph</span> <span class="o">=</span> <span class="n">G</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">init_node</span> <span class="o">=</span> <span class="n">init_node</span>
@@ -207,7 +208,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ants_per_worker</span> <span class="o">=</span> <span class="n">assign_ants_threats</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_ants</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_workers</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tau</span> <span class="o">=</span> <span class="n">init_ferom</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">=</span> <span class="n">init_atrac</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lenghts</span><span class="p">)</span>
-        
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_verbose</span> <span class="o">=</span> <span class="n">k_verbose</span>
+
     <span class="k">def</span> <span class="nf">_update_pheromone_levels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">dist_route</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Actualiza el nivel de feromonas en las respectivas trayectorias</span>
 <span class="sd">        del grafo.</span>
@@ -319,8 +322,22 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_evaporates_pheromone</span><span class="p">()</span>
                 
             <span class="c1"># ants running across the graph</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_colony_run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span></div>
-            
+            <span class="bp">self</span><span class="o">.</span><span class="n">_colony_run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="p">(</span><span class="n">k</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">k_verbose</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;iter: </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="si">}</span><span class="s1"> - dist: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">best_dist</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Resumen:&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Nro. de hormigas: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_ants</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Iteraciones: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Distancia: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_dist</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Nodo inicial: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">init_node</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Ruta: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_route</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="colony_multiw.plot_route"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.colony_multiw.plot_route">[docs]</a>    <span class="k">def</span> <span class="nf">plot_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plt_size</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)):</span>
         <span class="sd">&quot;&quot;&quot;Grafica la trayectoria encontrada por la colonia en el grafo.</span>
 
@@ -353,7 +370,8 @@
                  <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
                  <span class="n">beta</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
                  <span class="n">rho</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> 
-                 <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                 <span class="n">k_verbose</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">graph</span> <span class="o">=</span> <span class="n">G</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">init_node</span> <span class="o">=</span> <span class="n">init_node</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">best_route</span> <span class="o">=</span> <span class="n">best_route</span>
@@ -367,6 +385,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">rho</span> <span class="o">=</span> <span class="n">rho</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tau</span> <span class="o">=</span> <span class="n">init_ferom</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">=</span> <span class="n">init_atrac</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lenghts</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_verbose</span> <span class="o">=</span> <span class="n">k_verbose</span>
         
     <span class="k">def</span> <span class="nf">_update_pheromone_levels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">dist_route</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Actualiza el nivel de feromonas en las respectivas trayectorias</span>
@@ -445,9 +465,24 @@
             
             <span class="k">if</span> <span class="n">k</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_evaporates_pheromone</span><span class="p">()</span>
-                
+
             <span class="c1"># ants running across the graph</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_colony_run</span><span class="p">(</span><span class="n">A</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_colony_run</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="p">(</span><span class="n">k</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">k_verbose</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;iter: </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="si">}</span><span class="s1"> - dist: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">best_dist</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Resumen:&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Nro. de hormigas: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_ants</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Iteraciones: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Distancia: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_dist</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Nodo inicial: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">init_node</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Ruta: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_route</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span></div>
+                
 
 <div class="viewcode-block" id="colony.plot_route"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.aco_tsp_oo.colony.plot_route">[docs]</a>    <span class="k">def</span> <span class="nf">plot_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plt_size</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)):</span>
         <span class="sd">&quot;&quot;&quot;Grafica la trayectoria encontrada por la colonia en el grafo.</span>
@@ -501,7 +536,7 @@
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">next_</span>
 
         <span class="c1"># distancia total del recorrido (se adiciona retorno al origen)</span>
-        <span class="n">l</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">lenghts</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))])</span> <span class="o">+</span> <span class="n">lenghts</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]][</span><span class="n">init_node</span><span class="p">]</span> 
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">lenghts</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span> <span class="o">+</span> <span class="n">lenghts</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]][</span><span class="n">init_node</span><span class="p">]</span> 
 
         <span class="c1"># sumar regreso al origen</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">route</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">[</span><span class="n">init_node</span><span class="p">]</span>   

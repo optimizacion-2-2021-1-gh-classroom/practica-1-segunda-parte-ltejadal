@@ -158,7 +158,8 @@
   <h1>Source code for ant_colony.optim_hyper</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">optuna</span>
-<span class="kn">from</span> <span class="nn">.aco_tsp_oo</span> <span class="kn">import</span> <span class="n">colony</span>
+<span class="kn">from</span> <span class="nn">.aco_tsp_oo</span> <span class="kn">import</span> <span class="n">colony</span><span class="p">,</span> <span class="n">colony_multiw</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">cpu_count</span>
 
 <div class="viewcode-block" id="load_params"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.optim_hyper.load_params">[docs]</a><span class="k">def</span> <span class="nf">load_params</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Carga los mejores parámetros de un estudio previo.</span>
@@ -175,6 +176,35 @@
     <span class="k">return</span> <span class="n">study</span><span class="o">.</span><span class="n">best_trial</span><span class="o">.</span><span class="n">params</span></div>
 
 <div class="viewcode-block" id="optim_h_params"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.optim_hyper.optim_h_params">[docs]</a><span class="k">def</span> <span class="nf">optim_h_params</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Genera estudio de optimización para buscar los mejores hiper-parámetros del algoritmo.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        G (networkx graph): Grafo con relaciones asociadas entre nodos.</span>
+<span class="sd">        init_node (int): Nodo inicial del recorrido.</span>
+<span class="sd">        trials (int): Numero de intentos para hacer el muestreo. </span>
+<span class="sd">        save (bool, optional): Se especifica si se quiere guardar el estudio en disco. Default es False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        [dict]: Diccionario con la información del estudio de optimización</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">objective</span> <span class="o">=</span> <span class="n">Objective_mp</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
+        <span class="n">study</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">create_study</span><span class="p">(</span><span class="n">study_name</span><span class="o">=</span><span class="s1">&#39;optimize_aco&#39;</span><span class="p">,</span>
+                                    <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;minimize&quot;</span><span class="p">,</span> 
+                                    <span class="n">storage</span><span class="o">=</span><span class="s1">&#39;sqlite:///best_hiper_params.db&#39;</span><span class="p">,</span> 
+                                    <span class="n">load_if_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">study</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">create_study</span><span class="p">(</span><span class="n">study_name</span><span class="o">=</span><span class="s1">&#39;optimize_aco&#39;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;minimize&quot;</span><span class="p">)</span>
+
+    <span class="n">study</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="n">trials</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hyper-parameters saved in ./best_hiper_params.db&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">study</span><span class="o">.</span><span class="n">best_trial</span></div>
+
+<div class="viewcode-block" id="optim_h_params_mp"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.optim_hyper.optim_h_params_mp">[docs]</a><span class="k">def</span> <span class="nf">optim_h_params_mp</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Genera estudio de optimización para buscar los mejores hiper-parámetros del algoritmo.</span>
 
 <span class="sd">    Args:</span>
@@ -212,7 +242,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span><span class="p">{</span>
         <span class="s1">&#39;n_ants&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span><span class="s1">&#39;n_ants&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-        <span class="s1">&#39;max_iter&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_categorical</span><span class="p">(</span><span class="s1">&#39;max_iter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">]),</span>
+        <span class="s1">&#39;max_iter&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_categorical</span><span class="p">(</span><span class="s1">&#39;max_iter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span>
         <span class="s1">&#39;rho&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_uniform</span><span class="p">(</span><span class="s1">&#39;rho&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
         <span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
         <span class="s1">&#39;beta&#39;</span> <span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -244,6 +274,33 @@
         
         <span class="k">return</span> <span class="n">obj</span></div>
 
+
+<div class="viewcode-block" id="Objective_mp"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.optim_hyper.Objective_mp">[docs]</a><span class="k">class</span> <span class="nc">Objective_mp</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Clase para definir la función objetivo a optimizar en la búsqueda de los mejores</span>
+<span class="sd">        hiper-parámetros del algoritmo. Minimiza tiempo + (distancia)^2.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        G (networkx graph): Grafo con relaciones asociadas entre nodos.</span>
+<span class="sd">        init_node (int): Nodo inicial del recorrido.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">G</span> <span class="o">=</span> <span class="n">G</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_node</span> <span class="o">=</span> <span class="n">init_node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_workers</span> <span class="o">=</span> <span class="n">cpu_count</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">):</span>
+        <span class="n">aco_params</span> <span class="o">=</span> <span class="n">sample_params</span><span class="p">(</span><span class="n">trial</span><span class="p">)</span>
+        <span class="n">colony_</span> <span class="o">=</span> <span class="n">colony_multiw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_node</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_workers</span><span class="p">,</span> <span class="o">**</span><span class="n">aco_params</span><span class="p">)</span>
+        
+        <span class="c1"># time algorithm</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">colony_</span><span class="o">.</span><span class="n">solve_tsp</span><span class="p">()</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> 
+        <span class="c1"># total time in minutes</span>
+        <span class="n">total_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">total_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">colony_</span><span class="o">.</span><span class="n">best_dist</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        
+        <span class="k">return</span> <span class="n">obj</span></div>
 </pre></div>
 
            </div>

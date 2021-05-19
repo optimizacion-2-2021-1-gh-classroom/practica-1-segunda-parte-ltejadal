@@ -341,11 +341,11 @@
 
 
 <div class="viewcode-block" id="test_compara_tiempos_colony_multiw_vs_colony"><a class="viewcode-back" href="../../ant_colony.html#ant_colony.test_aco.test_compara_tiempos_colony_multiw_vs_colony">[docs]</a><span class="k">def</span> <span class="nf">test_compara_tiempos_colony_multiw_vs_colony</span><span class="p">():</span>
-    <span class="n">n_ants</span> <span class="o">=</span> <span class="mi">1000</span>
-    <span class="n">n_cities</span> <span class="o">=</span><span class="mi">100</span>
+    <span class="n">n_ants</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">n_cities</span> <span class="o">=</span><span class="mi">30</span>
     <span class="n">path_china</span> <span class="o">=</span> <span class="s1">&#39;./datasets/ch71009.tsp&#39;</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">read_coord_data</span><span class="p">(</span><span class="n">path_china</span><span class="p">,</span> <span class="n">n_cities</span><span class="o">=</span><span class="n">n_cities</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1999</span><span class="p">)</span>
-    <span class="n">colony_mw</span> <span class="o">=</span> <span class="n">colony_multiw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="n">n_ants</span><span class="o">=</span> <span class="n">n_ants</span><span class="p">,</span> <span class="n">n_workers</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">colony_mw</span> <span class="o">=</span> <span class="n">colony_multiw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">init_node</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="n">n_ants</span><span class="o">=</span> <span class="n">n_ants</span><span class="p">,</span> <span class="n">n_workers</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">colony_mw</span><span class="o">.</span><span class="n">solve_tsp</span><span class="p">()</span>
     <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
